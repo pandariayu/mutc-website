@@ -68,7 +68,7 @@ export default function Header() {
             {/* Navigation */}
             <nav className="absolute top-0 left-0 right-0 z-10 bg-white">
                 <div className="container mx-auto px-4">
-                    <div className="flex items-center h-24 relative">
+                    <div className="flex items-center h-16 lg:h-24 relative">
                         <Link
                             href="/"
                             className="absolute left-4 top-1/2 -translate-y-1/2 z-20"
@@ -78,7 +78,7 @@ export default function Header() {
                                 alt="Triathlon MUTC Logo"
                                 width={40}
                                 height={40}
-                                className="h-14 w-14"
+                                className="h-12 lg:h-14 w-12 lg:w-14"
                             />
                         </Link>
                         <button
@@ -143,7 +143,7 @@ export default function Header() {
                         </motion.div>
                         <div className="hidden lg:flex flex-1 items-center justify-center w-full">
                             <div className="flex items-center space-x-12">
-                                <Link href="/about" className="text-teal-600 hover:text-teal-700">
+                                <Link href="/about" className="text-[#518581] hover:text-teal-700">
                                     About us
                                 </Link>
                                 <Link href="/team" className="text-gray-800 hover:text-gray-900">
@@ -187,7 +187,8 @@ export default function Header() {
                         Melbourne University Triathlon Club
                     </h2>
                     <h3 className="max-w-[90%] md:max-w-3xl pl-[calc(8.333333333333334%+1.5rem)] opacity-80 break-words">
-                        Swim, Bike, Run - Embrace the brilliant lifestyle of Triathlon with the friendliest club at Melbourne Uni
+                        Swim, Bike, Run<br />
+                        Embrace the brilliant lifestyle of Triathlon with the friendliest club at Melbourne Uni
                     </h3>
                 </div>
 
