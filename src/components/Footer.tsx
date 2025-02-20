@@ -36,15 +36,16 @@ const Footer: React.FC = () => {
 
                     {footerDetails.socials && (
                         <div className="mt-5 flex items-center gap-5 flex-wrap">
-                            {Object.keys(footerDetails.socials).map(platformName => {
-                                if (platformName && footerDetails.socials[platformName]) {
+                            {Object.keys(footerDetails.socials).map((platformName) => {
+                                const socialKey = platformName as keyof typeof footerDetails.socials;
+                                if (socialKey && footerDetails.socials[socialKey]) {
                                     return (
                                         <Link
-                                            href={footerDetails.socials[platformName]}
-                                            key={platformName}
-                                            aria-label={platformName}
+                                            href={footerDetails.socials[socialKey]}
+                                            key={socialKey}
+                                            aria-label={socialKey}
                                         >
-                                            {getPlatformIconByName(platformName)}
+                                            {getPlatformIconByName(socialKey)}
                                         </Link>
                                     )
                                 }
