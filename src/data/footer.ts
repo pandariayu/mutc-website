@@ -1,5 +1,3 @@
-import { IMenuItem, ISocials } from "@/types";
-
 export const footerDetails: {
     subheading: string;
     quickLinks: ({ text: string; url: string })[];
