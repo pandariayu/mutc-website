@@ -1,14 +1,4 @@
-export const footerDetails: {
-    subheading: string;
-    quickLinks: ({ text: string; url: string })[];
-    email: string;
-    socials: {
-        [key: string]: string;
-        facebook: string;
-        instagram: string;
-        whatsapp: string;
-    }
-} = {
+export const footerDetails = {
     subheading: "Tin Alley, Melbourne University, Parkville VIC 3052, Australia",
     quickLinks: [
         {

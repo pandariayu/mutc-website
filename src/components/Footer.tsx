@@ -3,7 +3,7 @@ import React from 'react';
 
 import { siteDetails } from '@/data/siteDetails';
 import { footerDetails } from '@/data/footer';
-import { getPlatformIconByName } from '@/utils';
+// import { getPlatformIconByName } from '@/utils';
 
 const Footer: React.FC = () => {
     return (
@@ -34,24 +34,22 @@ const Footer: React.FC = () => {
 
                     {footerDetails.email && <a href={`mailto:${footerDetails.email}`}  className="block text-foreground-accent hover:text-foreground">Email: {footerDetails.email}</a>}
 
-                    {footerDetails.socials && (
-                        <div className="mt-5 flex items-center gap-5 flex-wrap">
-                            {Object.keys(footerDetails.socials).map((platformName) => {
-                                const socialKey = platformName as keyof typeof footerDetails.socials;
-                                if (socialKey && footerDetails.socials[socialKey]) {
-                                    return (
-                                        <Link
-                                            href={footerDetails.socials[socialKey]}
-                                            key={socialKey}
-                                            aria-label={socialKey}
-                                        >
-                                            {getPlatformIconByName(socialKey)}
-                                        </Link>
-                                    )
-                                }
-                            })}
-                        </div>
-                    )}
+                    {/*{footerDetails.socials && (*/}
+                    {/*    <div className="mt-5 flex items-center gap-5 flex-wrap">*/}
+                    {/*        {Object.keys(footerDetails.socials).map((platformName) => {*/}
+                    {/*            const socialKey = platformName as keyof typeof footerDetails.socials*/}
+                    {/*            return (*/}
+                    {/*                <Link*/}
+                    {/*                    href={footerDetails.socials[socialKey]}*/}
+                    {/*                    key={socialKey}*/}
+                    {/*                    aria-label={socialKey}*/}
+                    {/*                >*/}
+                    {/*                    {getPlatformIconByName(socialKey)}*/}
+                    {/*                </Link>*/}
+                    {/*            )*/}
+                    {/*        })}*/}
+                    {/*    </div>*/}
+                    {/*)}*/}
                 </div>
             </div>
             <div className="mt-8 md:text-center text-foreground-accent px-6">
