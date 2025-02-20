@@ -1,12 +1,12 @@
 export const siteDetails = {
-    siteName: 'Finwise',
-    siteUrl: 'https://finwise-omega.vercel.app/',
+    siteName: 'Melbourne University Triathlon Club',
+    siteUrl: 'https://www.melbunitriathlon.club',
     metadata: {
-        title: 'Finwise - Next.js and Tailwind CSS Landing Page Template',
-        description: 'Finwise empowers businesses with cutting-edge technology solutions to drive success and efficiency.',
+        title: 'Melbourne University Triathlon Club | MUTC',
+        description: 'Swim, Bike, Run - Embrace the brilliant lifestyle of Triathlon with the friendliest club at Melbourne Uni',
     },
     language: 'en-us',
     locale: 'en-US',
-    siteLogo: `${process.env.BASE_PATH || ''}/images/logo.png`, // or use a string for the logo e.g. "TechStartup"
-    googleAnalyticsId: '', // e.g. G-XXXXXXX,
+    siteLogo: `/images/logo.png`, // or use a string for the logo e.g. "TechStartup"
+    googleAnalyticsId: 'G-DRYVBMEHYV', // e.g. G-XXXXXXX,
 }

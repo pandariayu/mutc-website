@@ -1,99 +1,79 @@
-'use client';
+import Link from "next/link"
+import Image from "next/image"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
-import Link from 'next/link';
-import React, { useState } from 'react';
-import { Transition } from '@headlessui/react';
-import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2';
-import { FaFingerprint } from 'react-icons/fa';
-
-import Container from './Container';
-import { siteDetails } from '@/data/siteDetails';
-import { menuItems } from '@/data/menuItems';
-
-const Header: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-
+export default function Header() {
     return (
-        <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-50 mx-auto w-full">
-            <Container className="!px-0">
-                <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-10">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2">
-                        <FaFingerprint className="text-foreground min-w-fit w-7 h-7" />
-                        <span className="manrope text-xl font-semibold text-foreground cursor-pointer">
-                            {siteDetails.siteName}
-                        </span>
-                    </Link>
-
-                    {/* Desktop Menu */}
-                    <ul className="hidden md:flex space-x-6">
-                        {menuItems.map(item => (
-                            <li key={item.text}>
-                                <Link href={item.url} className="text-foreground hover:text-foreground-accent transition-colors">
-                                    {item.text}
+        <header className="relative w-full">
+            {/* Navigation */}
+            <nav className="absolute top-0 left-0 right-0 z-10 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="flex items-center h-24 relative">
+                        <Link href="/" className="absolute left-4 top-1/2 -translate-y-1/2 z-20">
+                            <Image src="/images/logo.png" alt="Triathlon MUTC Logo" width={120} height={120} className="h-90 w-90" />
+                        </Link>
+                        <div className="flex-1 flex items-center justify-center w-full">
+                            <div className="flex items-center space-x-12">
+                                <Link href="/about" className="text-teal-600 hover:text-teal-700">
+                                    About us
                                 </Link>
-                            </li>
-                        ))}
-                        <li>
-                            <Link href="#cta" className="text-black bg-primary hover:bg-primary-accent px-8 py-3 rounded-full transition-colors">
-                                Download
-                            </Link>
-                        </li>
-                    </ul>
-
-                    {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center">
-                        <button
-                            onClick={toggleMenu}
-                            type="button"
-                            className="bg-primary text-black focus:outline-none rounded-full w-10 h-10 flex items-center justify-center"
-                            aria-controls="mobile-menu"
-                            aria-expanded={isOpen}
-                        >
-                            {isOpen ? (
-                                <HiOutlineXMark className="h-6 w-6" aria-hidden="true" />
-                            ) : (
-                                <HiBars3 className="h-6 w-6" aria-hidden="true" />
-                            )}
-                            <span className="sr-only">Toggle navigation</span>
-                        </button>
+                                <Link href="/team" className="text-gray-800 hover:text-gray-900">
+                                    Our team
+                                </Link>
+                                <Link href="/training" className="text-gray-800 hover:text-gray-900">
+                                    Training
+                                </Link>
+                                <Link href="/events" className="text-gray-800 hover:text-gray-900">
+                                    Events
+                                </Link>
+                                <Link href="/membership" className="text-gray-800 hover:text-gray-900">
+                                    Membership
+                                </Link>
+                                <Link href="/contact" className="text-gray-800 hover:text-gray-900">
+                                    Contact us
+                                </Link>
+                            </div>
+                        </div>
                     </div>
-                </nav>
-            </Container>
-
-            {/* Mobile Menu with Transition */}
-            <Transition
-                show={isOpen}
-                enter="transition ease-out duration-200 transform"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="transition ease-in duration-75 transform"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-            >
-                <div id="mobile-menu" className="md:hidden bg-white shadow-lg">
-                    <ul className="flex flex-col space-y-4 pt-1 pb-6 px-6">
-                        {menuItems.map(item => (
-                            <li key={item.text}>
-                                <Link href={item.url} className="text-foreground hover:text-primary block" onClick={toggleMenu}>
-                                    {item.text}
-                                </Link>
-                            </li>
-                        ))}
-                        <li>
-                            <Link href="#cta" className="text-black bg-primary hover:bg-primary-accent px-5 py-2 rounded-full block w-fit" onClick={toggleMenu}>
-                                Get Started
-                            </Link>
-                        </li>
-                    </ul>
                 </div>
-            </Transition>
-        </header>
-    );
-};
+            </nav>
 
-export default Header;
+            {/* Hero Section */}
+            <div className="relative h-screen min-h-[600px] w-full">
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        background: `linear-gradient(0deg, #151411 -21.38%, rgba(21, 20, 17, 0.00) 66.65%), url(https://otkpdstimtuwgqtr.public.blob.vercel-storage.com/carousel/carousel1-IKLKKeN2JhN5OH3oEBSlxgCYiPiLlG.webp) lightgray 50% / cover no-repeat`
+                    }}
+                />
+                <div className="absolute inset-0 flex flex-col items-start justify-end text-left text-white pb-40">
+                    {/* Carousel Controls */}
+                    <button className="absolute left-4 -translate-y-12 rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition hover:bg-white/30">
+                        <ChevronLeft className="h-6 w-6" />
+                    </button>
+                    <button className="absolute right-4 -translate-y-12 rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition hover:bg-white/30">
+                        <ChevronRight className="h-6 w-6" />
+                    </button>
+                    <h2 className="pl-[calc(8.333333333333334%+1.5rem)] mb-8">
+                        Melbourne University Triathlon Club
+                    </h2>
+                    <h3 className="max-w-4xl pl-[calc(8.333333333333334%+1.5rem)] opacity-80">
+                        Swim, Bike, Run - Embrace the brilliant lifestyle of Triathlon with the friendliest club at Melbourne Uni
+                    </h3>
+                </div>
+
+                {/* Carousel Indicators */}
+                <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 space-x-2">
+                    {[0, 1, 2, 3].map((index) => (
+                        <button
+                            key={index}
+                            className={`h-2 w-2 rounded-full ${index === 0 ? "bg-white" : "bg-white/50"}`}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
+                </div>
+            </div>
+        </header>
+    )
+}
+

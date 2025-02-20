@@ -18,11 +18,11 @@ html {
 }
 
 body {
-  @apply text-lg;
-  
+  @apply text-lg p2;
+
   color: var(--foreground);
   background: var(--background);
-  font-family: "Source Sans 3", sans-serif;
+  font-family: "Figtree", serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -33,16 +33,39 @@ body {
   }
 }
 
-.manrope {
-  font-family: "Manrope", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700 !important;
+  line-height: 130% !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Manrope", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+h1 {
+  font-size: 64px !important;
+  letter-spacing: -0.64px !important;
+}
+h2 {
+  font-size: 44px;
+  letter-spacing: -0.44px;
+}
+h3 {
+  font-size: 26px;
+  letter-spacing: -0.26px;
+}
+h4 {
+  font-size: 24px;
+  letter-spacing: -0.24px;
+}
+h5 {
+  font-size: 20px;
+  letter-spacing: -0.20px;
+}
+h6 {
+  font-size: 18px;
+  letter-spacing: -0.18px;
+}
+
+.h6-plus {
+  font-size: 14px;
+  letter-spacing: -0.14px;
 }
 
 #logos svg {
@@ -51,4 +74,36 @@ h1, h2, h3, h4, h5, h6 {
 
 .benefit-section:last-of-type > div {
   @apply mb-10;
+}
+
+/* 添加段落样式 */
+@layer components {
+  .p1 {
+    font-family: "Figtree", serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 180%;
+    letter-spacing: -0.14px;
+  }
+  .p2 {
+    font-family: "Figtree", serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 180%;
+    letter-spacing: -0.16px;
+  }
+  .p3 {
+    font-family: "Figtree", serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 180%;
+    letter-spacing: -0.18px;
+  }
+  .p4 {
+    font-family: "Figtree", serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 180%;
+    letter-spacing: -0.12px;
+  }
 }

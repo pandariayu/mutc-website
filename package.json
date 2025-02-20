@@ -1,5 +1,5 @@
 {
-  "name": "finwise",
+  "name": "mutc-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,8 +11,10 @@
   "dependencies": {
     "@headlessui/react": "^2.1.8",
     "@next/third-parties": "^14.2.13",
+    "@vercel/blob": "^0.27.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.9",
+    "lucide-react": "^0.475.0",
     "next": "^14.2.13",
     "react": "^18",
     "react-dom": "^18",

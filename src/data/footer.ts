@@ -2,36 +2,29 @@ import { IMenuItem, ISocials } from "@/types";
 
 export const footerDetails: {
     subheading: string;
-    quickLinks: IMenuItem[];
+    quickLinks: ({ text: string; url: string })[];
     email: string;
-    telephone: string;
-    socials: ISocials;
+    socials: { facebook: string; instagram: string; whatsapp: string }
 } = {
-    subheading: "Empowering businesses with cutting-edge financial technology solutions.",
+    subheading: "Tin Alley, Melbourne University, Parkville VIC 3052, Australia",
     quickLinks: [
         {
-            text: "Features",
-            url: "#features"
+            text: "Mini-triathlon",
+            url: "#minitriathlon"
         },
         {
-            text: "Pricing",
-            url: "#pricing"
+            text: "Events",
+            url: "#events"
         },
         {
-            text: "Testimonials",
-            url: "#testimonials"
+            text: "Blogs",
+            url: "#blogs"
         }
     ],
-    email: 'address@yoursite.com',
-    telephone: '+1 (123) 456-7890',
+    email: 'team@melbunitriathlon.club',
     socials: {
-        // github: 'https://github.com',
-        // x: 'https://twitter.com/x',
-        twitter: 'https://twitter.com/Twitter',
         facebook: 'https://facebook.com',
-        // youtube: 'https://youtube.com',
-        linkedin: 'https://www.linkedin.com',
-        // threads: 'https://www.threads.net',
         instagram: 'https://www.instagram.com',
+        whatsapp: 'https://wa.me/1234567890',
     }
 }
