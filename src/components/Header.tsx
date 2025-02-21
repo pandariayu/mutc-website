@@ -72,7 +72,7 @@ export default function Header() {
         <header className="relative w-full">
             {/* Navigation */}
             <nav className="absolute top-0 left-0 right-0 z-10 bg-white">
-                <div className="container mx-auto px-4">
+                <div className="container mx-auto px-[calc(8.333333333333334%+1.5rem)]">
                     <div className="flex items-center h-16 lg:h-24 relative">
                         <Link
                             href="/"

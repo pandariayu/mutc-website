@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AboutUs from "@/components/AboutUs";
 import OurTeam from "@/components/OurTeam"
+import TrainingSessions from "@/components/training-sessions"
 import { siteDetails } from '@/data/siteDetails';
 
 import "./globals.css";
@@ -51,6 +52,7 @@ export default function RootLayout({
         <Header />
         <AboutUs />
         <OurTeam />
+        <TrainingSessions />
         {/*<main>*/}
         {/*  {children}*/}
         {/*</main>*/}

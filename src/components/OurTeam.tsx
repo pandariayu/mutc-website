@@ -2,7 +2,7 @@
 export default function TeamSection() {
   return (
     <div className="min-h-screen bg-white">
-      <section id="team" className="container mx-auto px-8 lg:px-16 py-16">
+      <section id="team" className="container mx-auto px-[calc(8.333333333333334%+1.5rem)] py-16">
         <div className="max-w-6xl">
           {/* Header */}
           <h3 className="text-[#E58E27] text-lg font-medium mb-4">Our Team</h3>
@@ -13,17 +13,17 @@ export default function TeamSection() {
           {/* Team Members */}
           <div className="space-y-24">
             {/* First Team Member */}
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="w-full md:w-1/4">
+            <div className="flex flex-col lg:flex-row gap-8 items-start">
+              <div className="w-full lg:w-1/4">
                 <Image
-                  src="/images/leo.webp"
+                  src="/images/leo.png"
                   alt="Club president Sihong Wu"
                   width={400}
                   height={300}
                   className="w-full h-[300px] object-cover"
                 />
               </div>
-              <div className="w-full md:w-2/3">
+              <div className="w-full lg:w-2/3">
                 <p className="text-primary text-lg mb-2">President</p>
                 <h3 className="text-3xl font-semibold mb-4">Sihong Wu</h3>
                 <p className="text-lg text-[#AFADB5] leading-relaxed">
@@ -38,17 +38,17 @@ export default function TeamSection() {
             </div>
 
             {/* Second Team Member */}
-            <div className="flex flex-col md:flex-row gap-8 items-start md:justify-start">
-              <div className="w-full md:w-1/4">
+            <div className="flex flex-col lg:flex-row gap-8 items-start md:justify-start">
+              <div className="w-full lg:w-1/4">
                 <Image
-                  src="/images/chris.webp"
+                  src="/images/chris.png"
                   alt="Training coordinator Chris"
                   width={400}
                   height={300}
                   className="w-full h-[300px] object-cover"
                 />
               </div>
-              <div className="w-full md:w-2/3">
+              <div className="w-full lg:w-2/3">
                 <p className="text-primary text-lg mb-2">Coach</p>
                 <h3 className="text-3xl font-semibold mb-4">Chris White</h3>
                 <p className="text-lg text-[#AFADB5] leading-relaxed">
