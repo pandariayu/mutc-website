@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link"
-import Image from "next/image"
 import { useState, SVGProps } from 'react';
 import { motion, MotionProps } from "framer-motion";
 
@@ -72,13 +71,13 @@ export default function Header() {
         <header className="relative w-full">
             {/* Navigation */}
             <nav className="absolute top-0 left-0 right-0 z-10 bg-white">
-                <div className="container mx-auto px-[calc(8.333333333333334%+1.5rem)]">
+                <div className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)]">
                     <div className="flex items-center h-16 lg:h-24 relative">
                         <Link
                             href="/"
                             className="absolute left-4 top-1/2 -translate-y-1/2 z-20"
                         >
-                            <Image
+                            <img
                                 src="/images/logo.png"
                                 alt="Triathlon MUTC Logo"
                                 width={40}
@@ -131,7 +130,7 @@ export default function Header() {
                                     <MobileNavLink href="#team" className="block text-gray-800 hover:text-gray-900">
                                         Our team
                                     </MobileNavLink>
-                                    <MobileNavLink href="/training" className="block text-gray-800 hover:text-gray-900">
+                                    <MobileNavLink href="#training" className="block text-gray-800 hover:text-gray-900">
                                         Training
                                     </MobileNavLink>
                                     <MobileNavLink href="/events" className="block text-gray-800 hover:text-gray-900">
@@ -162,7 +161,7 @@ export default function Header() {
                                 >
                                     Our team
                                 </a>
-                                <Link href="/training" className="text-gray-800 hover:text-gray-900">
+                                <Link href="#training" className="text-gray-800 hover:text-gray-900">
                                     Training
                                 </Link>
                                 <Link href="/events" className="text-gray-800 hover:text-gray-900">
@@ -200,10 +199,10 @@ export default function Header() {
                     />
                 </div>
                 <div className="absolute inset-0 flex flex-col items-start justify-end text-left text-white pb-40">
-                    <h2 className="max-w-[90%] text-4xl md:text-4xl lg:text-5xl pl-[calc(8.333333333333334%+1.5rem)] mb-8 break-words">
+                    <h2 className="max-w-[90%] text-4xl md:text-4xl lg:text-5xl px-6 lg:pl-[calc(8.333333333333334%+1.5rem)] mb-8 break-words">
                         Melbourne University Triathlon Club
                     </h2>
-                    <h3 className="max-w-[90%] text-2xl md:text-2xl lg:text-3xl pl-[calc(8.333333333333334%+1.5rem)] opacity-80 break-words">
+                    <h3 className="max-w-[90%] text-2xl md:text-2xl lg:text-3xl px-6 lg:pl-[calc(8.333333333333334%+1.5rem)] opacity-80 break-words">
                         Swim, Bike, Run<br />
                         Embrace the brilliant lifestyle of Triathlon with the friendliest club at Melbourne Uni
                     </h3>

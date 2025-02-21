@@ -2,64 +2,62 @@
 export default function TeamSection() {
   return (
     <div className="min-h-screen bg-white">
-      <section id="team" className="container mx-auto px-[calc(8.333333333333334%+1.5rem)] py-16">
-        <div className="max-w-6xl">
-          {/* Header */}
-          <h3 className="text-[#E58E27] text-lg font-medium mb-4">Our Team</h3>
-          <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-16 max-w-2xl">
-            Meet our leading and strong team
-          </h2>
+      <section id="team" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
+        {/* Header */}
+        <h3 className="text-[#E58E27] text-lg font-medium mb-4">Our Team</h3>
+        <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-16 max-w-2xl">
+          Meet our leading and strong team
+        </h2>
 
-          {/* Team Members */}
-          <div className="space-y-24">
-            {/* First Team Member */}
-            <div className="flex flex-col lg:flex-row gap-8 items-start">
-              <div className="w-full lg:w-1/4">
-                <Image
-                  src="/images/leo.png"
-                  alt="Club president Sihong Wu"
-                  width={400}
-                  height={300}
-                  className="w-full h-[300px] object-cover"
-                />
-              </div>
-              <div className="w-full lg:w-2/3">
-                <p className="text-primary text-lg mb-2">President</p>
-                <h3 className="text-3xl font-semibold mb-4">Sihong Wu</h3>
-                <p className="text-lg text-[#AFADB5] leading-relaxed">
-                  Chris, a triathlon coach and founder of GoRun Australia, merges sports and health advocacy in his work,
-                  coaching athletes from 5km beginners to 100km ultramarathoners and Ironman competitors. Over a decade,
-                  he raised $20,000+ for chronic disease charities through endurance challenges like his 17-marathon
-                  initiative. Passionate about mentoring motivated, humorous athletes, he also holds senior health
-                  management roles and board positions in Australia/Europe. A Mizuno ambassador and Runners World
-                  columnist, Chris combines elite coaching with public health leadership.
-                </p>
-              </div>
+        {/* Team Members */}
+        <div className="space-y-24">
+          {/* First Team Member */}
+          <div className="flex flex-col lg:flex-row gap-8 items-start">
+            <div className="w-full lg:w-1/4">
+              <Image
+                src="/images/leo.png"
+                alt="Club president Sihong Wu"
+                width={400}
+                height={300}
+                className="w-full h-[300px] object-cover"
+              />
             </div>
+            <div className="w-full lg:w-2/3">
+              <p className="text-primary text-lg mb-2">President</p>
+              <h3 className="text-3xl font-semibold mb-4">Sihong Wu</h3>
+              <p className="text-lg text-[#AFADB5] leading-relaxed">
+                Chris, a triathlon coach and founder of GoRun Australia, merges sports and health advocacy in his work,
+                coaching athletes from 5km beginners to 100km ultramarathoners and Ironman competitors. Over a decade,
+                he raised $20,000+ for chronic disease charities through endurance challenges like his 17-marathon
+                initiative. Passionate about mentoring motivated, humorous athletes, he also holds senior health
+                management roles and board positions in Australia/Europe. A Mizuno ambassador and Runners World
+                columnist, Chris combines elite coaching with public health leadership.
+              </p>
+            </div>
+          </div>
 
-            {/* Second Team Member */}
-            <div className="flex flex-col lg:flex-row gap-8 items-start md:justify-start">
-              <div className="w-full lg:w-1/4">
-                <Image
-                  src="/images/chris.png"
-                  alt="Training coordinator Chris"
-                  width={400}
-                  height={300}
-                  className="w-full h-[300px] object-cover"
-                />
-              </div>
-              <div className="w-full lg:w-2/3">
-                <p className="text-primary text-lg mb-2">Coach</p>
-                <h3 className="text-3xl font-semibold mb-4">Chris White</h3>
-                <p className="text-lg text-[#AFADB5] leading-relaxed">
-                  Chris, a triathlon coach and founder of GoRun Australia, merges sports and health advocacy in his work,
-                  coaching athletes from 5km beginners to 100km ultramarathoners and Ironman competitors. Over a decade,
-                  he raised $20,000+ for chronic disease charities through endurance challenges like his 17-marathon
-                  initiative. Passionate about mentoring motivated, humorous athletes, he also holds senior health
-                  management roles and board positions in Australia/Europe. A Mizuno ambassador and Runners World
-                  columnist, Chris combines elite coaching with public health leadership.
-                </p>
-              </div>
+          {/* Second Team Member */}
+          <div className="flex flex-col lg:flex-row gap-8 items-start md:justify-start">
+            <div className="w-full lg:w-1/4">
+              <Image
+                src="/images/chris.png"
+                alt="Training coordinator Chris"
+                width={400}
+                height={300}
+                className="w-full h-[300px] object-cover"
+              />
+            </div>
+            <div className="w-full lg:w-2/3">
+              <p className="text-primary text-lg mb-2">Coach</p>
+              <h3 className="text-3xl font-semibold mb-4">Chris White</h3>
+              <p className="text-lg text-[#AFADB5] leading-relaxed">
+                Chris, a triathlon coach and founder of GoRun Australia, merges sports and health advocacy in his work,
+                coaching athletes from 5km beginners to 100km ultramarathoners and Ironman competitors. Over a decade,
+                he raised $20,000+ for chronic disease charities through endurance challenges like his 17-marathon
+                initiative. Passionate about mentoring motivated, humorous athletes, he also holds senior health
+                management roles and board positions in Australia/Europe. A Mizuno ambassador and Runners World
+                columnist, Chris combines elite coaching with public health leadership.
+              </p>
             </div>
           </div>
         </div>

@@ -48,8 +48,9 @@ export function EventCard({ image, title, level, location, time, content, date }
           <div className="relative h-full overflow-hidden">
             <img src={image} alt={title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/60">
-              <div className="relative p-4 md:p-6 text-white h-full">
-                <div className="space-y-4 md:space-y-6">
+              <div className="relative p-4 md:p-6 text-white h-full flex md:block">
+                {/* 内容部分 - 在移动端垂直居中 */}
+                <div className="flex flex-col justify-center md:block space-y-4 md:space-y-6">
                   <div>
                     <h4 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Location</h4>
                     <p className="text-sm md:text-base text-gray-200">{location}</p>
@@ -64,6 +65,7 @@ export function EventCard({ image, title, level, location, time, content, date }
                   </div>
                 </div>
 
+                {/* 日期部分 */}
                 <div className="absolute right-4 md:right-6 md:bottom-6 top-1/2 md:top-auto transform -translate-y-1/2 md:transform-none text-right">
                   <h3 className="text-2xl md:text-4xl font-bold mb-1">{date}</h3>
                   <p className="text-sm md:text-base text-gray-200">Upcoming session</p>

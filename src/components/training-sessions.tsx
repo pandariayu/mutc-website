@@ -35,20 +35,20 @@ export default function TrainingSessions() {
   return (
     <div className="min-h-screen bg-white">
       {/* Main Content */}
-      <section className="container mx-auto px-[calc(8.333333333333334%+1.5rem)] py-16">
+      <section id="training" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
         <h2 className="text-[#E58E27] text-lg font-medium mb-4">Training</h2>
         <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-16 max-w-2xl">
           Our training sessions
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Left Column - Social Run */}
           <div className="aspect-[16/9] lg:aspect-auto lg:h-full">
             <EventCard {...events[0]} />
           </div>
 
           {/* Right Column - Other Sessions */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {/* Swim Sessions Card */}
             <div className="aspect-[16/9]">
               <EventCard {...events[1]} />
