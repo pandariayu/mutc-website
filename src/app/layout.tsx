@@ -5,6 +5,7 @@ import { Figtree } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AboutUs from "@/components/AboutUs";
+import OurTeam from "@/components/OurTeam"
 import { siteDetails } from '@/data/siteDetails';
 
 import "./globals.css";
@@ -49,6 +50,7 @@ export default function RootLayout({
         {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
         <Header />
         <AboutUs />
+        <OurTeam />
         {/*<main>*/}
         {/*  {children}*/}
         {/*</main>*/}

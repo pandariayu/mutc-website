@@ -183,10 +183,10 @@ export default function Header() {
                     <button className="hidden md:block absolute right-4 -translate-y-12 rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition hover:bg-white/30">
                         <ChevronRight className="h-6 w-6" />
                     </button>
-                    <h2 className="max-w-[90%] md:max-w-2xl pl-[calc(8.333333333333334%+1.5rem)] mb-8 break-words">
+                    <h2 className="max-w-[90%] text-4xl md:text-4xl lg:text-5xl pl-[calc(8.333333333333334%+1.5rem)] mb-8 break-words">
                         Melbourne University Triathlon Club
                     </h2>
-                    <h3 className="max-w-[90%] md:max-w-3xl pl-[calc(8.333333333333334%+1.5rem)] opacity-80 break-words">
+                    <h3 className="max-w-[90%] text-2xl md:text-2xl lg:text-3xl pl-[calc(8.333333333333334%+1.5rem)] opacity-80 break-words">
                         Swim, Bike, Run<br />
                         Embrace the brilliant lifestyle of Triathlon with the friendliest club at Melbourne Uni
                     </h3>
