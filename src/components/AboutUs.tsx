@@ -1,8 +1,7 @@
 ﻿export default function Page() {
     return (
         <div className="min-h-screen bg-white text-black">
-            {/* About Section */}
-            <section className="container mx-auto px-8 lg:px-16 py-16">
+            <section id="about" className="container mx-auto px-8 lg:px-16 py-16">
                 <h3 className="mb-6 text-secondary">About us</h3>
                 <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-16 max-w-2xl">Why MUTC?</h2>
                 <p className="max-w-4xl text-lg text-[#AFADB5]">

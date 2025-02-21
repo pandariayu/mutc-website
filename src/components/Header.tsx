@@ -42,24 +42,30 @@ const menuVariants = {
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    // 处理导航点击
-    const handleNavClick = () => {
+    // 添加滚动处理函数
+    const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+        e.preventDefault();
+        const element = document.getElementById(targetId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+        // 如果是移动端菜单，点击后关闭菜单
         setIsMenuOpen(false);
     };
 
-    // 移动端菜单链接组件
+    // 修改MobileNavLink组件
     const MobileNavLink = ({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) => (
         <motion.div
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.1 }}
         >
-            <Link
+            <a 
                 href={href}
                 className={className}
-                onClick={handleNavClick}
+                onClick={(e) => handleScroll(e, href.replace('#', ''))}
             >
                 {children}
-            </Link>
+            </a>
         </motion.div>
     );
 
@@ -120,10 +126,10 @@ export default function Header() {
                         >
                             <div className="container mx-auto px-4">
                                 <div className="px-4 py-6 space-y-8">
-                                    <MobileNavLink href="/about" className="block text-teal-600 hover:text-teal-700">
+                                    <MobileNavLink href="#about" className="block text-teal-600 hover:text-teal-700">
                                         About us
                                     </MobileNavLink>
-                                    <MobileNavLink href="/team" className="block text-gray-800 hover:text-gray-900">
+                                    <MobileNavLink href="#team" className="block text-gray-800 hover:text-gray-900">
                                         Our team
                                     </MobileNavLink>
                                     <MobileNavLink href="/training" className="block text-gray-800 hover:text-gray-900">
@@ -143,12 +149,20 @@ export default function Header() {
                         </motion.div>
                         <div className="hidden lg:flex flex-1 items-center justify-center w-full">
                             <div className="flex items-center space-x-12">
-                                <Link href="/about" className="text-[#518581] hover:text-teal-700">
+                                <a 
+                                    href="#about"
+                                    className="text-[#518581] hover:text-teal-700"
+                                    onClick={(e) => handleScroll(e, 'about')}
+                                >
                                     About us
-                                </Link>
-                                <Link href="/team" className="text-gray-800 hover:text-gray-900">
+                                </a>
+                                <a 
+                                    href="#team"
+                                    className="text-gray-800 hover:text-gray-900"
+                                    onClick={(e) => handleScroll(e, 'team')}
+                                >
                                     Our team
-                                </Link>
+                                </a>
                                 <Link href="/training" className="text-gray-800 hover:text-gray-900">
                                     Training
                                 </Link>
@@ -169,20 +183,24 @@ export default function Header() {
 
             {/* Hero Section */}
             <div className="relative h-screen min-h-[600px] w-full">
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        background: `linear-gradient(0deg, #151411 -21.38%, rgba(21, 20, 17, 0.00) 66.65%), url(https://otkpdstimtuwgqtr.public.blob.vercel-storage.com/carousel/carousel1-IKLKKeN2JhN5OH3oEBSlxgCYiPiLlG.webp) lightgray 50% / cover no-repeat`
-                    }}
-                />
+                <div className="absolute inset-0">
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover"
+                    >
+                        <source src="/video/intro.mp4" type="video/mp4" />
+                    </video>
+                    <div
+                        className="absolute inset-0"
+                        style={{
+                            background: 'linear-gradient(0deg, #151411 -21.38%, rgba(21, 20, 17, 0.00) 66.65%)'
+                        }}
+                    />
+                </div>
                 <div className="absolute inset-0 flex flex-col items-start justify-end text-left text-white pb-40">
-                    {/* Carousel Controls */}
-                    <button className="hidden md:block absolute left-4 -translate-y-12 rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition hover:bg-white/30">
-                        <ChevronLeft className="h-6 w-6" />
-                    </button>
-                    <button className="hidden md:block absolute right-4 -translate-y-12 rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition hover:bg-white/30">
-                        <ChevronRight className="h-6 w-6" />
-                    </button>
                     <h2 className="max-w-[90%] text-4xl md:text-4xl lg:text-5xl pl-[calc(8.333333333333334%+1.5rem)] mb-8 break-words">
                         Melbourne University Triathlon Club
                     </h2>
@@ -190,17 +208,6 @@ export default function Header() {
                         Swim, Bike, Run<br />
                         Embrace the brilliant lifestyle of Triathlon with the friendliest club at Melbourne Uni
                     </h3>
-                </div>
-
-                {/* Carousel Indicators */}
-                <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 space-x-2">
-                    {[0, 1, 2, 3].map((index) => (
-                        <button
-                            key={index}
-                            className={`h-2 w-2 rounded-full ${index === 0 ? "bg-white" : "bg-white/50"}`}
-                            aria-label={`Go to slide ${index + 1}`}
-                        />
-                    ))}
                 </div>
             </div>
         </header>

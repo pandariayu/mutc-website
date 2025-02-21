@@ -2,7 +2,7 @@
 export default function TeamSection() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="container mx-auto px-8 lg:px-16 py-16">
+      <section id="team" className="container mx-auto px-8 lg:px-16 py-16">
         <div className="max-w-6xl">
           {/* Header */}
           <h3 className="text-[#E58E27] text-lg font-medium mb-4">Our Team</h3>
