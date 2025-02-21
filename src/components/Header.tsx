@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link"
 import Image from "next/image"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useState, SVGProps } from 'react';
 import { motion, MotionProps } from "framer-motion";
 
@@ -59,7 +58,7 @@ export default function Header() {
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.1 }}
         >
-            <a 
+            <a
                 href={href}
                 className={className}
                 onClick={(e) => handleScroll(e, href.replace('#', ''))}
@@ -149,14 +148,14 @@ export default function Header() {
                         </motion.div>
                         <div className="hidden lg:flex flex-1 items-center justify-center w-full">
                             <div className="flex items-center space-x-12">
-                                <a 
+                                <a
                                     href="#about"
                                     className="text-[#518581] hover:text-teal-700"
                                     onClick={(e) => handleScroll(e, 'about')}
                                 >
                                     About us
                                 </a>
-                                <a 
+                                <a
                                     href="#team"
                                     className="text-gray-800 hover:text-gray-900"
                                     onClick={(e) => handleScroll(e, 'team')}
