@@ -8,7 +8,7 @@ import AboutUs from "@/components/AboutUs";
 import OurTeam from "@/components/OurTeam"
 import TrainingSessions from "@/components/training-sessions"
 import Membership from "@/components/membership";
-import FAQ from "@/components/faq";
+import FAQ from "@/components/FAQ";
 import { siteDetails } from '@/data/siteDetails';
 
 import "./globals.css";
