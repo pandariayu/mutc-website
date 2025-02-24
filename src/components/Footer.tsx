@@ -3,6 +3,7 @@ import React from 'react';
 
 import { siteDetails } from '@/data/siteDetails';
 import { footerDetails } from '@/data/footer';
+import Image from "next/image";
 // import { getPlatformIconByName } from '@/utils';
 
 const Footer: React.FC = () => {

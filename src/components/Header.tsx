@@ -151,14 +151,14 @@ export default function Header() {
                                     <MobileNavLink href="#training" className="block text-gray-800 hover:text-gray-900">
                                         Training
                                     </MobileNavLink>
-                                    <MobileNavLink href="/events" className="block text-gray-800 hover:text-gray-900">
+                                    <MobileNavLink href="#events" className="block text-gray-800 hover:text-gray-900">
                                         Events
                                     </MobileNavLink>
-                                    <MobileNavLink href="/membership" className="block text-gray-800 hover:text-gray-900">
+                                    <MobileNavLink href="#membership" className="block text-gray-800 hover:text-gray-900">
                                         Membership
                                     </MobileNavLink>
-                                    <MobileNavLink href="/contact" className="block text-gray-800 hover:text-gray-900">
-                                        Contact us
+                                    <MobileNavLink href="#faq" className="block text-gray-800 hover:text-gray-900">
+                                        FAQ
                                     </MobileNavLink>
                                 </div>
                             </div>
@@ -240,13 +240,15 @@ export default function Header() {
                         Embrace the brilliant lifestyle of Triathlon with the friendliest club at Melbourne Uni
                     </h3>
 
-                    {/* 添加按钮组 */}
+
                     <div className="px-6 lg:pl-[calc(8.333333333333334%+1.5rem)] flex gap-4">
                         <button
                             className="border-2 border-white bg-transparent hover:bg-white/10 text-white font-bold py-3 px-6 transition-colors duration-200"
                             onClick={() => {
-                                // Stripe支付逻辑
-                                window.open('https://buy.stripe.com/test_7sI01xfon4Nn0OQ9AA', '_blank');
+                                const element = document.getElementById('membership');
+                                if (element) {
+                                    element.scrollIntoView({ behavior: 'smooth' });
+                                }
                             }}
                         >
                             Join MUTC
@@ -255,7 +257,6 @@ export default function Header() {
                         <button
                             className="border-2 border-white bg-transparent hover:bg-white/10 text-white font-bold py-3 px-6 transition-colors duration-200"
                             onClick={() => {
-                                // 滚动到联系我们部分
                                 const element = document.getElementById('contact');
                                 if (element) {
                                     element.scrollIntoView({ behavior: 'smooth' });

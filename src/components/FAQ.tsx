@@ -10,7 +10,6 @@ const FAQ: React.FC = () => {
         <section id="faq" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
             <div className="flex flex-col lg:flex-row gap-10">
                 <div className="">
-                    <p className="text-[#E58E27] text-lg font-medium mb-2">FAQ&apos;S</p>
                     <SectionTitle>
                         <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-8 max-w-2xl">Frequently Asked Questions</h2>
                     </SectionTitle>
@@ -27,7 +26,7 @@ const FAQ: React.FC = () => {
                                 {({ open }) => (
                                     <>
                                         <DisclosureButton className="flex items-center justify-between w-full px-4 pt-7 text-lg text-left border-t">
-                                            <h4 className="text-2xl font-semibold">{faq.question}</h4>
+                                            <h4>{faq.question}</h4>
                                             {open ? <BiMinus className="w-5 h-5 text-primary" /> : <BiPlus className="w-5 h-5 text-primary" />}
                                         </DisclosureButton>
                                         <DisclosurePanel className="px-4 pt-4 pb-2 text-[#AFADB5]">

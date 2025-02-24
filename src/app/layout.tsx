@@ -9,9 +9,11 @@ import OurTeam from "@/components/OurTeam"
 import TrainingSessions from "@/components/training-sessions"
 import Membership from "@/components/membership";
 import FAQ from "@/components/FAQ";
+import Events from "@/components/Events";
 import { siteDetails } from '@/data/siteDetails';
 
 import "./globals.css";
+
 const figtree = Figtree({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
@@ -53,13 +55,14 @@ export default function RootLayout({
         {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
         <Header />
         <AboutUs />
-        <OurTeam />
         <TrainingSessions />
+        <Events />
         <Membership />
-        <FAQ />
+        <OurTeam />
         {/*<main>*/}
         {/*  {children}*/}
         {/*</main>*/}
+        <FAQ />
         <Footer />
       </body>
     </html>

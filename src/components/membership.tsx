@@ -2,12 +2,12 @@
 
 export default function Membership() {
     return (
-        <section className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
+        <section id="membership" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
             <div className="grid gap-12 lg:grid-cols-2">
                 {/* Left Column - Pricing */}
                 <div className="flex flex-col justify-between h-full">
                     <div>
-                        <p className="text-[#E58E27] text-lg font-medium mb-2">Membership</p>
+                        <h5 className="mb-2 text-secondary">Membership</h5>
                         <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-8 max-w-2xl">
                             2025 MUTC
                             <br/>
@@ -21,7 +21,7 @@ export default function Membership() {
                             <p className="text-gray-400">One Semester</p>
                         </div>
                         <button
-                            className="w-full bg-[#518581] px-10 py-4 text-center text-white transition-colors hover:bg-[#416c68] sm:w-auto"
+                            className="w-full bg-[#518581] px-10 py-4 text-center font-bold text-white transition-colors hover:bg-[#416c68] sm:w-auto"
                             onClick={() => {
                                 window.open('https://buy.stripe.com/test_7sI01xfon4Nn0OQ9AA', '_blank');
                             }}

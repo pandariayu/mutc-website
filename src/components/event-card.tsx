@@ -36,9 +36,9 @@ export function EventCard({ image, title, level, location, time, content, date }
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
               <div className="absolute bottom-0 p-4 md:p-6 text-white">
-                <h3 className="text-xl md:text-3xl font-semibold mb-1 md:mb-2">{title}</h3>
-                <p className="md:text-base text-gray-200 mb-2 md:mb-4">{level}</p>
-                <button className="text-sm md:text-base text-white hover:underline">
+                <h3 className="md:text-3xl font-semibold mb-1 md:mb-2">{title}</h3>
+                <p className="text-lg text-gray-200 mb-2 md:mb-4">{level}</p>
+                <button className="text-lg text-white hover:underline">
                   Click to see more detail
                 </button>
               </div>
