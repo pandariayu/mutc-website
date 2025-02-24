@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link"
+import Image from "next/image"
 import { useState, SVGProps, useEffect } from 'react';
 import { motion, MotionProps } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -94,7 +95,7 @@ export default function Header() {
                             href="/"
                             className="absolute left-4 top-1/2 -translate-y-1/2 z-20"
                         >
-                            <img
+                            <Image
                                 src="/images/logo.png"
                                 alt="Triathlon MUTC Logo"
                                 width={40}

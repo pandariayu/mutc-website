@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 
 interface EventCardProps {
   image: string
@@ -26,9 +27,11 @@ export function EventCard({ image, title, level, location, time, content, date }
         {/* Front */}
         <div className="absolute w-full h-full [backface-visibility:hidden]">
           <div className="relative h-full overflow-hidden group">
-            <img
+            <Image
               src={image}
               alt={title}
+              width={800}
+              height={450}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
@@ -46,7 +49,13 @@ export function EventCard({ image, title, level, location, time, content, date }
         {/* Back */}
         <div className="absolute w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
           <div className="relative h-full overflow-hidden">
-            <img src={image} alt={title} className="w-full h-full object-cover" />
+            <Image
+              src={image}
+              alt={title}
+              width={800}
+              height={450}
+              className="w-full h-full object-cover"
+            />
             <div className="absolute inset-0 bg-black/60">
               <div className="relative p-4 md:p-6 text-white h-full flex md:block">
                 {/* 内容部分 - 在移动端垂直居中 */}
