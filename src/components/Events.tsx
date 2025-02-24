@@ -2,26 +2,26 @@
 
 export default function TriathlonEvent() {
     return (
-        <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
             {/* Header Section */}
             <div className="mb-8">
                 <h5 className="mb-2 text-secondary">Events</h5>
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                    <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-8 max-w-2xl">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                    <h2 className="text-4xl lg:text-4xl lg:text-5xl font-semibold mb-8 max-w-2xl">
                         Our in-school
                         <br />
                         Mini-triathlon race
                     </h2>
-                    <div className="text-left md:text-right">
-                        <h2 className="text-3xl md:text-4xl font-bold">14/4/2025</h2>
+                    <div className="text-left lg:text-right">
+                        <h2 className="text-3xl lg:text-4xl font-bold">14/4/2025</h2>
                         <p className="text-gray-400">Rawlinson Track</p>
                     </div>
                 </div>
             </div>
 
             {/* Content Section */}
-            <div className="md:flex md:gap-6">
-                <div className="md:w-1/2 space-y-6">
+            <div className="lg:flex lg:gap-6">
+                <div className="lg:w-1/2 space-y-6">
                     <p className="text-gray-400 text-lg">
                         Participants will swim in the pool, transition to the stationary bike outdoors, and run on the Rawlinson
                         Track to complete!
@@ -46,9 +46,9 @@ export default function TriathlonEvent() {
                     </div>
                 </div>
 
-                <div className="mt-4 md:mt-0 md:w-1/2 md:flex md:flex-col">
+                <div className="mt-6 lg:mt-0 lg:w-1/2 lg:flex lg:flex-col">
                     {/* Square image for desktop, full height */}
-                    <div className="relative h-[300px] md:flex-grow w-full">
+                    <div className="relative h-[300px] lg:flex-grow w-full">
                         <Image
                             src="/images/minitri1.png"
                             alt="Group photo of triathlon participants"

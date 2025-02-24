@@ -18,7 +18,7 @@ export default function Membership() {
                     <div className="space-y-4">
                         <div className="space-y-2">
                             <p className="text-5xl font-bold">$40</p>
-                            <p className="text-gray-400">One Semester</p>
+                            <button className="text-primary underline">Non Unimelb Student</button>
                         </div>
                         <button
                             className="w-full bg-[#518581] px-10 py-4 text-center font-bold text-white transition-colors hover:bg-[#416c68] sm:w-auto"

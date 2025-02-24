@@ -1,4 +1,6 @@
-﻿export default function Page() {
+﻿import Image from "next/image"
+
+export default function Page() {
     return (
         <div className="min-h-screen bg-white text-black">
             <section id="about" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
@@ -18,7 +20,13 @@
             {/* Features Grid */}
             <section className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16 grid gap-8 lg:grid-cols-3">
                 <div>
-                    <h2 className="mb-4 text-primary">01</h2>
+                    <Image
+                        src="/images/run.png"
+                        alt="Local & Campus Race"
+                        width={40}
+                        height={40}
+                        className="mb-4 h-12 lg:h-14 w-12 lg:w-14"
+                    />
                     <h3 className="mb-4">Local & Campus Race</h3>
                     <p className="text-[#AFADB5]">
                         MUTC is known for hosting races on campus.There are also numerous local races for you to choose from. Time to add some medals to your collection.
@@ -26,7 +34,13 @@
                 </div>
 
                 <div>
-                    <h2 className="mb-4 text-primary">02</h2>
+                    <Image
+                        src="/images/earth.png"
+                        alt="Inclusive community"
+                        width={40}
+                        height={40}
+                        className="mb-4 h-12 lg:h-14 w-12 lg:w-14"
+                    />
                     <h3 className="mb-4">Inclusive community</h3>
                     <p className="text-[#AFADB5]">
                         Open to all students with zero barriers – enjoy peer support, cultural diversity and mentorship in a judgment-free environment.
@@ -34,7 +48,13 @@
                 </div>
 
                 <div>
-                    <h2 className="mb-4 text-primary">03</h2>
+                    <Image
+                        src="/images/people.png"
+                        alt="Professional Coaching"
+                        width={40}
+                        height={40}
+                        className="mb-4 h-12 lg:h-14 w-12 lg:w-14"
+                    />
                     <h3 className="mb-4">Professional Coaching</h3>
                     <p className="text-[#AFADB5]">
                         Chris from the Elite TriClub Momentum leads our swim and run. Student athletes will also quide you through the journey
