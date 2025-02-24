@@ -2,8 +2,8 @@
     return (
         <div className="min-h-screen bg-white text-black">
             <section id="about" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
-                <h3 className="mb-6 text-secondary">About us</h3>
-                <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-16 max-w-2xl">Why MUTC?</h2>
+                <h3 className="mb-2 text-secondary">About us</h3>
+                <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-8 max-w-2xl">Why MUTC?</h2>
                 <p className="max-w-4xl text-lg text-[#AFADB5]">
                     Founded in 2023, the Melbourne University Triathlon Club is dedicated to cultivating a passion for triathlon
                     while fostering personal growth. We are <span className="text-secondary">beginner-friendly</span> and offer a

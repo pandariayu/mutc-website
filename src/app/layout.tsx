@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import AboutUs from "@/components/AboutUs";
 import OurTeam from "@/components/OurTeam"
 import TrainingSessions from "@/components/training-sessions"
+import Membership from "@/components/membership";
 import { siteDetails } from '@/data/siteDetails';
 
 import "./globals.css";
@@ -53,6 +54,7 @@ export default function RootLayout({
         <AboutUs />
         <OurTeam />
         <TrainingSessions />
+        <Membership />
         {/*<main>*/}
         {/*  {children}*/}
         {/*</main>*/}

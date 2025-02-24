@@ -4,8 +4,8 @@ export default function TeamSection() {
     <div className="min-h-screen bg-white">
       <section id="team" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
         {/* Header */}
-        <h3 className="text-[#E58E27] text-lg font-medium mb-4">Our Team</h3>
-        <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-16 max-w-2xl">
+        <h3 className="text-[#E58E27] text-lg font-medium mb-2">Our Team</h3>
+        <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-8 max-w-2xl">
           Meet our leading and strong team
         </h2>
 
