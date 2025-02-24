@@ -5,12 +5,15 @@ export default function Membership() {
         <section className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
             <div className="grid gap-12 lg:grid-cols-2">
                 {/* Left Column - Pricing */}
-                <div className="space-y-6">
-                    <p className="text-[#E58E27] text-lg font-medium mb-2">Membership</p>
-                    <div className="space-y-4">
+                <div className="flex flex-col justify-between h-full">
+                    <div>
+                        <p className="text-[#E58E27] text-lg font-medium mb-2">Membership</p>
                         <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-8 max-w-2xl">
                             25S1 Student Membership
                         </h2>
+                    </div>
+
+                    <div className="space-y-4">
                         <div className="space-y-2">
                             <p className="text-5xl font-bold">$40</p>
                             <p className="text-gray-400">One Semester</p>

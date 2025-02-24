@@ -15,7 +15,7 @@ export default function TeamSection() {
           <div className="flex flex-col lg:flex-row gap-8 items-start">
             <div className="w-full lg:w-1/4">
               <Image
-                src="/images/leo.png"
+                src="/images/Leo.png"
                 alt="Club president Sihong Wu"
                 width={400}
                 height={300}
@@ -40,7 +40,7 @@ export default function TeamSection() {
           <div className="flex flex-col lg:flex-row gap-8 items-start md:justify-start">
             <div className="w-full lg:w-1/4">
               <Image
-                src="/images/chris.png"
+                src="/images/Chris.png"
                 alt="Training coordinator Chris"
                 width={400}
                 height={300}
