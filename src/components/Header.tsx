@@ -145,9 +145,6 @@ export default function Header() {
                                     <MobileNavLink href="#about" className="block text-teal-600 hover:text-teal-700">
                                         About us
                                     </MobileNavLink>
-                                    <MobileNavLink href="#team" className="block text-gray-800 hover:text-gray-900">
-                                        Our team
-                                    </MobileNavLink>
                                     <MobileNavLink href="#training" className="block text-gray-800 hover:text-gray-900">
                                         Training
                                     </MobileNavLink>
@@ -156,6 +153,9 @@ export default function Header() {
                                     </MobileNavLink>
                                     <MobileNavLink href="#membership" className="block text-gray-800 hover:text-gray-900">
                                         Membership
+                                    </MobileNavLink>
+                                    <MobileNavLink href="#team" className="block text-gray-800 hover:text-gray-900">
+                                        Our team
                                     </MobileNavLink>
                                     <MobileNavLink href="#faq" className="block text-gray-800 hover:text-gray-900">
                                         FAQ
@@ -173,24 +173,40 @@ export default function Header() {
                                     About us
                                 </a>
                                 <a
+                                    href="#training"
+                                    className="text-gray-800 hover:text-gray-900"
+                                    onClick={(e) => handleScroll(e, 'training')}
+                                >
+                                    Training
+                                </a>
+                                <a
+                                    href="#events"
+                                    className="text-gray-800 hover:text-gray-900"
+                                    onClick={(e) => handleScroll(e, 'events')}
+                                >
+                                    Events
+                                </a>
+                                <a
+                                    href="#membership"
+                                    className="text-gray-800 hover:text-gray-900"
+                                    onClick={(e) => handleScroll(e, 'membership')}
+                                >
+                                    Membership
+                                </a>
+                                <a
                                     href="#team"
                                     className="text-gray-800 hover:text-gray-900"
                                     onClick={(e) => handleScroll(e, 'team')}
                                 >
                                     Our team
                                 </a>
-                                <Link href="#training" className="text-gray-800 hover:text-gray-900">
-                                    Training
-                                </Link>
-                                <Link href="/events" className="text-gray-800 hover:text-gray-900">
-                                    Events
-                                </Link>
-                                <Link href="/membership" className="text-gray-800 hover:text-gray-900">
-                                    Membership
-                                </Link>
-                                <Link href="/contact" className="text-gray-800 hover:text-gray-900">
-                                    Contact us
-                                </Link>
+                                <a
+                                    href="#faq"
+                                    className="text-gray-800 hover:text-gray-900"
+                                    onClick={(e) => handleScroll(e, 'faq')}
+                                >
+                                    FAQ
+                                </a>
                             </div>
                         </div>
                     </div>

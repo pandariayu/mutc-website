@@ -2,7 +2,7 @@
 
 export default function TriathlonEvent() {
     return (
-        <div className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
+        <div id="events" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
             {/* Header Section */}
             <div className="mb-8">
                 <h5 className="mb-2 text-secondary">Events</h5>
