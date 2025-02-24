@@ -9,7 +9,7 @@ export default function Membership() {
                     <div>
                         <p className="text-[#E58E27] text-lg font-medium mb-2">Membership</p>
                         <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-8 max-w-2xl">
-                            2025
+                            2025 MUTC
                             <br/>
                             Student Membership
                         </h2>

@@ -8,6 +8,7 @@ import AboutUs from "@/components/AboutUs";
 import OurTeam from "@/components/OurTeam"
 import TrainingSessions from "@/components/training-sessions"
 import Membership from "@/components/membership";
+import FAQ from "@/components/faq";
 import { siteDetails } from '@/data/siteDetails';
 
 import "./globals.css";
@@ -55,6 +56,7 @@ export default function RootLayout({
         <OurTeam />
         <TrainingSessions />
         <Membership />
+        <FAQ />
         {/*<main>*/}
         {/*  {children}*/}
         {/*</main>*/}
