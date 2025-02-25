@@ -1,57 +1,62 @@
 import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image';
 
 import { siteDetails } from '@/data/siteDetails';
 import { footerDetails } from '@/data/footer';
+import {getPlatformIconByName} from "@/utils";
 
 const Footer: React.FC = () => {
     return (
         <footer className="bg-hero-background text-foreground py-10">
-            <div className="max-w-7xl w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div>
-                    <Link href="/" className="flex items-center gap-2">
-                        <h3 className="manrope text-xl font-semibold cursor-pointer">
-                            {siteDetails.siteName}
-                        </h3>
-                    </Link>
-                    <p className="mt-3.5 text-foreground-accent">
-                        {footerDetails.subheading}
-                    </p>
-                </div>
-                <div>
-                    <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul className="text-foreground-accent">
-                        {footerDetails.quickLinks.map(link => (
-                            <li key={link.text} className="mb-2">
-                                <Link href={link.url} className="hover:text-foreground">{link.text}</Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <div>
-                    <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+            <div className="max-w-7xl w-full mx-auto px-6">
+                <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20">
+                    <div className="flex flex-col md:flex-row gap-6">
+                        <Link href="/" className="flex flex-col md:flex-row gap-6">
+                            <div className="flex items-center justify-center">
+                                <Image
+                                    src="/images/logo.png"
+                                    alt="MUTC Logo"
+                                    width={80}
+                                    height={80}
+                                    className="object-contain"
+                                />
+                            </div>
+                            <div className="text-center md:text-left flex flex-col justify-center">
+                                <h4 className="text-lg font-semibold mb-2">
+                                    {siteDetails.siteName}
+                                </h4>
+                                <p className="text-foreground-accent">
+                                    {footerDetails.subheading}
+                                </p>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="text-center md:text-left">
+                        <h4 className="text-lg font-semibold mb-2">Contact Us</h4>
 
-                    {footerDetails.email && <a href={`mailto:${footerDetails.email}`}  className="block text-foreground-accent hover:text-foreground">Email: {footerDetails.email}</a>}
+                        {footerDetails.email && <a href={`mailto:${footerDetails.email}`} className="block text-foreground-accent hover:text-foreground">Email: {footerDetails.email}</a>}
 
-                    {/*{footerDetails.socials && (*/}
-                    {/*    <div className="mt-5 flex items-center gap-5 flex-wrap">*/}
-                    {/*        {Object.keys(footerDetails.socials).map((platformName) => {*/}
-                    {/*            const socialKey = platformName as keyof typeof footerDetails.socials*/}
-                    {/*            return (*/}
-                    {/*                <Link*/}
-                    {/*                    href={footerDetails.socials[socialKey]}*/}
-                    {/*                    key={socialKey}*/}
-                    {/*                    aria-label={socialKey}*/}
-                    {/*                >*/}
-                    {/*                    {getPlatformIconByName(socialKey)}*/}
-                    {/*                </Link>*/}
-                    {/*            )*/}
-                    {/*        })}*/}
-                    {/*    </div>*/}
-                    {/*)}*/}
+                        {footerDetails.socials && (
+                            <div className="mt-2 flex gap-5 flex-wrap justify-center md:justify-start">
+                                {Object.keys(footerDetails.socials).map((platformName) => {
+                                    const socialKey = platformName as keyof typeof footerDetails.socials
+                                    return (
+                                        <Link
+                                            href={footerDetails.socials[socialKey]}
+                                            key={socialKey}
+                                            aria-label={platformName}
+                                        >
+                                            {getPlatformIconByName(platformName)}
+                                        </Link>
+                                    )
+                                })}
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
-            <div className="mt-8 md:text-center text-foreground-accent px-6">
+            <div className="mt-8 text-center text-foreground-accent px-6">
                 <p>Copyright &copy; {new Date().getFullYear()} {siteDetails.siteName}. All rights reserved.</p>
             </div>
         </footer>

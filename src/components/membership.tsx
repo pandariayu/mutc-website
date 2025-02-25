@@ -17,7 +17,7 @@ export default function Membership() {
 
                     <div className="space-y-4">
                         <div className="space-y-2">
-                            <p className="text-5xl font-bold">$40</p>
+                            <p className="font-bold">Unimelb student price<p className="text-5xl font-bold">$40</p></p>
                             <button className="text-primary underline">Non Unimelb Student</button>
                         </div>
                         <button
@@ -34,7 +34,7 @@ export default function Membership() {
                 {/* Right Column - Features */}
                 <div className="space-y-12">
                     <div className="space-y-2">
-                        <h3 className="font-bold">Professional swim coaching</h3>
+                        <h4 className="lg:text-3xl font-bold">Professional swim coaching</h4>
                         <p className="text-gray-400">
                             Tailored technique sessions with certified coaches to improve efficiency and speed across all skill
                             levels.
@@ -42,14 +42,14 @@ export default function Membership() {
                     </div>
 
                     <div className="space-y-2">
-                        <h3 className="font-bold">Exclusive running sessions</h3>
+                        <h4 className="lg:text-3xl font-bold">Exclusive running sessions</h4>
                         <p className="text-gray-400">
                             Weekly structured workouts across varied terrain to boost endurance, speed, and race-day confidence.
                         </p>
                     </div>
 
                     <div className="space-y-2">
-                        <h3 className="font-bold">Structured bike training programs</h3>
+                        <h4 className="lg:text-3xl font-bold">Structured bike training programs</h4>
                         <p className="text-gray-400">
                             Customized indoor/outdoor cycling plans focusing on power, cadence, supported by group rides
                         </p>

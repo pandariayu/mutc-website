@@ -17,12 +17,15 @@ export const footerDetails = {
     email: 'team@melbunitriathlon.club',
     socials: {
         facebook: 'https://facebook.com',
+        wechat: 'https://wechat.com',
         instagram: 'https://www.instagram.com',
         whatsapp: 'https://wa.me/1234567890',
     } as {
         [key: string]: string;
         facebook: string;
+        wechat: string;
         instagram: string;
         whatsapp: string;
+
     }
 }

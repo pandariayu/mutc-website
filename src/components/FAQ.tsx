@@ -26,7 +26,7 @@ const FAQ: React.FC = () => {
                                 {({ open }) => (
                                     <>
                                         <DisclosureButton className="flex items-center justify-between w-full px-4 pt-7 text-lg text-left border-t">
-                                            <h4>{faq.question}</h4>
+                                            <h5 className="text-xl md:text-xl lg:text-2xl">{faq.question}</h5>
                                             {open ? <BiMinus className="w-5 h-5 text-primary" /> : <BiPlus className="w-5 h-5 text-primary" />}
                                         </DisclosureButton>
                                         <DisclosurePanel className="px-4 pt-4 pb-2 text-[#AFADB5]">

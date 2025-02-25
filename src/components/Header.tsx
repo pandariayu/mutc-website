@@ -90,7 +90,7 @@ export default function Header() {
             {/* Navigation */}
             <nav className="absolute top-0 left-0 right-0 z-10 bg-white">
                 <div className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)]">
-                    <div className="flex items-center h-16 lg:h-24 relative">
+                    <div className="flex items-center h-20 lg:h-24 relative">
                         <Link
                             href="/"
                             className="absolute left-4 top-1/2 -translate-y-1/2 z-20"
