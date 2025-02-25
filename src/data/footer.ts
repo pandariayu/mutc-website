@@ -16,14 +16,12 @@ export const footerDetails = {
     ],
     email: 'team@melbunitriathlon.club',
     socials: {
-        facebook: 'https://facebook.com',
-        wechat: 'https://wechat.com',
-        instagram: 'https://www.instagram.com',
-        whatsapp: 'https://wa.me/1234567890',
+        facebook: 'https://www.facebook.com/share/g/15zGFXAsyz/?mibextid=wwXIfr',
+        instagram: 'https://www.instagram.com/unimelb_triclub?igsh=dmY3MWJrajl0MzUw',
+        whatsapp: 'https://chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01',
     } as {
         [key: string]: string;
         facebook: string;
-        wechat: string;
         instagram: string;
         whatsapp: string;
 

@@ -9,25 +9,37 @@ export default function Membership() {
                     <div>
                         <h5 className="mb-2 text-secondary">Membership</h5>
                         <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-8 max-w-2xl">
-                            2025 MUTC
+                            2025 Semester 1
                             <br/>
-                            Student Membership
+                            MUTC Membership
                         </h2>
                     </div>
 
                     <div className="space-y-4">
                         <div className="space-y-2">
-                            <p className="font-bold">Unimelb student price<p className="text-5xl font-bold">$40</p></p>
-                            <button className="text-primary underline">Non Unimelb Student</button>
+                            <div className="font-bold">
+                                <span>Unimelb student price</span>
+                                <p className="text-5xl font-bold">$40</p>
+                            </div>
                         </div>
-                        <button
-                            className="w-full bg-[#518581] px-10 py-4 text-center font-bold text-white transition-colors hover:bg-[#416c68] sm:w-auto"
-                            onClick={() => {
-                                window.open('https://buy.stripe.com/test_7sI01xfon4Nn0OQ9AA', '_blank');
-                            }}
-                        >
-                            Buy Now
-                        </button>
+                        <div className="flex flex-col sm:flex-row gap-2">
+                            <button
+                                className="w-full sm:w-auto bg-[#518581] px-10 py-4 text-center font-bold text-white transition-colors hover:bg-[#416c68]"
+                                onClick={() => {
+                                    window.open('https://buy.stripe.com/7sI8yI2gJfNU47K7ss', '_blank');
+                                }}
+                            >
+                                Buy Now
+                            </button>
+                            <button
+                                className="w-full sm:w-auto text-primary underline px-5 py-4 text-center hover:text-foreground-accent"
+                                onClick={() => {
+                                    window.open('https://buy.stripe.com/aEUbKUaNf45c5bOcMN', '_blank');
+                                }}
+                            >
+                                Non Unimelb Student
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -59,4 +71,3 @@ export default function Membership() {
         </section>
     )
 }
-

@@ -1,6 +1,20 @@
 ﻿import Image from "next/image"
 
 export default function Page() {
+    const awards = [
+        {
+            title: "2XU Series 1 Elwood Triathlon",
+            achievement: "First Medal & 1st Place",
+            details: "Ranking 1st place in the overall team relays out of 25 teams",
+            date: "November, 2024",
+        },
+        {
+            title: "MelbUniSports Recognition",
+            achievement: "Award of Excellence",
+            details: "Outstanding achievement in innovation and inclusion",
+            date: "December, 2024",
+        },
+    ]
     return (
         <div className="min-h-screen bg-white text-black">
             <section id="about" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
@@ -18,7 +32,7 @@ export default function Page() {
             </section>
 
             {/* Features Grid */}
-            <section className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16 grid gap-8 lg:grid-cols-3">
+            <section className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-5 grid gap-8 lg:grid-cols-3">
                 <div>
                     <Image
                         src="/images/run.png"
@@ -27,7 +41,7 @@ export default function Page() {
                         height={40}
                         className="mb-4 h-12 lg:h-14 w-12 lg:w-14"
                     />
-                    <h3 className="mb-4">Local & Campus Race</h3>
+                    <h4 className="mb-4">Local & Campus Race</h4>
                     <p className="text-[#AFADB5]">
                         MUTC is known for hosting races on campus.There are also numerous local races for you to choose from. Time to add some medals to your collection.
                     </p>
@@ -41,7 +55,7 @@ export default function Page() {
                         height={40}
                         className="mb-4 h-12 lg:h-14 w-12 lg:w-14"
                     />
-                    <h3 className="mb-4">Inclusive community</h3>
+                    <h4 className="mb-4">Inclusive community</h4>
                     <p className="text-[#AFADB5]">
                         Open to all students with zero barriers – enjoy peer support, cultural diversity and mentorship in a judgment-free environment.
                     </p>
@@ -55,13 +69,34 @@ export default function Page() {
                         height={40}
                         className="mb-4 h-12 lg:h-14 w-12 lg:w-14"
                     />
-                    <h3 className="mb-4">Professional Coaching</h3>
+                    <h4 className="mb-4">Professional Coaching</h4>
                     <p className="text-[#AFADB5]">
                         Chris from the Elite TriClub Momentum leads our swim and run. Student athletes will also quide you through the journey
                     </p>
                 </div>
             </section>
+            <div className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
+                <div className="flex flex-col items-start gap-4 mb-8">
+                    <h2 className="text-4xl md:text-5xl tracking-tighter">Our Achievements</h2>
+                </div>
+
+                <div className="space-y-8">
+                    {awards.map((award, index) => (
+                        <div key={index} className="border-b border-muted pb-6 last:border-0">
+                            <div className="grid gap-1">
+                                <p className="text-[#AFADB5]">{award.date}</p>
+                                <div className="flex items-baseline justify-between">
+                                    <h4>{award.title}</h4>
+                                </div>
+                                <p className="text-lg font-semibold text-secondary">{award.achievement}</p>
+                                <p className="text-[#AFADB5]">{award.details}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
+
     )
 }
 

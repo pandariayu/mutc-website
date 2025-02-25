@@ -9,7 +9,7 @@ const FAQ: React.FC = () => {
     return (
         <section id="faq" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
             <div className="flex flex-col lg:flex-row gap-10">
-                <div className="">
+                <div className="lg:w-1/4">
                     <SectionTitle>
                         <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-8 max-w-2xl">Frequently Asked Questions</h2>
                     </SectionTitle>
@@ -19,7 +19,7 @@ const FAQ: React.FC = () => {
                     <a href="mailto:team@melbunitriathlon.club" className="mt-3 block text-xl text-primary font-semibold hover:underlinelg:text-left">team@melbunitriathlon.club</a>
                 </div>
 
-                <div className="w-full lg:max-w-2xl mx-auto border-b">
+                <div className="w-full lg:w-3/4 mx-auto border-b">
                     {faqs.map((faq, index) => (
                         <div key={index} className="mb-7">
                             <Disclosure>
