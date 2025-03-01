@@ -18,8 +18,8 @@ export default function Membership() {
                     <div className="space-y-4">
                         <div className="space-y-2">
                             <div className="font-bold">
-                                <span>Unimelb student price</span>
-                                <p className="text-5xl font-bold">$40</p>
+                                <span className="text-gray-400">Unimelb student price</span>
+                                <p className="text-6xl font-bold">$40</p>
                             </div>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-2">

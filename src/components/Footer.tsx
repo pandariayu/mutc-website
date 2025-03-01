@@ -8,7 +8,7 @@ import {getPlatformIconByName} from "@/utils";
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-hero-background text-foreground py-10">
+        <footer id="footer" className="bg-hero-background text-foreground py-10">
             <div className="max-w-7xl w-full mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20">
                     <div className="flex flex-col md:flex-row gap-6">

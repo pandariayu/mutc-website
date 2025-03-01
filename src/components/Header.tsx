@@ -273,7 +273,7 @@ export default function Header() {
                         <button
                             className="border-2 border-white bg-transparent hover:bg-white/10 text-white font-bold py-3 px-6 transition-colors duration-200"
                             onClick={() => {
-                                const element = document.getElementById('contact');
+                                const element = document.getElementById('footer');
                                 if (element) {
                                     element.scrollIntoView({ behavior: 'smooth' });
                                 }
