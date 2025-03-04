@@ -233,9 +233,9 @@ export default function Header() {
                     />
                 </div>
                 <div className="absolute inset-0 flex flex-col items-start justify-end text-left text-white pb-40">
-                    <h2 className="max-w-[90%] text-4xl md:text-4xl lg:text-5xl px-6 lg:pl-[calc(8.333333333333334%+1.5rem)] mb-8 break-words">
+                    <h1 className="max-w-[90%] text-4xl md:text-4xl lg:text-5xl px-6 lg:pl-[calc(8.333333333333334%+1.5rem)] mb-8 break-words">
                         Melbourne University Triathlon Club
-                    </h2>
+                    </h1>
                     <h3 className="max-w-[90%] text-2xl md:text-2xl lg:text-3xl px-6 lg:pl-[calc(8.333333333333334%+1.5rem)] opacity-80 break-words mb-8">
                         <div className="h-[2em] mb-2">
                             <motion.div

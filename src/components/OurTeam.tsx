@@ -10,7 +10,7 @@ export default function TeamSection() {
         </h2>
 
         {/* Team Members */}
-        <div className="space-y-24">
+        <div className="space-y-14">
           {/* First Team Member */}
           <div className="flex flex-col lg:flex-row gap-8 items-start">
             <div className="w-full lg:w-1/4">
@@ -55,7 +55,8 @@ export default function TeamSection() {
                 coaching athletes from 5km beginners to 100km ultramarathoners and Ironman competitors. Over a decade,
                 he raised $20,000+ for chronic disease charities through endurance challenges like his 17-marathon
                 initiative. Passionate about mentoring motivated, humorous athletes, he also holds senior health
-                management roles and board positions in Australia/Europe.
+                management roles and board positions in Australia/Europe. A Mizuno ambassador and Runners World
+                columnist, Chris combines elite coaching with public health leadership.
               </p>
             </div>
           </div>
