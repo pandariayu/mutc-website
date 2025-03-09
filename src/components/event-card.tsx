@@ -21,7 +21,6 @@ export function EventCard({ image, title, level, location, time, time2, weekday,
     const today = new Date();
     const currentDay = today.getDay();
 
-    // If single weekday is provided
     if (typeof targetDay === 'number') {
       const diff = (targetDay + 7 - currentDay) % 7;
       const nextDate = new Date(today);
@@ -29,24 +28,21 @@ export function EventCard({ image, title, level, location, time, time2, weekday,
       return nextDate;
     }
 
-    // If two weekdays are provided
     const [day1, day2] = targetDay;
     let diff1 = (day1 + 7 - currentDay) % 7;
     let diff2 = (day2 + 7 - currentDay) % 7;
 
-    // If first day has passed this week, use next week's date
     if (diff1 === 0 && today.getHours() >= 12) diff1 = 7;
     if (diff2 === 0 && today.getHours() >= 12) diff2 = 7;
 
-    // Get the closest upcoming date
     const nextDate = new Date(today);
     const closestDiff = diff1 <= diff2 ? diff1 : diff2;
     nextDate.setDate(today.getDate() + closestDiff);
 
     return nextDate;
   };
-  // 格式化为 "13 March" 样式
-  const formatDate = (date) => {
+
+  const formatDate = (date: Date): string => {
     const day = date.getDate();
     const month = date.toLocaleDateString('en-US', { month: 'short' });
     return `${day} ${month}`;
@@ -74,7 +70,7 @@ export function EventCard({ image, title, level, location, time, time2, weekday,
               <div className="absolute bottom-0 p-4 md:p-6 text-white">
                 <h4 className="font-semibold mb-1 md:mb-2">{title}</h4>
                 <p className="text-gray-200 mb-2 md:mb-4">{level}</p>
-                <button className="text-lg text-white hover:underline">
+                <button className="text-lg text-white hover:text-gray-200 underline">
                   Click to see more detail
                 </button>
               </div>

@@ -1,4 +1,5 @@
-﻿import Image from "next/image"
+﻿"use client";
+import Image from "next/image"
 
 export default function TriathlonEvent() {
     return (
@@ -31,7 +32,10 @@ export default function TriathlonEvent() {
                         <p className="text-secondary">More detail TBC</p>
                     </div>
 
-                    <button className="w-full bg-[#518581] px-10 py-4 text-center font-bold text-white transition-colors hover:bg-[#416c68] sm:w-auto">See our previous events</button>
+                    <button className="w-full bg-[#518581] px-10 py-4 text-center font-bold text-white transition-colors hover:bg-[#416c68] sm:w-auto"
+                            onClick={() => {
+                                window.open('https://www.instagram.com/p/C_-EnLPTssl/?igsh=ODczdTJrNDlsY2tn', '_blank');
+                            }}>See our previous events</button>
 
                     {/* Rectangle image for desktop, hidden on mobile */}
                     <div className="hidden md:block relative h-[200px] w-full mt-6">

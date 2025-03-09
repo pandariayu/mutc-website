@@ -10,6 +10,7 @@ export default function TrainingSessions() {
       level: "Beginner level",
       location: "Rawlinson Track",
       time: "Saturday: 9:00 - 9:45 am",
+      time2: "",
       content: "Parkville Easy Social Run at you pace, free coffee will be provided",
       weekday: 6,
     },
@@ -21,7 +22,7 @@ export default function TrainingSessions() {
       time: "Monday session: 2:00 pm - 3:30 pm",
       time2: "Thursday session: 11:00 am - 12:30 pm",
       content: "Train with Coach Chris",
-      weekday: [1,4],
+      weekday: [1,4] as [number, number],
     },
     {
       image: "/images/IntRun.png",
@@ -29,6 +30,7 @@ export default function TrainingSessions() {
       level: "Intermediate level",
       location: "Rawlinson Track",
       time: "Wednesday 7:30 pm - 8:15 pm ",
+      time2: "",
       content: "Train with coordinator Lan and Balthazar",
       weekday: 3,
     },
@@ -38,6 +40,7 @@ export default function TrainingSessions() {
       level: "All level",
       location: "Rawlinson Track",
       time: "Friday 3:00pm -4:00pm ",
+      time2: "",
       content: "Bike with music then Run, Two Running pace (5:15 min/km & 6:00 min/km)",
       weekday: 5,
     }
