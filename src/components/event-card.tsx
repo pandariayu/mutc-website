@@ -11,12 +11,11 @@ interface EventCardProps {
   time: string
   time2: string
   content: string
-  date: string
   weekday: number | [number, number]
 }
 
 
-export function EventCard({ image, title, level, location, time, time2, weekday, content, date }: EventCardProps) {
+export function EventCard({ image, title, level, location, time, time2, weekday, content }: EventCardProps) {
   const [isFlipped, setIsFlipped] = useState(false)
   const getNextWeekdayDate = (targetDay: number | [number, number]) => {
     const today = new Date();
