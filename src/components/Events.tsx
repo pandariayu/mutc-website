@@ -10,7 +10,7 @@ export default function TriathlonEvent() {
                     <h2 className="text-4xl lg:text-4xl lg:text-5xl font-semibold mb-8 max-w-2xl">
                         Our in-school
                         <br />
-                        Mini-triathlon race
+                        Mini-Duathlon race
                     </h2>
                     <div className="text-left lg:text-right flex flex-col justify-center lg:pt-6">
                         <h2 className="text-4xl lg:text-5xl font-bold">14/4/2025</h2>
@@ -28,12 +28,10 @@ export default function TriathlonEvent() {
                     </p>
 
                     <div className="space-y-2">
-                        <p className="text-secondary">Two distances for you to choose from:</p>
-                        <p className="text-gray-400">Mini: 200m swim, 4km bike, 2km run</p>
-                        <p className="text-gray-400">Sprint: 400m swim, 8km bike, 4km run</p>
+                        <p className="text-secondary">More detail TBC</p>
                     </div>
 
-                    <button className="w-full bg-[#518581] px-10 py-4 text-center font-bold text-white transition-colors hover:bg-[#416c68] sm:w-auto">Learn More</button>
+                    <button className="w-full bg-[#518581] px-10 py-4 text-center font-bold text-white transition-colors hover:bg-[#416c68] sm:w-auto">See our previous events</button>
 
                     {/* Rectangle image for desktop, hidden on mobile */}
                     <div className="hidden md:block relative h-[200px] w-full mt-6">

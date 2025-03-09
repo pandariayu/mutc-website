@@ -5,31 +5,41 @@ export default function TrainingSessions() {
     {
       image:
         "/images/SocialRun.png",
-      title: "Social Run session",
+      title: "Saturday Social Run",
       level: "Beginner level",
-      location: "Beaureparies Center Swimming pool",
-      time: "10:30AM",
-      content: "Parkville Easy Social Run at you pace",
+      location: "Rawlinson Track",
+      time: "Saturday: 9:00 - 9:45 am",
+      content: "Parkville Easy Social Run at you pace, free coffee will be provided",
       date: "15 March",
     },
     {
       image: "/images/Swim.png",
-      title: "Swim sessions",
-      level: "Intermediate level",
+      title: "Monday/Thursday Swim",
+      level: "All level",
       location: "Beaureparies Center Swimming pool",
-      time: "10:30AM - 11:15AM (45min)",
-      content: "Open water technique",
-      date: "13 March",
+      time: "Monday session: 2:00 pm - 3:30 pm",
+      time2: "Thursday session: 11:00 am - 12:30 pm",
+      content: "Train with Coach Chris",
+      date: "10 March",
     },
     {
       image: "/images/IntRun.png",
-      title: "Interval Running Sessions",
+      title: "Wednesday Interval Running",
       level: "Intermediate level",
       location: "Rawlinson Track",
-      time: "10:30AM",
-      content: "Parkville Easy Social Run at you pace",
+      time: "Wednesday 7:30 pm - 8:15 pm ",
+      content: "Train with coordinator Lan and Balthazar",
       date: "19 March",
     },
+    {
+      image: "/images/Bike&Run.jpg",
+      title: "Friday Indoor Bike/Run",
+      level: "All level",
+      location: "Rawlinson Track",
+      time: "Friday 3:00pm -4:00pm ",
+      content: "Bike with music then Run, Two Running pace (5:15 min/km & 6:00 min/km)",
+      date: "14 March",
+    }
   ]
 
   return (
@@ -43,8 +53,17 @@ export default function TrainingSessions() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Left Column - Social Run */}
-          <div className="aspect-[16/9] lg:aspect-auto lg:h-full">
-            <EventCard {...events[0]} />
+          {/* Right Column - Other Sessions */}
+          <div className="space-y-6">
+            {/* Swim Sessions Card */}
+            <div className="aspect-[16/9]">
+              <EventCard {...events[0]} />
+            </div>
+
+            {/* Interval Running Card */}
+            <div className="aspect-[16/9]">
+              <EventCard {...events[3]} />
+            </div>
           </div>
 
           {/* Right Column - Other Sessions */}

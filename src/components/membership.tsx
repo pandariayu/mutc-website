@@ -46,24 +46,23 @@ export default function Membership() {
                 {/* Right Column - Features */}
                 <div className="space-y-12">
                     <div className="space-y-2">
-                        <h4 className="lg:text-3xl font-bold">Professional swim coaching</h4>
+                        <h4 className="lg:text-3xl font-bold">Access to All Trainings</h4>
                         <p className="text-gray-400">
-                            Tailored technique sessions with certified coaches to improve efficiency and speed across all skill
-                            levels.
+                            Open participation in swim/run sessions with flexible scheduling. Build your fitness routine without restrictions.
                         </p>
                     </div>
 
                     <div className="space-y-2">
-                        <h4 className="lg:text-3xl font-bold">Exclusive running sessions</h4>
+                        <h4 className="lg:text-3xl font-bold">Supportive Community & Mentorship</h4>
                         <p className="text-gray-400">
-                            Weekly structured workouts across varied terrain to boost endurance, speed, and race-day confidence.
+                            Connect with inclusive peers and student athletes in non-competitive environments.
                         </p>
                     </div>
 
                     <div className="space-y-2">
-                        <h4 className="lg:text-3xl font-bold">Structured bike training programs</h4>
+                        <h4 className="lg:text-3xl font-bold">Injury Protection Guarantee</h4>
                         <p className="text-gray-400">
-                            Customized indoor/outdoor cycling plans focusing on power, cadence, supported by group rides
+                            All registered members receive free injury coverage* via the University of Melbourne's sports insurance program.
                         </p>
                     </div>
                 </div>

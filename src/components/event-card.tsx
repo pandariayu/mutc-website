@@ -9,11 +9,12 @@ interface EventCardProps {
   level: string
   location: string
   time: string
+  time2: string
   content: string
   date: string
 }
 
-export function EventCard({ image, title, level, location, time, content, date }: EventCardProps) {
+export function EventCard({ image, title, level, location, time, time2, content, date }: EventCardProps) {
   const [isFlipped, setIsFlipped] = useState(false)
 
   return (
@@ -67,6 +68,7 @@ export function EventCard({ image, title, level, location, time, content, date }
                   <div>
                     <h4 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Time</h4>
                     <p className="text-sm md:text-base text-gray-200">{time}</p>
+                    <p className="text-sm md:text-base text-gray-200">{time2}</p>
                   </div>
                   <div>
                     <h4 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Content</h4>
