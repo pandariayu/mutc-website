@@ -62,7 +62,7 @@ export default function Membership() {
                     <div className="space-y-2">
                         <h4 className="lg:text-3xl font-bold">Injury Protection Guarantee</h4>
                         <p className="text-gray-400">
-                            All registered members receive free injury coverage* via the University of Melbourne's sports insurance program.
+                            All registered members receive free injury coverage* via the University of Melbourne sports insurance program.
                         </p>
                     </div>
                 </div>

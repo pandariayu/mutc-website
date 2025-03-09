@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import {useState} from "react"
 import Image from "next/image"
 
 interface EventCardProps {
@@ -12,10 +12,46 @@ interface EventCardProps {
   time2: string
   content: string
   date: string
+  weekday: number | [number, number]
 }
 
-export function EventCard({ image, title, level, location, time, time2, content, date }: EventCardProps) {
+
+export function EventCard({ image, title, level, location, time, time2, weekday, content, date }: EventCardProps) {
   const [isFlipped, setIsFlipped] = useState(false)
+  const getNextWeekdayDate = (targetDay: number | [number, number]) => {
+    const today = new Date();
+    const currentDay = today.getDay();
+
+    // If single weekday is provided
+    if (typeof targetDay === 'number') {
+      const diff = (targetDay + 7 - currentDay) % 7;
+      const nextDate = new Date(today);
+      nextDate.setDate(today.getDate() + diff);
+      return nextDate;
+    }
+
+    // If two weekdays are provided
+    const [day1, day2] = targetDay;
+    let diff1 = (day1 + 7 - currentDay) % 7;
+    let diff2 = (day2 + 7 - currentDay) % 7;
+
+    // If first day has passed this week, use next week's date
+    if (diff1 === 0 && today.getHours() >= 12) diff1 = 7;
+    if (diff2 === 0 && today.getHours() >= 12) diff2 = 7;
+
+    // Get the closest upcoming date
+    const nextDate = new Date(today);
+    const closestDiff = diff1 <= diff2 ? diff1 : diff2;
+    nextDate.setDate(today.getDate() + closestDiff);
+
+    return nextDate;
+  };
+  // 格式化为 "13 March" 样式
+  const formatDate = (date) => {
+    const day = date.getDate();
+    const month = date.toLocaleDateString('en-US', { month: 'short' });
+    return `${day} ${month}`;
+  };
 
   return (
     <div className="relative w-full h-full [perspective:1000px]">
@@ -78,7 +114,7 @@ export function EventCard({ image, title, level, location, time, time2, content,
 
                 {/* 日期部分 */}
                 <div className="absolute right-4 md:right-6 md:bottom-6 top-1/2 md:top-auto transform -translate-y-1/2 md:transform-none text-right">
-                  <h3 className="text-2xl md:text-4xl font-bold mb-1">{date}</h3>
+                  <h3 className="text-2xl md:text-4xl font-bold mb-1">{formatDate(getNextWeekdayDate(weekday))}</h3>
                   <p className="text-sm md:text-base text-gray-200">Upcoming session</p>
                 </div>
               </div>

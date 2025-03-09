@@ -1,5 +1,6 @@
 import { EventCard } from "./event-card"
 
+
 export default function TrainingSessions() {
   const events = [
     {
@@ -10,7 +11,7 @@ export default function TrainingSessions() {
       location: "Rawlinson Track",
       time: "Saturday: 9:00 - 9:45 am",
       content: "Parkville Easy Social Run at you pace, free coffee will be provided",
-      date: "15 March",
+      weekday: 6,
     },
     {
       image: "/images/Swim.png",
@@ -20,7 +21,7 @@ export default function TrainingSessions() {
       time: "Monday session: 2:00 pm - 3:30 pm",
       time2: "Thursday session: 11:00 am - 12:30 pm",
       content: "Train with Coach Chris",
-      date: "10 March",
+      weekday: [1,4],
     },
     {
       image: "/images/IntRun.png",
@@ -29,7 +30,7 @@ export default function TrainingSessions() {
       location: "Rawlinson Track",
       time: "Wednesday 7:30 pm - 8:15 pm ",
       content: "Train with coordinator Lan and Balthazar",
-      date: "19 March",
+      weekday: 3,
     },
     {
       image: "/images/Bike&Run.jpg",
@@ -38,7 +39,7 @@ export default function TrainingSessions() {
       location: "Rawlinson Track",
       time: "Friday 3:00pm -4:00pm ",
       content: "Bike with music then Run, Two Running pace (5:15 min/km & 6:00 min/km)",
-      date: "14 March",
+      weekday: 5,
     }
   ]
 
