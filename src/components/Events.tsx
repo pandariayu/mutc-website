@@ -13,10 +13,10 @@ export default function TriathlonEvent() {
                         <br />
                         Mini-Duathlon race
                     </h2>
-                    {/*<div className="text-left lg:text-right flex flex-col justify-center lg:pt-6">*/}
-                    {/*    <h2 className="text-4xl lg:text-5xl font-bold">14/4/2025</h2>*/}
-                    {/*    <p className="text-gray-400">Rawlinson Track</p>*/}
-                    {/*</div>*/}
+                    <div className="text-left lg:text-right flex flex-col justify-center lg:pt-6">
+                        <h2 className="text-4xl lg:text-5xl font-bold">TBC</h2>
+                        <p className="text-gray-400">Rawlinson Track</p>
+                    </div>
                 </div>
             </div>
 
@@ -28,9 +28,9 @@ export default function TriathlonEvent() {
                         Track to complete!
                     </p>
 
-                    <div className="space-y-2">
-                        <p className="text-secondary">More detail TBC</p>
-                    </div>
+                    {/*<div className="space-y-2">*/}
+                    {/*    <p className="text-secondary">More detail TBC</p>*/}
+                    {/*</div>*/}
 
                     <button className="w-full bg-[#518581] px-10 py-4 text-center font-bold text-white transition-colors hover:bg-[#416c68] sm:w-auto"
                             onClick={() => {

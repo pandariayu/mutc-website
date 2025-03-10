@@ -51,10 +51,10 @@ export default function TrainingSessionCard({
     <div className="overflow-hidden border-0">
       <div className="relative h-48 w-full overflow-hidden sm:h-64">
         <Image
-          src={image || "/placeholder.svg"}
-          alt={`training session`}
+          src={image}
+          alt={title + `training session`}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
@@ -94,9 +94,6 @@ export default function TrainingSessionCard({
           <div className="flex items-center gap-2 text-gray-500">
             <p>{level}</p>
           </div>
-          {/*<button className="bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-[#3d665e]">*/}
-          {/*  View details*/}
-          {/*</button>*/}
         </div>
       </div>
     </div>

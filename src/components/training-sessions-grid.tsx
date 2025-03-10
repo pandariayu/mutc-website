@@ -57,8 +57,8 @@ export default function TrainingSessionsGrid() {
           </h2>
         </div>
         <div className="lg:max-w-[50%] lg:px-6">
-          <p className="text-gray-500 flex flex-col justify-center">Wanna get real-time updates about training sessions, last-minute changes, and connect with other members?</p>
-          <button className="mt-2 text-[#4d8076] hover:text-[#416c68] underline"
+          <p className="text-gray-400 flex flex-col justify-center">Wanna get real-time updates about training sessions, last-minute changes, and connect with other members?</p>
+          <button className="mt-2 text-primary underline text-center transition-colors hover:text-foreground-accent"
                   onClick={() => {
                     window.open('https://chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01', '_blank');
                   }}>Join our Whatsapp group</button>

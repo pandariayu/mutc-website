@@ -1,4 +1,7 @@
-﻿import Image from "next/image"
+﻿"use client";
+
+import Image from "next/image"
+import {ArrowRight, Clock} from "lucide-react"
 
 export default function Page() {
     const awards = [
@@ -7,12 +10,14 @@ export default function Page() {
             achievement: "First Medal & 1st Place",
             details: "Ranking 1st place in the overall team relays out of 25 teams",
             date: "November, 2024",
+            url: "https://www.multisportaustralia.com.au/races/2xu-triathlon-series-2425-race-1-elwood-2024/events/4/results/individuals/1459"
         },
         {
             title: "MelbUniSports Recognition",
             achievement: "Award of Excellence",
             details: "Outstanding achievement in innovation and inclusion",
             date: "December, 2024",
+            url: "https://sport.unimelb.edu.au/news/melbourne-plus-recognises-students-volunteering-in-sport"
         },
     ]
     return (
@@ -79,11 +84,20 @@ export default function Page() {
                         <div key={index} className="border-b border-muted pb-6 last:border-0">
                             <div className="grid gap-1">
                                 <p className="text-[#AFADB5]">{award.date}</p>
-                                <div className="flex items-baseline justify-between">
-                                    <h4>{award.title}</h4>
+                                <div className="sm:flex items-center justify-between">
+                                    <div className="mb-4 sm:mb-0">
+                                        <h4>{award.title}</h4>
+                                        <p className="text-lg font-semibold text-secondary">{award.achievement}</p>
+                                        <p className="text-[#AFADB5]">{award.details}</p>
+                                    </div>
+                                    <button
+                                        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#518581] px-6 py-3 font-bold text-white transition-colors hover:bg-[#416c68]"
+                                        onClick={() => window.open(award.url, '_blank')}
+                                    >
+                                        Read more
+                                        <ArrowRight className="h-4 w-4 flex-shrink-0" />
+                                    </button>
                                 </div>
-                                <p className="text-lg font-semibold text-secondary">{award.achievement}</p>
-                                <p className="text-[#AFADB5]">{award.details}</p>
                             </div>
                         </div>
                     ))}

@@ -32,7 +32,7 @@ export default function Membership() {
                                 Buy Now
                             </button>
                             <button
-                                className="w-full sm:w-auto text-primary underline px-5 py-4 text-center hover:text-foreground-accent"
+                                className="w-full sm:w-auto text-primary underline px-5 py-4 text-center transition-colors hover:text-foreground-accent"
                                 onClick={() => {
                                     window.open('https://buy.stripe.com/aEUbKUaNf45c5bOcMN', '_blank');
                                 }}

@@ -1,4 +1,4 @@
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaThreads, FaTwitter, FaWhatsapp, FaYoutube, FaWeixin } from "react-icons/fa6";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaThreads, FaTwitter, FaWhatsapp, FaYoutube, FaWeixin, FaStrava } from "react-icons/fa6";
 
 export const getPlatformIconByName = (platformName: string): JSX.Element | null => {
     switch (platformName) {
@@ -28,6 +28,9 @@ export const getPlatformIconByName = (platformName: string): JSX.Element | null 
         }
         case 'wechat': {
             return <FaWeixin size={24} className='min-w-fit' />
+        }
+        case 'strava': {
+            return <FaStrava size={24} className='min-w-fit' />
         }
         default:
             console.log('Platform name not supported, no icon is returned:', platformName);
