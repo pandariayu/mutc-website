@@ -49,12 +49,12 @@ export default function TrainingSessionCard({
 
   return (
     <div className="overflow-hidden border-0">
-      <div className="relative h-48 w-full overflow-hidden sm:h-64">
+      <div className="relative h-48 w-full overflow-hidden sm:h-64 group">
         <Image
           src={image}
           alt={title + `training session`}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
