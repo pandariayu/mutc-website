@@ -232,9 +232,6 @@ export default function Header() {
                         }}
                     />
                 </div>
-                I'll help you position the content at the bottom of the video by adjusting the flex and padding properties. Here's the modified code:
-
-                ```typescriptreact
                 <div className="absolute inset-0 flex flex-col justify-end text-left text-white px-6 lg:px-[calc(8.333333333333334%+1.5rem)] pb-12 sm:pb-20">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-[90%] mb-4 sm:mb-6 break-words">
                         Melbourne University Triathlon Club
