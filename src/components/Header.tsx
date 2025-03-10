@@ -233,7 +233,7 @@ export default function Header() {
                     />
                 </div>
                 <div className="absolute inset-0 flex flex-col items-start justify-end text-left text-white pb-40">
-                    <h1 className="max-w-[90%]d px-6 lg:pl-[calc(8.333333333333334%+1.5rem)] mb-8 break-words">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-[90%] px-6 lg:pl-[calc(8.333333333333334%+1.5rem)] mb-4 sm:mb-8 mt-20 sm:mt-0 break-words">
                         Melbourne University Triathlon Club
                     </h1>
                     <h3 className="max-w-[90%] text-2xl md:text-2xl lg:text-3xl px-6 lg:pl-[calc(8.333333333333334%+1.5rem)] opacity-80 break-words mb-8">
