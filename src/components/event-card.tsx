@@ -70,7 +70,7 @@ export function EventCard({ image, title, level, location, time, time2, weekday,
               <div className="absolute bottom-0 p-4 md:p-6 text-white">
                 <h4 className="font-semibold mb-1 md:mb-2">{title}</h4>
                 <p className="text-gray-200 mb-2 md:mb-4">{level}</p>
-                <button className="text-lg text-white hover:text-gray-200 underline">
+                <button className="text-white hover:text-[#416c68] underline">
                   Click to see more detail
                 </button>
               </div>
@@ -94,16 +94,16 @@ export function EventCard({ image, title, level, location, time, time2, weekday,
                 <div className="flex flex-col justify-center md:block space-y-4 md:space-y-6">
                   <div>
                     <h4 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Location</h4>
-                    <p className="text-sm md:text-base text-gray-200">{location}</p>
+                    <p className="text-sm max-w-[90%] md:text-base text-gray-200">{location}</p>
                   </div>
                   <div>
                     <h4 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Time</h4>
-                    <p className="text-sm md:text-base text-gray-200">{time}</p>
-                    <p className="text-sm md:text-base text-gray-200">{time2}</p>
+                    <p className="text-sm max-w-[90%] md:text-base text-gray-200">{time}</p>
+                    <p className="text-sm max-w-[90%] md:text-base text-gray-200">{time2}</p>
                   </div>
                   <div>
                     <h4 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Content</h4>
-                    <p className="text-sm md:text-base text-gray-200">{content}</p>
+                    <p className="text-sm max-w-[90%] md:text-base text-gray-200">{content}</p>
                   </div>
                 </div>
 

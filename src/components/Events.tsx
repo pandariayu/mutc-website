@@ -13,10 +13,10 @@ export default function TriathlonEvent() {
                         <br />
                         Mini-Duathlon race
                     </h2>
-                    <div className="text-left lg:text-right flex flex-col justify-center lg:pt-6">
-                        <h2 className="text-4xl lg:text-5xl font-bold">14/4/2025</h2>
-                        <p className="text-gray-400">Rawlinson Track</p>
-                    </div>
+                    {/*<div className="text-left lg:text-right flex flex-col justify-center lg:pt-6">*/}
+                    {/*    <h2 className="text-4xl lg:text-5xl font-bold">14/4/2025</h2>*/}
+                    {/*    <p className="text-gray-400">Rawlinson Track</p>*/}
+                    {/*</div>*/}
                 </div>
             </div>
 

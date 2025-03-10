@@ -26,7 +26,7 @@ export default function TeamSection() {
               <p className="text-primary text-lg mb-2">President</p>
               <h3 className="text-3xl font-semibold mb-4">Sihong Wu</h3>
               <p className="text-lg text-[#AFADB5] leading-relaxed">
-                Leo is an amateur triathlete and, professionally, a Marketer. In 2023, he founded the Melbourne
+                Sihong(Leo) is an amateur triathlete and, professionally, a Marketer. In 2023, he founded the Melbourne
                 University Triathlon Club (MUTC) with friends to create a supportive and professional environment for
                 triathlon training. When he first arrived in Melbourne, he had difficulty finding an affordable and
                 accessible triathlon community for young adults like him. Recognizing this gap,

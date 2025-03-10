@@ -5,11 +5,11 @@ import { Figtree } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AboutUs from "@/components/AboutUs";
-import OurTeam from "@/components/OurTeam"
-import TrainingSessions from "@/components/training-sessions"
+import OurTeam from "@/components/OurTeam";
 import Membership from "@/components/membership";
 import FAQ from "@/components/FAQ";
 import Events from "@/components/Events";
+import TrainingSessionsGrid from "@/components/training-sessions-grid";
 import { siteDetails } from '@/data/siteDetails';
 
 import "./globals.css";
@@ -49,7 +49,8 @@ export default function RootLayout({
         {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
         <Header />
         <AboutUs />
-        <TrainingSessions />
+        {/*<TrainingSessions />*/}
+        <TrainingSessionsGrid />
         <Events />
         <Membership />
         <OurTeam />
