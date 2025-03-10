@@ -47,7 +47,7 @@ export default function WhatsAppDialog({
                 transition={{ duration: 0.3 }}
             >
               <motion.div
-                  className="w-full max-w-md bg-white"
+                  className="w-[90%] max-w-md bg-white"
                   onClick={(e) => e.stopPropagation()}
                   variants={fadeIn}
                   initial="hidden"

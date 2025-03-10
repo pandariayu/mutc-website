@@ -232,11 +232,14 @@ export default function Header() {
                         }}
                     />
                 </div>
-                <div className="absolute inset-0 flex flex-col items-start justify-end text-left text-white pb-40">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-[90%] px-6 lg:pl-[calc(8.333333333333334%+1.5rem)] mb-8 sm:mb-8 mt-20 sm:mt-0 break-words">
+                I'll help you position the content at the bottom of the video by adjusting the flex and padding properties. Here's the modified code:
+
+                ```typescriptreact
+                <div className="absolute inset-0 flex flex-col justify-end text-left text-white px-6 lg:px-[calc(8.333333333333334%+1.5rem)] pb-12 sm:pb-20">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-[90%] mb-4 sm:mb-6 break-words">
                         Melbourne University Triathlon Club
                     </h1>
-                    <h3 className="max-w-[90%] text-2xl md:text-2xl lg:text-3xl px-6 lg:pl-[calc(8.333333333333334%+1.5rem)] opacity-80 break-words mb-8">
+                    <h3 className="max-w-[90%] text-xl sm:text-2xl lg:text-3xl opacity-80 break-words mb-6 sm:mb-8">
                         <div className="h-[2em]">
                             <motion.div
                                 key={currentIndex}
@@ -256,8 +259,7 @@ export default function Header() {
                         Embrace the brilliant lifestyle of Triathlon with the friendliest club at Melbourne Uni
                     </h3>
 
-
-                    <div className="px-6 lg:pl-[calc(8.333333333333334%+1.5rem)] flex gap-4">
+                    <div className="flex gap-4">
                         <button
                             className="border-2 border-white bg-transparent hover:bg-white/10 text-white font-bold py-3 px-6 transition-colors duration-200"
                             onClick={() => {
