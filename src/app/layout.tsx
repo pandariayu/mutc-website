@@ -10,6 +10,7 @@ import Membership from "@/components/membership";
 import FAQ from "@/components/FAQ";
 import Events from "@/components/Events";
 import TrainingSessionsGrid from "@/components/training-sessions-grid";
+import WhatsAppAutoDialog from "@/components/whatsapp-auto-dialog";
 import { siteDetails } from '@/data/siteDetails';
 
 import "./globals.css";
@@ -47,6 +48,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${figtree.className} antialiased`}>
         {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
+        <WhatsAppAutoDialog />
         <Header />
         <AboutUs />
         {/*<TrainingSessions />*/}

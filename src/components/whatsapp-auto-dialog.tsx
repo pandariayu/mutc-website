@@ -1,0 +1,27 @@
+"use client"
+
+import { useEffect, useState } from "react"
+import WhatsAppDialog from "./whatsapp-dialog"
+
+export default function WhatsAppAutoDialog() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+
+  useEffect(() => {
+    // Show dialog after a short delay when the page loads
+    const timer = setTimeout(() => {
+      setIsDialogOpen(true)
+    }, 1000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  return (
+    <WhatsAppDialog
+      isOpen={isDialogOpen}
+      onClose={() => setIsDialogOpen(false)}
+      groupDescription="Stay connected with fellow MUTC members. Get real-time updates about training sessions, last-minute changes, and connect with other members."
+      inviteLink="https://chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01"
+    />
+  )
+}
+
