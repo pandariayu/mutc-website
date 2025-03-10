@@ -91,7 +91,7 @@ export default function TrainingSessionCard({
 
       <div className="border-t bg-gray-50 px-5 py-3">
         <div className="flex w-full items-center justify-between">
-          <div className="flex items-center gap-2 text-gray-500">
+          <div className="flex items-center gap-2 text-primary">
             <p>{level}</p>
           </div>
         </div>
