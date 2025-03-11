@@ -7,7 +7,7 @@ export default function Membership() {
                 {/* Left Column - Pricing */}
                 <div className="flex flex-col justify-between h-full">
                     <div>
-                        <h5 className="mb-2 text-secondary">Membership</h5>
+                        <h5 className="lg:mb-2 mb-1 text-secondary">Membership</h5>
                         <h2 className="lg:text-5xl font-semibold mb-8 max-w-2xl">
                             2025 Semester 1
                             <br/>

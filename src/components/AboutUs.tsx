@@ -23,7 +23,7 @@ export default function Page() {
     return (
         <div className="min-h-screen bg-white text-black">
             <section id="about" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-10 sm:py-16">
-                <h5 className="mb-2 text-secondary">About us</h5>
+                <h5 className="lg:mb-2 mb-1 text-secondary">About us</h5>
                 <h2 className="lg:text-5xl font-semibold mb-8 max-w-2xl">Why MUTC?</h2>
                 <p className="text-[#AFADB5]">
                     Founded in 2023, the Melbourne University Triathlon Club (MUTC) is established based on the core values of affordability, accessibility, and inclusivity. We mix training from the professional coach with relaxing social sessions to help members become better athletes and create meaningful connections. Whether it be training space, coaching, or support from fellow student athletes, the club community aims to provide students with everything they need for triathlon. We host 4-5 training sessions weekly on campus, and students participate in sessions based on interest and availability. Student athletes in the community hang out for regular training; we race in local competitions and host on-campus races to bring dynamics to students experiences. Join us to begin your triathlon journey!
