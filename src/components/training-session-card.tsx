@@ -1,3 +1,6 @@
+// in training-session-card.tsx
+"use client";
+import { useEffect, useRef } from "react";
 import {Clock, MapPin, Users } from "lucide-react"
 import Image from "next/image"
 
@@ -15,6 +18,34 @@ interface TrainingSessionProps {
 export default function TrainingSessionCard({
   image, title, level, location, time, time2, weekday, content
 }: TrainingSessionProps) {
+
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const image = entry.target.querySelector('img');
+            if (image) {
+              if (entry.isIntersecting) {
+                image.style.transform = 'scale(1.05)';
+              } else {
+                image.style.transform = 'scale(1)';
+              }
+            }
+          });
+        },
+        {
+          threshold: 0.5,
+        }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const getNextWeekdayDate = (targetDay: number | [number, number]) => {
     const today = new Date();
@@ -47,40 +78,49 @@ export default function TrainingSessionCard({
     return `${day} ${month}`;
   };
 
+  const isToday = (date: Date): boolean => {
+    const today = new Date();
+    return date.getDate() === today.getDate() &&
+        date.getMonth() === today.getMonth() &&
+        date.getFullYear() === today.getFullYear();
+  };
+
   return (
-    <div className="overflow-hidden border-0">
-      <div className="relative h-48 w-full overflow-hidden sm:h-64 group">
+    <div className="overflow-hidden border-0 ref={cardRef}" ref={cardRef}>
+      <div className="relative h-48 w-full overflow-hidden sm:h-64">
         <Image
           src={image}
           alt={title + `training session`}
           fill
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-700"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
 
-        <div className="absolute bottom-4 right-4">
+        <div className="absolute bottom-4 right-4 w-auto p">
           <div className="bg-white/90 p-3 text-center">
-            <p className="text-3xl font-bold">{formatDate(getNextWeekdayDate(weekday)).split(" ")[0]}</p>
+            <h3 className="lg:text-4xl text-3xl font-bold">{formatDate(getNextWeekdayDate(weekday)).split(" ")[0]}</h3>
             <p className="text-sm font-medium">{formatDate(getNextWeekdayDate(weekday)).split(" ")[1]}</p>
           </div>
-          <div className="bg-primary p-1 text-center text-xs text-white">Upcoming Session</div>
+          <div className="bg-primary pl-3 pr-3 pt-2 pb-2 text-center lg:text-sm text-xs text-white">
+            {isToday(getNextWeekdayDate(weekday)) ? "Today" : "Upcoming"}
+          </div>
         </div>
       </div>
 
       <div className="bg-[#F9F9F9] grid gap-2 p-5">
         <div className="space-y-1">
-          <h4 className="mb-1 md:mb-2">{title}</h4>
+          <h3 className="lg:text-3xl mb-1 md:mb-2">{title}</h3>
         </div>
 
         <div className="flex items-start gap-2 text-gray-500">
           <Clock className="mt-1 h-4 w-4 flex-shrink-0" />
-          <span className="whitespace-pre-line">{time + " " + time2}</span>
+          <p className="whitespace-pre-line">{time + " " + time2}</p>
         </div>
 
         <div className="flex items-start gap-2 text-gray-500">
           <MapPin className="mt-1 h-4 w-4 flex-shrink-0" />
-          <span>Meet at {location}</span>
+          <p>Meet at {location}</p>
         </div>
 
         <div className="flex items-start gap-2 text-gray-500">

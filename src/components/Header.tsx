@@ -233,7 +233,7 @@ export default function Header() {
                     />
                 </div>
                 <div className="absolute inset-0 flex flex-col justify-end text-left text-white px-6 lg:px-[calc(8.333333333333334%+1.5rem)] pb-16 sm:pb-28 ">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-[90%] mb-4 sm:mb-6 break-words">
+                    <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl max-w-[90%] mb-4 sm:mb-6 break-words">
                         Melbourne University Triathlon Club
                     </h1>
                     <h3 className="max-w-[90%] text-xl sm:text-2xl lg:text-3xl opacity-80 break-words mb-6 sm:mb-8">
@@ -258,7 +258,7 @@ export default function Header() {
 
                     <div className="flex gap-4">
                         <button
-                            className="border-2 border-white bg-transparent hover:bg-white/10 text-white font-bold py-3 px-6 transition-colors duration-200"
+                            className="border-2 border-white bg-transparent hover:bg-white/10 text-white font-bold sm:px-10 sm:py-4 px-6 py-3 transition-colors duration-200"
                             onClick={() => {
                                 const element = document.getElementById('membership');
                                 if (element) {
@@ -270,7 +270,7 @@ export default function Header() {
                         </button>
 
                         <button
-                            className="border-2 border-white bg-transparent hover:bg-white/10 text-white font-bold py-3 px-6 transition-colors duration-200"
+                            className="border-2 border-white bg-transparent hover:bg-white/10 text-white font-bold sm:px-10 sm:py-4 px-6 py-3 transition-colors duration-200"
                             onClick={() => {
                                 const element = document.getElementById('footer');
                                 if (element) {

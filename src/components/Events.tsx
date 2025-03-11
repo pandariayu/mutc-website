@@ -8,15 +8,15 @@ export default function TriathlonEvent() {
             <div className="mb-8">
                 <h5 className="mb-2 text-secondary">Events</h5>
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-                    <h2 className="text-4xl lg:text-4xl lg:text-5xl font-semibold mb-8 max-w-2xl">
+                    <h2 className="lg:text-5xl font-semibold  max-w-2xl">
                         Our in-school
                         <br />
                         Mini-Duathlon race
                     </h2>
-                    <div className="text-left lg:text-right flex flex-col justify-center lg:pt-6">
-                        <h2 className="text-4xl lg:text-5xl font-bold">TBC</h2>
-                        <p className="text-gray-400">Rawlinson Track</p>
-                    </div>
+                    {/*<div className="text-left lg:text-right flex flex-col justify-center lg:pt-6">*/}
+                    {/*    <p className="text-4xl lg:text-5xl font-bold">TBC</p>*/}
+                    {/*    <p className="text-gray-400">Rawlinson Track</p>*/}
+                    {/*</div>*/}
                 </div>
             </div>
 
@@ -28,11 +28,11 @@ export default function TriathlonEvent() {
                         Track to complete!
                     </p>
 
-                    {/*<div className="space-y-2">*/}
-                    {/*    <p className="text-secondary">More detail TBC</p>*/}
-                    {/*</div>*/}
+                    <div className="space-y-2">
+                        <p className="text-secondary">More details are upcoming</p>
+                    </div>
 
-                    <button className="w-full bg-[#518581] px-10 py-4 text-center font-bold text-white transition-colors hover:bg-[#416c68] sm:w-auto"
+                    <button className="w-full bg-[#518581] sm:px-10 sm:py-4 px-6 py-3 text-center font-bold text-white transition-colors hover:bg-[#416c68] sm:w-auto"
                             onClick={() => {
                                 window.open('https://www.instagram.com/p/C_-EnLPTssl/?igsh=ODczdTJrNDlsY2tn', '_blank');
                             }}>See our previous events</button>
@@ -50,7 +50,7 @@ export default function TriathlonEvent() {
 
                 <div className="mt-6 lg:mt-0 lg:w-1/2 lg:flex lg:flex-col">
                     {/* Square image for desktop, full height */}
-                    <div className="relative h-[300px] lg:flex-grow w-full">
+                    <div className="relative h-[250px] sm:h-[300px] lg:flex-grow w-full">
                         <Image
                             src="/images/minitri1.png"
                             alt="Group photo of triathlon participants"
@@ -59,12 +59,12 @@ export default function TriathlonEvent() {
                         />
                     </div>
                     {/* Rectangle image for mobile, hidden on desktop */}
-                    <div className="relative h-[300px] w-full mt-4 md:hidden">
+                    <div className="relative h-[250px] sm:h-[300px] w-full mt-4 md:hidden">
                         <Image
                             src="/images/minitri2.png"
                             alt="Group photo of triathlon participants"
                             fill
-                            className="object-cover"
+                            className="w-full h-[250px] sm:h-[300px] object-cover"
                         />
                     </div>
                 </div>

@@ -11,6 +11,7 @@ import FAQ from "@/components/FAQ";
 import Events from "@/components/Events";
 import TrainingSessionsGrid from "@/components/training-sessions-grid";
 import WhatsAppAutoDialog from "@/components/whatsapp-auto-dialog";
+import WhatsApp from "@/components/WhatsApp";
 import { siteDetails } from '@/data/siteDetails';
 
 import "./globals.css";
@@ -60,6 +61,7 @@ export default function RootLayout({
         {/*  {children}*/}
         {/*</main>*/}
         <FAQ />
+        <WhatsApp />
         <Footer />
       </body>
     </html>

@@ -22,10 +22,10 @@ export default function Page() {
     ]
     return (
         <div className="min-h-screen bg-white text-black">
-            <section id="about" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
+            <section id="about" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-10 sm:py-16">
                 <h5 className="mb-2 text-secondary">About us</h5>
-                <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-8 max-w-2xl">Why MUTC?</h2>
-                <p className="max-w-4xl text-lg text-[#AFADB5]">
+                <h2 className="lg:text-5xl font-semibold mb-8 max-w-2xl">Why MUTC?</h2>
+                <p className="text-[#AFADB5]">
                     Founded in 2023, the Melbourne University Triathlon Club (MUTC) is established based on the core values of affordability, accessibility, and inclusivity. We mix training from the professional coach with relaxing social sessions to help members become better athletes and create meaningful connections. Whether it be training space, coaching, or support from fellow student athletes, the club community aims to provide students with everything they need for triathlon. We host 4-5 training sessions weekly on campus, and students participate in sessions based on interest and availability. Student athletes in the community hang out for regular training; we race in local competitions and host on-campus races to bring dynamics to students experiences. Join us to begin your triathlon journey!
                 </p>
             </section>
@@ -40,7 +40,7 @@ export default function Page() {
                         height={40}
                         className="mb-4 h-12 lg:h-14 w-12 lg:w-14"
                     />
-                    <h4 className="mb-4">Local & Campus Race</h4>
+                    <h3 className="lg:text-3xl mb-4">Local & Campus Race</h3>
                     <p className="text-[#AFADB5]">
                         MUTC is known for hosting races on campus.There are also numerous local races for you to choose from. Time to add some medals to your collection.
                     </p>
@@ -54,7 +54,7 @@ export default function Page() {
                         height={40}
                         className="mb-4 h-12 lg:h-14 w-12 lg:w-14"
                     />
-                    <h4 className="mb-4">Inclusive community</h4>
+                    <h3 className="lg:text-3xl mb-4">Inclusive community</h3>
                     <p className="text-[#AFADB5]">
                         Open to all students with zero barriers – enjoy peer support, cultural diversity and mentorship in a judgment-free environment.
                     </p>
@@ -68,30 +68,30 @@ export default function Page() {
                         height={40}
                         className="mb-4 h-12 lg:h-14 w-12 lg:w-14"
                     />
-                    <h4 className="mb-4">Professional Coaching</h4>
+                    <h3 className="lg:text-3xl mb-4">Professional Coaching</h3>
                     <p className="text-[#AFADB5]">
                         Chris from the Elite TriClub Momentum leads our swim and run. Student athletes will also quide you through the journey
                     </p>
                 </div>
             </section>
-            <div className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
+            <div className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-8 sm:py-16">
                 <div className="flex flex-col items-start gap-4 mb-8">
-                    <h2 className="text-4xl md:text-5xl tracking-tighter">Our Achievements</h2>
+                    <h2 className="lg:text-5xl tracking-tighter">Our Achievements</h2>
                 </div>
 
-                <div className="space-y-8">
+                <div className="space-y-6">
                     {awards.map((award, index) => (
                         <div key={index} className="border-b border-muted pb-6 last:border-0">
                             <div className="grid gap-1">
                                 <p className="text-[#AFADB5]">{award.date}</p>
                                 <div className="sm:flex items-center justify-between">
-                                    <div className="mb-4 sm:mb-0">
-                                        <h4>{award.title}</h4>
-                                        <p className="text-lg font-semibold text-secondary">{award.achievement}</p>
+                                    <div className="mb-2 sm:mb-0">
+                                        <h3 className="lg:text-3xl">{award.title}</h3>
+                                        <p className="mb-4 text-lg font-semibold text-secondary">{award.achievement}</p>
                                         <p className="text-[#AFADB5]">{award.details}</p>
                                     </div>
                                     <button
-                                        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#518581] px-6 py-3 font-bold text-white transition-colors hover:bg-[#416c68]"
+                                        className="w-full sm:w-auto flex items-center lg:justify-center gap-2 bg-transparent sm:px-10 sm:py-4 font-bold text-[#518581] transition-colors underline hover:text-[#416c68]"
                                         onClick={() => window.open(award.url, '_blank')}
                                     >
                                         Read more

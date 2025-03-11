@@ -47,12 +47,12 @@ export default function TrainingSessionsGrid() {
   ]
 
   return (
-    <section className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
+    <section className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] sm:py-16">
 
       <div className="py-8 flex flex-col lg:flex-row lg:items-start lg:justify-between">
         <div>
           <h5 className="mb-2 text-secondary">Training</h5>
-          <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold mb-8 max-w-2xl">
+          <h2 className="lg:text-5xl font-semibold mb-8">
             Our training sessions
           </h2>
         </div>
