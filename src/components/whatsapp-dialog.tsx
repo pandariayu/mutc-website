@@ -55,7 +55,7 @@ export default function WhatsAppDialog({
                   exit="hidden"
               >
                 <div className="flex items-center justify-between border-b p-4">
-                  <h2 className="text-xl font-bold">Join Our WhatsApp Group</h2>
+                  <h4 className="text-xl lg:text-2xl font-bold">Join Our WhatsApp Group</h4>
                   <button onClick={onClose} className="flex h-8 w-8 items-center justify-center hover:bg-gray-100">
                     <X className="h-5 w-5" />
                     <span className="sr-only">Close</span>

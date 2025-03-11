@@ -6,7 +6,7 @@ import { faqs } from "@/data/faq";
 
 const FAQ: React.FC = () => {
     return (
-        <section id="faq" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] sm:py-16">
+        <section id="faq" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] sm:py-16 pb-10">
             <div className="flex flex-col lg:flex-row gap-10">
                 <div className="lg:w-1/4">
                     <h2 className="lg:text-5xl font-semibold mb-8 max-w-2xl">Frequently Asked Questions</h2>
