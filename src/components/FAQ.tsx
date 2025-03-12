@@ -9,6 +9,7 @@ const FAQ: React.FC = () => {
         <section id="faq" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] sm:py-16 pb-10">
             <div className="flex flex-col lg:flex-row gap-10">
                 <div className="lg:w-1/4">
+                    <h5 className="lg:mb-2 mb-1 text-secondary">About us</h5>
                     <h2 className="lg:text-5xl font-semibold mb-8 max-w-2xl">Frequently Asked Questions</h2>
                     <p className="lg:mt-10 text-[#AFADB5] lg:text-left">
                         Ask us anything!

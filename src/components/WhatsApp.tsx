@@ -10,7 +10,7 @@ export default function WhatsApp() {
                         Interested in joining our team?
                     </h5>
                     <button
-                        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#518581] lg:text-2xl text-white underline"
+                        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#518581] lg:text-xl text-white underline"
                         onClick={() => window.open("https://qualtricsxmj2qmmp8vh.qualtrics.com/jfe/form/SV_02EdDmjnrbqSqpg", '_blank')}
                     >
                         Apply Now

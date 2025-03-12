@@ -69,7 +69,7 @@ export default function WhatsAppDialog({
                         className="w-full bg-[#4d8076] p-3 text-center font-medium text-white hover:bg-[#3d665e]"
                         onClick={() => window.open(inviteLink, "_blank")}
                     >
-                      Join via Link
+                      Join Now
                     </button>
                     <button
                         className="w-full border border-[#4d8076] p-3 text-center font-medium text-[#4d8076] hover:bg-gray-50"

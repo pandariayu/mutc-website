@@ -158,7 +158,7 @@ export default function Header() {
                                         Our team
                                     </MobileNavLink>
                                     <MobileNavLink href="#faq" className="block text-gray-800 hover:text-gray-900">
-                                        FAQ
+                                        FAQs
                                     </MobileNavLink>
                                 </div>
                             </div>
@@ -205,7 +205,7 @@ export default function Header() {
                                     className="text-gray-800 hover:text-gray-900"
                                     onClick={(e) => handleScroll(e, 'faq')}
                                 >
-                                    FAQ
+                                    FAQs
                                 </a>
                             </div>
                         </div>
