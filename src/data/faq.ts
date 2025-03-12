@@ -6,7 +6,11 @@ export const faqs: IFAQ[] = [
         answer: 'MUTC is all about growth and community. Our program welcomes all levels, turning student athletes into three-discipline triathletes. Members train, hang out, and grow together. Your passion is key!',
     },
     {
-        question: `I'm not a unimelb student. Am I able to sign up for MUTC membership?`,
+        question: `I'm not a Unimelb student. Am I able to sign up for MUTC membership?`,
         answer: 'Definitely! We are welcoming all students from different universities and we are excited to have you join us! Please purchase via the link "Non-unimelb student" near the purchase button',
+    },
+    {
+        question: `I don't have a bike, can I still join?`,
+        answer: 'Of course! We conduct cycling sessions at the indoor studio - you dont need a bike! ',
     }
 ];

@@ -29,7 +29,7 @@ export default function TriathlonEvent() {
                     </p>
 
                     <div className="space-y-2">
-                        <p className="text-secondary">More details are upcoming, stay tuned!</p>
+                        <p className="font-bold text-secondary">More details are upcoming, stay tuned!</p>
                     </div>
 
                     <button className="w-full bg-[#518581] sm:px-10 sm:py-4 px-6 py-3 text-center font-bold text-white transition-colors hover:bg-[#416c68] sm:w-auto"

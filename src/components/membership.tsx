@@ -18,7 +18,7 @@ export default function Membership() {
                     <div className="space-y-4">
                         <div className="space-y-2">
                             <div className="font-bold">
-                                <span className="text-gray-400">Unimelb student price</span>
+                                <p className="text-gray-400">Unimelb student price</p>
                                 <p className="text-4xl lg:text-5xl font-bold">$40</p>
                             </div>
                         </div>

@@ -61,7 +61,7 @@ export default function TrainingSessionsGrid() {
           <button className="mt-2 text-primary underline text-center transition-colors hover:text-foreground-accent"
                   onClick={() => {
                     window.open('https://chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01', '_blank');
-                  }}>Join our Whatsapp group</button>
+                  }}>Join our WhatsApp group</button>
         </div>
       </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">

@@ -91,7 +91,7 @@ export default function Page() {
                                         <p className="text-[#AFADB5]">{award.details}</p>
                                     </div>
                                     <button
-                                        className="w-full sm:w-auto flex items-center lg:justify-center gap-2 bg-transparent sm:px-10 sm:py-4 font-bold text-[#518581] transition-colors underline hover:text-[#416c68]"
+                                        className="w-full sm:w-auto flex items-center lg:justify-center gap-2 bg-transparent sm:px-10 sm:py-4 lg:font-bold text-[#518581] transition-colors underline hover:text-[#416c68]"
                                         onClick={() => window.open(award.url, '_blank')}
                                     >
                                         Read more
