@@ -47,7 +47,7 @@ export default function TrainingSessionsGrid() {
   ]
 
   return (
-    <section className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] sm:py-10">
+    <section id="training" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] sm:py-10">
 
       <div className="py-8 flex flex-col lg:flex-row lg:items-start lg:justify-between">
         <div>
