@@ -23,7 +23,7 @@ export default function TeamSection() {
               />
             </div>
             <div className="w-full lg:w-3/4 flex flex-col justify-center">
-              <p className="text-primary text-lg mb-2">President</p>
+              <p className="text-primary text-lg mb-2">Founder & President</p>
               <h3 className="lg:text-3xl font-semibold mb-4">Sihong Wu</h3>
               <p className="text-lg text-[#AFADB5] leading-relaxed">
                 Sihong(Leo) is an amateur triathlete and, professionally, a Marketer. In 2023, he founded the Melbourne
