@@ -52,7 +52,7 @@ export default function Membership() {
                                 </p>
                             </div>
                         </div>
-                        <div className="flex flex-col sm:flex-row gap-2">
+                        <div className="flex flex-col sm:flex-row gap-2" hidden={isPurchased}>
                             <button
                                 className="w-full sm:w-auto bg-[#518581] sm:px-10 sm:py-4 px-6 py-3 text-center font-bold text-white transition-colors hover:bg-[#416c68]"
                                 hidden={isPurchased}
