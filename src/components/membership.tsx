@@ -1,5 +1,6 @@
 ﻿"use client";
 import { useState, useEffect } from "react"
+import confetti from 'canvas-confetti'
 
 export default function Membership() {
     const [isPurchased, setIsPurchased] = useState(false)
@@ -13,6 +14,24 @@ export default function Membership() {
         if (paymentStatus === 'success') {
             setIsPurchased(true)
             handleScroll('membership')
+            const colors = ['#518581', '#416c68', '#ffffff']
+
+            ;(function frame() {
+                confetti({
+                    particleCount: 50,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: colors
+                })
+                confetti({
+                    particleCount: 50,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: colors
+                })
+            })()
         }
     }, [])
 
