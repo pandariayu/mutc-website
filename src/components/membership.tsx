@@ -1,6 +1,28 @@
 ﻿"use client";
+import { useState, useEffect } from "react"
 
 export default function Membership() {
+    const [isPurchased, setIsPurchased] = useState(false)
+
+    // Check if membership was purchased (simulating checking from localStorage or cookies)
+    useEffect(() => {
+        // Check URL parameters for payment success
+        const urlParams = new URLSearchParams(window.location.search)
+        const paymentStatus = urlParams.get('payment_status')
+
+        if (paymentStatus === 'success') {
+            setIsPurchased(true)
+            handleScroll('membership')
+        }
+    }, [])
+
+    const handleScroll = (targetId: string) => {
+        const element = document.getElementById(targetId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <section id="membership" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] sm:py-16">
             <div className="grid gap-12 lg:grid-cols-2">
@@ -16,15 +38,24 @@ export default function Membership() {
                     </div>
 
                     <div className="space-y-4">
-                        <div className="space-y-2">
+                        <div className="space-y-2" hidden={isPurchased}>
                             <div className="font-bold">
                                 <p className="text-gray-400">Unimelb student price</p>
                                 <p className="text-4xl lg:text-5xl font-bold">$40</p>
                             </div>
                         </div>
+                        <div className="space-y-4" hidden={!isPurchased}>
+                            <div className="bg-[#F9F9F9] md:bg-white flex flex-col gap-2 md:p-0 p-4">
+                                <p className="text-2xl lg:text-3xl font-bold text-primary">Thanks for becoming our member!</p>
+                                <p className="text-gray-400">
+                                    We appreciate your support and commitment. We will make the club better with your contribution.
+                                </p>
+                            </div>
+                        </div>
                         <div className="flex flex-col sm:flex-row gap-2">
                             <button
                                 className="w-full sm:w-auto bg-[#518581] sm:px-10 sm:py-4 px-6 py-3 text-center font-bold text-white transition-colors hover:bg-[#416c68]"
+                                hidden={isPurchased}
                                 onClick={() => {
                                     window.open('https://buy.stripe.com/7sI8yI2gJfNU47K7ss', '_blank');
                                 }}
@@ -33,6 +64,7 @@ export default function Membership() {
                             </button>
                             <button
                                 className="w-full sm:w-auto text-primary underline px-5 py-4 text-center transition-colors hover:text-foreground-accent"
+                                hidden={isPurchased}
                                 onClick={() => {
                                     window.open('https://buy.stripe.com/aEUbKUaNf45c5bOcMN', '_blank');
                                 }}
