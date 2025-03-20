@@ -52,7 +52,6 @@ export default function RootLayout({
         <WhatsAppAutoDialog />
         <Header />
         <AboutUs />
-        {/*<TrainingSessions />*/}
         <TrainingSessionsGrid />
         <Events />
         <Membership />

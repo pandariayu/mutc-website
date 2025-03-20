@@ -4,7 +4,7 @@ import TrainingSessionCard from "./training-session-card"
 export default function TrainingSessionsGrid() {
   const sessions = [
     {
-      image: "/images/Swim.png",
+      image: "/images/Swim.jpg",
       title: "Monday/Thursday Swim",
       level: "All level",
       location: "Beaureparies Center Swimming pool",
