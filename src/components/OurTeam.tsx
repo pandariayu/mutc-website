@@ -51,12 +51,7 @@ export default function TeamSection() {
               <p className="text-primary text-lg mb-2">Training coordinator</p>
               <h3 className="lg:text-3xl font-semibold mb-4">Chris White</h3>
               <p className="text-[#AFADB5] leading-relaxed">
-                Chris, a triathlon coach and founder of GoRun Australia, merges sports and health advocacy in his work,
-                coaching athletes from 5km beginners to 100km ultramarathoners and Ironman competitors. Over a decade,
-                he raised $20,000+ for chronic disease charities through endurance challenges like his 17-marathon
-                initiative. Passionate about mentoring motivated, humorous athletes, he also holds senior health
-                management roles and board positions in Australia/Europe. A Mizuno ambassador and Runners World
-                columnist, Chris combines elite coaching with public health leadership.
+                Chris, a triathlon coach and co-founder of Momentum Triathlon Academy, merges sports and health advocacy in his work.  He coaches athletes of all ages, with his adult athletes taking on challenges such as marathons, ultramarathons and Ironman triathlons.  His work with young athletes focuses on getting them active and keeping them active during adolescence, as well as creating a pathway to performance triathlon.  He has raised $20,000+ for public health charities through endurance challenges like his 17-marathon initiative. Chris is passionate about partnerships that can help his athletes excel and has previously held Senior Management roles and board positions in health services in Australia, UK and Belgium. Chris combines his coaching with public health leadership and his own love for being active.
               </p>
             </div>
           </div>
