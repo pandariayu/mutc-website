@@ -4,14 +4,7 @@ import { Figtree } from "next/font/google";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AboutUs from "@/components/AboutUs";
-import OurTeam from "@/components/OurTeam";
-import Membership from "@/components/membership";
-import FAQ from "@/components/FAQ";
-import Events from "@/components/Events";
-import TrainingSessionsGrid from "@/components/training-sessions-grid";
 import WhatsAppAutoDialog from "@/components/whatsapp-auto-dialog";
-import WhatsApp from "@/components/WhatsApp";
 import { siteDetails } from '@/data/siteDetails';
 
 import "./globals.css";
@@ -42,27 +35,19 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-}: Readonly<{
+                                     children
+                                   }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+      <html lang="en">
       <body className={`${figtree.className} antialiased`}>
-        {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
-        <WhatsAppAutoDialog />
-        <Header />
-        <AboutUs />
-        <TrainingSessionsGrid />
-        <Events />
-        <Membership />
-        <OurTeam />
-        {/*<main>*/}
-        {/*  {children}*/}
-        {/*</main>*/}
-        <FAQ />
-        <WhatsApp />
-        <Footer />
+      {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
+      <WhatsAppAutoDialog />
+      <Header />
+      {children} {/* This is required for routing to work */}
+      <Footer />
       </body>
-    </html>
+      </html>
   );
 }

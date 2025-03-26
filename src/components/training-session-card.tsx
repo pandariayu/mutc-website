@@ -134,6 +134,12 @@ export default function TrainingSessionCard({
           <div className="flex items-center gap-2 text-primary">
             <p>{level}</p>
           </div>
+          {/*<Link*/}
+          {/*    href={"/events/interval-run"}*/}
+          {/*    className="bg-[#4d8076] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d665e]"*/}
+          {/*>*/}
+          {/*  View details*/}
+          {/*</Link>*/}
         </div>
       </div>
     </div>

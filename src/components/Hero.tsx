@@ -1,46 +1,103 @@
-import React from 'react';
-import Image from 'next/image';
+"use client";
 
-import AppStoreButton from './AppStoreButton';
-import PlayStoreButton from './PlayStoreButton';
+import React, {useEffect, useState} from 'react';
+import {motion} from "framer-motion";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faBiking, faPersonRunning, faPersonSwimming} from "@fortawesome/free-solid-svg-icons";
 
-import { heroDetails } from '@/data/hero';
+export default function Hero() {
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-const Hero: React.FC = () => {
+    const activities = [
+        { text: "Swim", icon: faPersonSwimming },
+        { text: "Bike", icon: faBiking },
+        { text: "Run", icon: faPersonRunning }
+    ];
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % activities.length);
+        }, 2000);
+
+        return () => clearInterval(timer);
+
+    }, []);
+
     return (
         <section
             id="hero"
-            className="relative flex items-center justify-center pb-0 pt-32 md:pt-40 px-5"
+            className="relative w-full"
         >
-            <div className="absolute left-0 top-0 bottom-0 -z-10 w-full">
-                <div className="absolute inset-0 h-full w-full bg-hero-background bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]">
+            {/* Hero Section */}
+            <div className="relative h-screen min-h-[500px] w-full">
+                <div className="absolute inset-0">
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover"
+                    >
+                        <source src="/video/intro.mp4" type="video/mp4" />
+                    </video>
+                    <div
+                        className="absolute inset-0"
+                        style={{
+                            background: 'linear-gradient(0deg, #151411 -21.38%, rgba(21, 20, 17, 0.00) 66.65%)'
+                        }}
+                    />
                 </div>
-            </div>
+                <div className="absolute inset-0 flex flex-col justify-end text-left text-white px-6 lg:px-[calc(8.333333333333334%+1.5rem)] pb-16 sm:pb-28 ">
+                    <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl max-w-[90%] mb-4 sm:mb-6 break-words">
+                        Melbourne University Triathlon Club
+                    </h1>
+                    <h3 className="max-w-[90%] text-xl sm:text-2xl lg:text-3xl opacity-80 break-words mb-6 sm:mb-8">
+                        <div className="h-[2em]">
+                            <motion.div
+                                key={currentIndex}
+                                initial={{ x: 50, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                exit={{ x: -50, opacity: 0 }}
+                                transition={{ duration: 0.5 }}
+                                className="flex items-center gap-2"
+                            >
+                                {activities[currentIndex].text}{" "}
+                                <FontAwesomeIcon
+                                    icon={activities[currentIndex].icon}
+                                    className="text-xl"
+                                />
+                            </motion.div>
+                        </div>
+                        Embrace the brilliant lifestyle of Triathlon with the friendliest club at Melbourne Uni
+                    </h3>
 
-            <div className="absolute left-0 right-0 bottom-0 backdrop-blur-[2px] h-40 bg-gradient-to-b from-transparent via-[rgba(233,238,255,0.5)] to-[rgba(202,208,230,0.5)]">
-            </div>
+                    <div className="flex gap-4">
+                        <button
+                            className="border-2 border-white bg-transparent hover:bg-white/10 text-white font-bold sm:px-10 sm:py-4 px-6 py-3 transition-colors duration-200"
+                            onClick={() => {
+                                const element = document.getElementById('membership');
+                                if (element) {
+                                    element.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
+                        >
+                            Join MUTC
+                        </button>
 
-            <div className="text-center">
-                <h1 className="text-4xl md:text-6xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl mx-auto">{heroDetails.heading}</h1>
-                <p className="mt-4 text-foreground max-w-lg mx-auto">{heroDetails.subheading}</p>
-                <div className="mt-6 flex flex-col sm:flex-row items-center sm:gap-4 w-fit mx-auto">
-                    <AppStoreButton dark />
-                    <PlayStoreButton dark />
+                        <button
+                            className="border-2 border-white bg-transparent hover:bg-white/10 text-white font-bold sm:px-10 sm:py-4 px-6 py-3 transition-colors duration-200"
+                            onClick={() => {
+                                const element = document.getElementById('footer');
+                                if (element) {
+                                    element.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
+                        >
+                            Contact Us
+                        </button>
+                    </div>
                 </div>
-                <Image
-                    src={heroDetails.centerImageSrc}
-                    width={384}
-                    height={340}
-                    quality={100}
-                    sizes="(max-width: 768px) 100vw, 384px"
-                    priority={true}
-                    unoptimized={true}
-                    alt="app mockup"
-                    className='relative mt-12 md:mt-16 mx-auto z-10'
-                />
             </div>
         </section>
     );
 };
-
-export default Hero;
