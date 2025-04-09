@@ -4,7 +4,7 @@ import { Figtree } from "next/font/google";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import WhatsAppAutoDialog from "@/components/whatsapp-auto-dialog";
+import AutoPopupDialog from "@/components/auto-popup-dialog";
 import { siteDetails } from '@/data/siteDetails';
 
 import "./globals.css";
@@ -43,7 +43,7 @@ export default function RootLayout({
       <html lang="en">
       <body className={`${figtree.className} antialiased`}>
       {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
-      <WhatsAppAutoDialog />
+      <AutoPopupDialog />
       <Header />
       {children} {/* This is required for routing to work */}
       <Footer />

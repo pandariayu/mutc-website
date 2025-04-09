@@ -7,7 +7,8 @@ interface WhatsAppDialogProps {
   isOpen: boolean
   onClose: () => void
   groupDescription: string
-  inviteLink: string
+  link: string
+  confirmText: string
 }
 
 const fadeIn = {
@@ -29,11 +30,12 @@ const fadeIn = {
   }
 }
 
-export default function WhatsAppDialog({
+export default function PopupDialog({
                                          isOpen,
                                          onClose,
                                          groupDescription,
-                                         inviteLink,
+                                         link,
+                                            confirmText
                                        }: WhatsAppDialogProps) {
   return (
       <AnimatePresence mode="wait">
@@ -67,9 +69,9 @@ export default function WhatsAppDialog({
                   <div className="flex flex-col gap-3">
                     <button
                         className="w-full bg-[#4d8076] p-3 text-center font-medium text-white hover:bg-[#3d665e]"
-                        onClick={() => window.open(inviteLink, "_blank")}
+                        onClick={() => window.open(link, "_blank")}
                     >
-                      Join Now
+                        {confirmText}
                     </button>
                     <button
                         className="w-full border border-[#4d8076] p-3 text-center font-medium text-[#4d8076] hover:bg-gray-50"

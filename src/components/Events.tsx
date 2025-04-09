@@ -1,5 +1,6 @@
 ﻿"use client";
 import Image from "next/image"
+import Link from "next/link";
 
 export default function TriathlonEvent() {
     return (
@@ -11,31 +12,29 @@ export default function TriathlonEvent() {
                     <h2 className="lg:text-5xl font-semibold  max-w-2xl">
                         Our in-school
                         <br />
-                        Mini-Duathlon race
+                        Mini-Triathlon race
                     </h2>
-                    {/*<div className="text-left lg:text-right flex flex-col justify-center lg:pt-6">*/}
-                    {/*    <p className="text-4xl lg:text-5xl font-bold">TBC</p>*/}
-                    {/*    <p className="text-gray-400">Rawlinson Track</p>*/}
-                    {/*</div>*/}
+                    <div className="text-left lg:text-right flex flex-col justify-center lg:pt-6">
+                        <p className="text-4xl lg:text-5xl font-bold">Date TBC</p>
+                        <p className="text-gray-400">Rawlinson Track</p>
+                    </div>
                 </div>
             </div>
 
             {/* Content Section */}
             <div className="lg:flex lg:gap-6">
-                <div className="lg:w-1/2 space-y-6">
+                <div className="lg:w-1/2 space-y-6 flex flex-col gap-2">
                     <p className="text-gray-400 text-lg">
                         Participants will swim in the pool, transition to the stationary bike outdoors, and run on the Rawlinson
                         Track to complete!
                     </p>
 
                     <div className="space-y-2">
-                        <p className="text-secondary">More details are upcoming, stay tuned!</p>
+                        <p className="text-secondary">25S1 race registration now open, Secure your spot NOW!</p>
                     </div>
 
-                    <button className="w-full bg-[#518581] sm:px-10 sm:py-4 px-6 py-3 text-center font-bold text-white transition-colors hover:bg-[#416c68] sm:w-auto"
-                            onClick={() => {
-                                window.open('https://www.instagram.com/p/C_-EnLPTssl/?igsh=ODczdTJrNDlsY2tn', '_blank');
-                            }}>See our previous events</button>
+                    <Link className="w-full sm:w-auto bg-[#518581] sm:px-10 sm:py-4 px-6 py-3 text-center font-bold text-white transition-colors hover:bg-[#416c68]"
+                            href="/events/mini-triathlon">View detail</Link>
 
                     {/* Rectangle image for desktop, hidden on mobile */}
                     <div className="hidden md:block relative h-[200px] w-full mt-6">

@@ -4,6 +4,35 @@ import { ArrowLeft, Calendar, Clock, MapPin, Timer, Ruler, Hourglass } from "luc
 import Image from "next/image"
 import Link from "next/link"
 
+function generateICSFile() {
+  const event = {
+    start: '20240312T193000',
+    end: '20240312T201500',
+    title: 'Interval Training',
+    description: 'Intensive interval training session: 800m x 5 sets. Bring running shoes, water bottle, and comfortable attire.',
+    location: 'Rawlinson Track',
+  }
+
+  const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+DTSTART:${event.start}
+DTEND:${event.end}
+SUMMARY:${event.title}
+DESCRIPTION:${event.description}
+LOCATION:${event.location}
+END:VEVENT
+END:VCALENDAR`
+
+  const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' })
+  const link = document.createElement('a')
+  link.href = window.URL.createObjectURL(blob)
+  link.download = 'interval_training.ics'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
+
 export default function EventDetailPage() {
   return (
     <main className="min-h-screen bg-white">
@@ -162,7 +191,7 @@ export default function EventDetailPage() {
               </div>
 
               <div className="mt-6 flex flex-col gap-3">
-                <button className="w-full bg-[#4d8076] p-3 text-center font-medium text-white hover:bg-[#3d665e]">
+                <button onClick={generateICSFile} className="w-full bg-[#4d8076] p-3 text-center font-medium text-white hover:bg-[#3d665e]">
                   Add to Calendar
                 </button>
               </div>

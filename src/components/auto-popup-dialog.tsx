@@ -1,15 +1,16 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import WhatsAppDialog from "./whatsapp-dialog"
+import PopupDialog from "./popup-dialog"
 
-export default function WhatsAppAutoDialog() {
+export default function AutoPopupDialog() {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   useEffect(() => {
-    const hasSeenDialog = localStorage.getItem('hasSeenWhatsAppDialog')
+    const hasSeenWhatsAppDialog = localStorage.getItem('hasSeenWhatsAppDialog')
+    // const hasSeenEventDialog = localStorage.getItem('hasSeenEventDialog')
 
-    if (!hasSeenDialog) {
+    if (!hasSeenWhatsAppDialog) {
       const timer = setTimeout(() => {
         setIsDialogOpen(true)
         localStorage.setItem('hasSeenWhatsAppDialog', 'true')
@@ -17,14 +18,17 @@ export default function WhatsAppAutoDialog() {
 
       return () => clearTimeout(timer)
     }
+
   }, [])
 
+
   return (
-      <WhatsAppDialog
+      <PopupDialog
           isOpen={isDialogOpen}
           onClose={() => setIsDialogOpen(false)}
           groupDescription="Stay connected with fellow MUTC members. Get real-time updates about training sessions, last-minute changes, and connect with other members."
-          inviteLink="https://chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01"
+          link="https://chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01"
+          confirmText="Join Now"
       />
   )
 }
