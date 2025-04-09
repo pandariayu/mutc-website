@@ -54,12 +54,14 @@ export default function TriathlonEventDetailPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
 
-                <div className="absolute bottom-0 left-0 w-full p-6 sm:p-8 px-6 lg:px-[calc(8.333333333333334%+1.5rem)]">
-                    <div className="flex items-center gap-2 text-white">
-                        <Calendar className="h-5 w-5" />
-                        <span>Date TBC</span>
+                <div className="absolute inset-0 flex flex-col justify-end items-center">
+                    <div className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] pb-6 sm:pb-8">
+                        <div className="flex  gap-2 text-white">
+                            <Calendar className="h-5 w-5" />
+                            <span>Date TBC</span>
+                        </div>
+                        <h1 className="mt-2 font-bold text-white">Mini-triathlon Race</h1>
                     </div>
-                    <h1 className="mt-2 text-2xl font-bold text-white sm:text-2xl md:text-3xl ">Mini-triathlon Race</h1>
                 </div>
             </div>
 

@@ -5,7 +5,7 @@ export default function TeamSection() {
       <section id="team" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
         {/* Header */}
         <h5 className="lg:mb-2 mb-1 text-secondary">Our Team</h5>
-        <h2 className="lg:text-5xl font-semibold mb-8 max-w-2xl">
+        <h2 className="lg:text-4xl font-semibold mb-8 max-w-2xl">
           Meet our strong team
         </h2>
 
@@ -24,7 +24,7 @@ export default function TeamSection() {
             </div>
             <div className="w-full lg:w-3/4 flex flex-col justify-center">
               <p className="text-primary text-lg mb-2">Founder & President</p>
-              <h3 className="lg:text-3xl font-semibold mb-4">Sihong Wu</h3>
+              <h3 className="lg:text-2xl font-semibold mb-4">Sihong Wu</h3>
               <p className="text-lg text-[#AFADB5] leading-relaxed">
                 Sihong(Leo) is an amateur triathlete and, professionally, a Marketer. In 2023, he founded the Melbourne
                 University Triathlon Club (MUTC) with friends to create a supportive and professional environment for
@@ -49,7 +49,7 @@ export default function TeamSection() {
             </div>
             <div className="w-full lg:w-3/4 flex flex-col justify-center">
               <p className="text-primary text-lg mb-2">Head Coach</p>
-              <h3 className="lg:text-3xl font-semibold mb-4">Chris White</h3>
+              <h3 className="lg:text-2xl font-semibold mb-4">Chris White</h3>
               <p className="text-[#AFADB5] leading-relaxed">
                 Chris, a triathlon coach and co-founder of Momentum Triathlon Academy, merges sports and health advocacy in his work.  He coaches athletes of all ages, with his adult athletes taking on challenges such as marathons, ultramarathons and Ironman triathlons.  His work with young athletes focuses on getting them active and keeping them active during adolescence, as well as creating a pathway to performance triathlon.  He has raised $20,000+ for public health charities through endurance challenges like his 17-marathon initiative. Chris is passionate about partnerships that can help his athletes excel and has previously held Senior Management roles and board positions in health services in Australia, UK and Belgium. Chris combines his coaching with public health leadership and his own love for being active.
               </p>

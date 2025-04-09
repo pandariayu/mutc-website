@@ -9,13 +9,13 @@ export default function TriathlonEvent() {
             <div className="mb-8">
                 <h5 className="lg:mb-2 mb-1 text-secondary">Events</h5>
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-                    <h2 className="lg:text-5xl font-semibold  max-w-2xl">
+                    <h2 className="lg:text-4xl font-semibold  max-w-2xl">
                         Our in-school
                         <br />
                         Mini-Triathlon race
                     </h2>
                     <div className="text-left lg:text-right flex flex-col justify-center lg:pt-6">
-                        <p className="text-4xl lg:text-5xl font-bold">Date TBC</p>
+                        <p className="text-3xl lg:text-4xl font-bold">Date TBC</p>
                         <p className="text-gray-400">Rawlinson Track</p>
                     </div>
                 </div>

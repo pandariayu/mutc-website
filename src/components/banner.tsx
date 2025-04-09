@@ -1,7 +1,7 @@
 ﻿"use client";
 import {ArrowRight} from "lucide-react"
 
-export default function WhatsApp() {
+export default function Banner() {
     return (
         <section id="CTA" className="relative w-full">
             <div className="px-6 lg:px-[calc(8.333333333333334%+1.5rem)] bg-primary py-10">

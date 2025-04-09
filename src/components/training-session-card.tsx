@@ -110,7 +110,7 @@ export default function TrainingSessionCard({
 
       <div className="bg-[#F9F9F9] grid gap-2 p-5">
         <div className="space-y-1">
-          <h3 className="lg:text-3xl mb-1 md:mb-2">{title}</h3>
+          <h3 className="lg:text-2xl mb-1 md:mb-2">{title}</h3>
         </div>
 
         <div className="flex items-start gap-2 text-gray-500">

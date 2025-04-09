@@ -49,7 +49,7 @@ export default function Membership() {
                 <div className="flex flex-col justify-between h-full">
                     <div>
                         <h5 className="lg:mb-2 mb-1 text-secondary">Membership</h5>
-                        <h2 className="lg:text-5xl font-semibold mb-8 max-w-2xl">
+                        <h2 className="lg:text-4xl font-semibold mb-8 max-w-2xl">
                             2025 Semester 1
                             <br/>
                             MUTC Membership
@@ -60,7 +60,7 @@ export default function Membership() {
                         <div className="space-y-2" hidden={isPurchased}>
                             <div className="font-bold">
                                 <p className="text-gray-400">Unimelb student price</p>
-                                <p className="text-4xl lg:text-5xl font-bold">$40</p>
+                                <p className="text-3xl lg:text-4xl font-bold">$40</p>
                             </div>
                         </div>
                         <div className="space-y-4" hidden={!isPurchased}>
@@ -97,21 +97,21 @@ export default function Membership() {
                 {/* Right Column - Features */}
                 <div className="space-y-12">
                     <div className="space-y-2">
-                        <h3 className="lg:text-3xl font-bold">Access to All Trainings</h3>
+                        <h3 className="lg:text-2xl font-bold">Access to All Trainings</h3>
                         <p className="text-gray-400">
                             Open participation in swim/run sessions with flexible scheduling. Build your fitness routine without restrictions.
                         </p>
                     </div>
 
                     <div className="space-y-2">
-                        <h3 className="lg:text-3xl font-bold">Supportive Community & Mentorship</h3>
+                        <h3 className="lg:text-2xl font-bold">Supportive Community & Mentorship</h3>
                         <p className="text-gray-400">
                             Connect with inclusive peers and student athletes in non-competitive environments.
                         </p>
                     </div>
 
                     <div className="space-y-2">
-                        <h3 className="lg:text-3xl font-bold">Injury Protection Guarantee</h3>
+                        <h3 className="lg:text-2xl font-bold">Injury Protection Guarantee</h3>
                         <p className="text-gray-400">
                             All registered members receive free injury coverage* via the University of Melbourne sports insurance program.
                         </p>

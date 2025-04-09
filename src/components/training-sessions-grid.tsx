@@ -52,7 +52,7 @@ export default function TrainingSessionsGrid() {
       <div className="py-8 flex flex-col lg:flex-row lg:items-start lg:justify-between">
         <div>
           <h5 className="lg:mb-2 mb-1 text-secondary">Training</h5>
-          <h2 className="lg:text-5xl font-semibold mb-8">
+          <h2 className="lg:text-4xl font-semibold mb-8">
             Our training sessions
           </h2>
         </div>
