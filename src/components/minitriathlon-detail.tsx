@@ -1,42 +1,89 @@
 ﻿"use client"
+import confetti from 'canvas-confetti'
 
 import {
     ArrowLeft,
     Calendar,
     Clock,
     MapPin,
-    DollarSign,
     Shirt,
     Droplets,
     LifeBuoy,
     Footprints,
+    Waves,
+    Bike,
+    Users
 } from "lucide-react"
 
 import Image from "next/image"
 import Link from "next/link"
 import Map from "./map-components"
 import PhotoCarousel from "./photo-carousel"
+import {useEffect, useState} from "react";
 
 export default function TriathlonEventDetailPage() {
+    const [isPurchased, setIsPurchased] = useState(false)
+
+    // Check if membership was purchased (simulating checking from localStorage or cookies)
+    useEffect(() => {
+        // Check URL parameters for payment success
+        const urlParams = new URLSearchParams(window.location.search)
+        const paymentStatus = urlParams.get('payment_status')
+
+        if (paymentStatus === 'success') {
+            setIsPurchased(true)
+            handleScroll('membership')
+            const colors = ['#518581', '#416c68', '#ffffff']
+
+            ;(function frame() {
+                confetti({
+                    particleCount: 50,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: colors
+                })
+                confetti({
+                    particleCount: 50,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: colors
+                })
+            })()
+        }
+    }, [])
+
+    const handleScroll = (targetId: string) => {
+        const element = document.getElementById(targetId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     const racePhotos = [
         {
-            src: "/images/minitri1.png?height=600&width=1200&text=Triathlon+Swimming",
+            src: "/images/minitri/minitri1.jpg?height=600&width=1200&text=Triathlon+Swimming",
             alt: "Participants during the swimming leg of last year's mini-triathlon",
         },
         {
-            src: "/images/minitri2.png?height=600&width=1200&text=Triathlon+Cycling",
+            src: "/images/minitri/minitri2.jpg?height=600&width=1200&text=Triathlon+Cycling",
             alt: "Participants during the cycling leg of last year's mini-triathlon",
         },
         {
-            src: "/images/minitri1.png?height=600&width=1200&text=Triathlon+Running",
+            src: "/images/minitri/minitri7.jpg?height=600&width=1200&text=Triathlon+Running",
             alt: "Participants during the running leg of last year's mini-triathlon",
         },
         {
-            src: "/images/minitri1.png?height=600&width=1200&text=Triathlon+Finish+Line",
+            src: "/images/minitri/minitri4.jpg?height=600&width=1200&text=Triathlon+Finish+Line",
             alt: "Participants crossing the finish line at last year's mini-triathlon",
         },
         {
-            src: "/images/minitri1.png?height=600&width=1200&text=Triathlon+Awards",
+            src: "/images/minitri/minitri5.jpg?height=600&width=1200&text=Triathlon+Awards",
+            alt: "Award ceremony from last year's mini-triathlon",
+        },
+        {
+            src: "/images/minitri/minitri6.jpg?height=600&width=1200&text=Triathlon+Awards",
             alt: "Award ceremony from last year's mini-triathlon",
         },
     ]
@@ -46,7 +93,7 @@ export default function TriathlonEventDetailPage() {
             {/* Hero Section */}
             <div className="relative h-64 w-full sm:h-80 md:h-96">
                 <Image
-                    src="/images/minitri1.png?height=600&width=1200"
+                    src="/images/minitri/minitri3.jpg?height=600&width=1200"
                     alt="Mini-triathlon Race"
                     fill
                     className="object-cover"
@@ -58,7 +105,7 @@ export default function TriathlonEventDetailPage() {
                     <div className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] pb-6 sm:pb-8">
                         <div className="flex  gap-2 text-white">
                             <Calendar className="h-5 w-5" />
-                            <span>Date TBC</span>
+                            <span>10th May</span>
                         </div>
                         <h1 className="mt-2 font-bold text-white">Mini-triathlon Race</h1>
                     </div>
@@ -73,12 +120,75 @@ export default function TriathlonEventDetailPage() {
                         <span>Back to all events</span>
                     </Link>
                 </div>
+                <div className="order-2 mb-6 bg-gray-50 p-6 md:order-none bg-primary" hidden={!isPurchased}>
+                    <h3 className="mb-4 font-bold text-white">Thanks for your registration</h3>
+                    <p className="mb-4 text-white">
+                        Please read the race day preparation carefully prior the race. Keeps an eye on our whatsapp group for any updates.
+                    </p>
+                </div>
 
+                {/* Main content grid with reordering for mobile */}
                 <div className="grid gap-8 md:grid-cols-3">
+                    {/* Event Information Block - Will appear first on mobile */}
+                    <div className="md:col-span-1">
+                        {/* Event Information Block - First in the sidebar group */}
+                        <div className="order-first mb-6 bg-gray-50 p-6 md:order-none">
+                        <div className="space-y-4">
+                            <div className="flex items-start gap-2">
+                                <Calendar className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                <div>
+                                    <div className="font-bold">Date</div>
+                                    <div className="text-gray-600">May 10th</div>
+                                </div>
+                            </div>
 
+                            <div className="flex items-start gap-2">
+                                <Clock className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                <div>
+                                    <div className="font-bold">Time</div>
+                                    <div className="text-gray-600">1:00 pm – 5:00 pm</div>
+                                </div>
+                            </div>
 
-                    {/* Main Content */}
-                    <div className="md:col-span-2">
+                            <div className="flex items-start gap-2">
+                                <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                <div>
+                                    <div className="font-bold">Location</div>
+                                    <div className="text-gray-600">On-Campus. Rawlinson Track (Tin Alley, Parkville)</div>
+                                    <a
+                                        href="https://maps.google.com/?q=Rawlinson+Track,+University+of+Melbourne,+Parkville+VIC"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-sm text-[#4d8076] hover:underline"
+                                    >
+                                        View on map
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="mt-4 hidden md:block">
+                            <Map address="Rawlinson Track, University of Melbourne, Parkville VIC" height="200px" />
+                        </div>
+
+                        <div className="mt-6 flex flex-col gap-3">
+                            <button className="w-full border border-[#4d8076] p-3 text-center font-medium text-[#4d8076] hover:bg-gray-100">
+                                Add to calendar
+                            </button>
+                        </div>
+                    </div>
+                        {/* Registration Closing Soon - Second in the sidebar group */}
+                        <div className="order-2 mb-6 bg-gray-50 p-6 md:order-none">
+                            <h3 className="mb-4 text-xl font-bold">Registration Just Opened</h3>
+                            <p className="mb-4 text-gray-600">
+                                Limited spots available! Register now to secure your place in this exciting event.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    {/* Main Content - Will appear after the sidebar group on mobile */}
+                    <div className="order-4 md:order-none md:col-span-2">
                         <div className="mb-8">
                             <h2 className="mb-4 font-bold">Event Details</h2>
                             <p className="text-gray-600">
@@ -88,71 +198,172 @@ export default function TriathlonEventDetailPage() {
                         </div>
 
 
-
+                        <div className="mb-8">
+                            <PhotoCarousel photos={racePhotos} className="mb-2" autoPlayInterval={4000} initialAutoPlay={true} />
+                            {/*<p className="text-right text-sm text-gray-500">Swipe or use arrows to navigate photos</p>*/}
+                        </div>
 
 
                         <div className="mb-8">
                             {/*<h3 className="mb-4 font-bold">Why Participate?</h3>*/}
                             <ul className="space-y-2 text-gray-600">
                                 <li className="flex items-start gap-2">
-                                    <span className="text-[#4d8076]">✓</span>
+                                    <span className="text-secondary">✓</span>
                                     <span>Safe environment to do your first Triathlon race</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-[#4d8076]">✓</span>
+                                    <span className="text-secondary">✓</span>
                                     <span>Ride on stationary bike, you only need to bring swim gear and running gear</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-[#4d8076]">✓</span>
+                                    <span className="text-secondary">✓</span>
                                     <span>Just challenging enough for you to complete</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-[#4d8076]">✓</span>
-                                    <span>Free & Amazing food and beverages (This is where most of the registration fee goes)</span>
+                                    <span className="text-secondary">✓</span>
+                                    <span>Free & Amazing food and beverages</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-[#4d8076]">✓</span>
+                                    <span className="text-secondary">✓</span>
                                     <span>Supportive environment</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-[#4d8076]">✓</span>
+                                    <span className="text-secondary">✓</span>
                                     <span>Professional photos to capture your moment</span>
                                 </li>
                             </ul>
                         </div>
 
                         <div className="mb-8">
-                            <h3 className="mb-4 font-bold">Race Format</h3>
+                            <h3 className="mb-4 font-bold">Race Formats</h3>
                             <div className="mb-6 grid gap-6 sm:grid-cols-2">
-                                <div className="border-l-4 border-[#4d8076] bg-gray-50 p-4 pl-5">
-                                    <h4 className="mb-2 text-lg font-bold">Mini Distance</h4>
-                                    <div className="mb-2">
-
-                                        <ul className="ml-5 mt-1 list-disc text-gray-600">
-                                            <li>200-meter swim (4 come backs)</li>
-                                            <li>3km cycling on stationary bike</li>
-                                            <li>2km run (5 loops)</li>
-                                        </ul>
+                                {/* Mini Distance Card */}
+                                <div className="overflow-hidden bg-gray-50">
+                                    {/* Header */}
+                                    <div className="bg-[#4d8076] p-4 text-white">
+                                        <h4 className="text-xl font-bold">Mini Distance</h4>
+                                        <div className="mt-1 flex items-center gap-2">
+                                            <span className="font-medium">$10 Registration Fee</span>
+                                        </div>
                                     </div>
-                                    <div className="flex items-center gap-2">
-                                        <Clock className="h-4 w-4 text-[#4d8076]" />
-                                        <span className="font-medium">Begins at 1:15 pm</span>
+
+                                    {/* Content */}
+                                    <div className="p-4">
+                                        <div className="mb-4 space-y-3">
+                                            <div className="flex items-start gap-3">
+                                                <Waves className="mt-1 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                                <div>
+                                                    <div className="font-medium">Swim</div>
+                                                    <div className="text-gray-600">200-meter (4 come backs)</div>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex items-start gap-3">
+                                                <Bike className="mt-1 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                                <div>
+                                                    <div className="font-medium">Bike</div>
+                                                    <div className="text-gray-600">3km on stationary bike</div>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex items-start gap-3">
+                                                <Footprints className="mt-1 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                                <div>
+                                                    <div className="font-medium">Run</div>
+                                                    <div className="text-gray-600">2km run (5 loops)</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="mb-4 flex items-center gap-3">
+                                            <Clock className="h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                            <div>
+                                                <div className="font-medium">Start Time</div>
+                                                <div className="text-gray-600">1:15 pm</div>
+                                            </div>
+                                        </div>
+
+                                        <div className="mb-4 flex items-center gap-3">
+                                            <Users className="h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                            <div>
+                                                <div className="font-medium">Capacity</div>
+                                                <div className="text-gray-600">30 spots available</div>
+                                            </div>
+                                        </div>
+
+                                        <div className="mt-4">
+                                            <button className="w-full bg-[#4d8076] p-3 text-center font-medium text-white hover:bg-[#3d665e]"
+                                                    onClick={() => {
+                                                        window.open('https://buy.stripe.com/8wMbKUdZr45cdIk4gi', '_blank');
+                                                    }}>
+                                                Register
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div className="border-l-4 border-[#4d8076] bg-gray-50 p-4 pl-5">
-                                    <h4 className="mb-2 text-lg font-bold">Sprint Distance</h4>
-                                    <div className="mb-2">
-
-                                        <ul className="ml-5 mt-1 list-disc text-gray-600">
-                                            <li>400-meter swim (8 come backs)</li>
-                                            <li>5km cycling on stationary bike</li>
-                                            <li>4km run (10 loops)</li>
-                                        </ul>
+                                {/* Sprint Distance Card */}
+                                <div className="overflow-hidden bg-gray-50">
+                                    {/* Header */}
+                                    <div className="bg-[#4d8076] p-4 text-white">
+                                        <h4 className="text-xl font-bold">Sprint Distance</h4>
+                                        <div className="mt-1 flex items-center gap-2">
+                                            <span className="font-medium">$12 Registration Fee</span>
+                                        </div>
                                     </div>
-                                    <div className="flex items-center gap-2">
-                                        <Clock className="h-4 w-4 text-[#4d8076]" />
-                                        <span className="font-medium">Begins at 2:45 pm</span>
+
+                                    {/* Content */}
+                                    <div className="p-4">
+                                        <div className="mb-4 space-y-3">
+                                            <div className="flex items-start gap-3">
+                                                <Waves className="mt-1 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                                <div>
+                                                    <div className="font-medium">Swim</div>
+                                                    <div className="text-gray-600">400-meter (8 come backs)</div>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex items-start gap-3">
+                                                <Bike className="mt-1 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                                <div>
+                                                    <div className="font-medium">Bike</div>
+                                                    <div className="text-gray-600">5km on stationary bike</div>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex items-start gap-3">
+                                                <Footprints className="mt-1 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                                <div>
+                                                    <div className="font-medium">Run</div>
+                                                    <div className="text-gray-600">4km run (10 loops)</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="mb-4 flex items-center gap-3">
+                                            <Clock className="h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                            <div>
+                                                <div className="font-medium">Start Time</div>
+                                                <div className="text-gray-600">2:45 pm</div>
+                                            </div>
+                                        </div>
+
+                                        <div className="mb-4 flex items-center gap-3">
+                                            <Users className="h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                            <div>
+                                                <div className="font-medium">Capacity</div>
+                                                <div className="text-gray-600">40 spots available</div>
+                                            </div>
+                                        </div>
+
+                                        <div className="mt-4">
+                                            <button className="w-full bg-[#4d8076] p-3 text-center font-medium text-white hover:bg-[#3d665e]"
+                                                    onClick={() => {
+                                                        window.open('https://buy.stripe.com/00gbKU3kN59g5bO8wz', '_blank');
+                                                    }}>
+                                                Register
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -319,122 +530,7 @@ export default function TriathlonEventDetailPage() {
                             </div>
                         </div>
 
-                        <div className="mb-8">
-                            <PhotoCarousel photos={racePhotos} className="mb-2" autoPlayInterval={4000} initialAutoPlay={true} />
-                            {/*<p className="text-right text-sm text-gray-500">Swipe or use arrows to navigate photos</p>*/}
-                        </div>
 
-                        {/*<div className="grid gap-6 sm:grid-cols-2">*/}
-                        {/*    <div className="bg-gray-50 p-4">*/}
-                        {/*        <h3 className="mb-2 text-lg font-bold">Spectators</h3>*/}
-                        {/*        <p className="text-gray-600">Please bring friends to support you</p>*/}
-                        {/*    </div>*/}
-
-                        {/*    <div className="bg-gray-50 p-4">*/}
-                        {/*        <h3 className="mb-2 text-lg font-bold">Parking</h3>*/}
-                        {/*        <p className="text-gray-600">Near Uni Campus (recommend arrive 20 minutes prior to the race)</p>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
-                    </div>
-
-                    {/* Sidebar */}
-                    <div>
-                        <div className="mb-6 bg-gray-50 p-6">
-
-                            <div className="space-y-4">
-                                <div className="flex items-start gap-2">
-                                    <Calendar className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
-                                    <div>
-                                        <div className="font-bold">Date</div>
-                                        <div className="text-gray-600">TBC</div>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-start gap-2">
-                                    <Clock className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
-                                    <div>
-                                        <div className="font-bold">Time</div>
-                                        <div className="text-gray-600">1:00 pm – 5:00 pm</div>
-                                    </div>
-                                </div>
-
-
-
-                                <div className="flex items-start gap-2">
-                                    <DollarSign className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
-                                    <div>
-                                        <div className="font-bold">Registration Fee</div>
-                                        <div className="text-gray-600">Mini Distance: $10</div>
-                                        <div className="text-gray-600">Sprint Distance: $12</div>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-start gap-2">
-                                    <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
-                                    <div>
-                                        <div className="font-bold">Location</div>
-                                        <div className="text-gray-600">On-Campus. Rawlinson Track (Tin Alley, Parkville)</div>
-                                        <a
-                                            href="https://maps.google.com/?q=Rawlinson+Track,+University+of+Melbourne,+Parkville+VIC"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-sm text-[#4d8076] hover:underline"
-                                        >
-                                            View Larger Map
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div className="mt-4">
-                                <Map address="Rawlinson Track, University of Melbourne, Parkville VIC" height="200px" />
-                            </div>
-
-                            <div className="mt-6 flex flex-col gap-3">
-                                <button className="w-full bg-[#4d8076] p-3 text-center font-medium text-white hover:bg-[#3d665e]"
-                                        onClick={() => {
-                                            window.open('https://buy.stripe.com/8wMbKUdZr45cdIk4gi', '_blank');
-                                        }}>
-                                    Register for Mini Distance
-                                </button>
-
-                                <button className="w-full bg-[#4d8076] p-3 text-center font-medium text-white hover:bg-[#3d665e]"
-                                        onClick={() => {
-                                            window.open('https://buy.stripe.com/00gbKU3kN59g5bO8wz', '_blank');
-                                        }}>
-                                    Register for Sprint Distance
-                                </button>
-
-                                <button className="w-full border border-[#4d8076] p-3 text-center font-medium text-[#4d8076] hover:bg-gray-100">
-                                    Add to calendar
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className="mb-6 bg-gray-50 p-6">
-                            <h3 className="mb-4 text-xl font-bold">Registration Now Open</h3>
-                            <p className="mb-4 text-gray-600">
-                                Limited spots available! Register now to secure your place in this exciting event.
-                            </p>
-                            <div className="flex items-center justify-center border-t border-gray-200 pt-4">
-                                <div className="text-center justify-center">
-                                    <div className="text-sm text-gray-500">Mini Distance</div>
-                                    <div className="font-bold">30 spots</div>
-                                </div>
-                                <div className="text-center ml-8 justify-center">
-                                    <div className="text-sm text-gray-500">Sprint Distance</div>
-                                    <div className="font-bold">40 spots</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="bg-gray-50 p-6">
-                            <h3 className="mb-4 text-xl font-bold">Event Photos</h3>
-                            <p className="mb-4 text-gray-600">
-                                Event photos link will appear here after the event. Stay tuned!
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

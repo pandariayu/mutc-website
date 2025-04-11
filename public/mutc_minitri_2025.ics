@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Melbourne University Triathlon Club//Mini Triathlon Event//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:Australia/Melbourne
+X-LIC-LOCATION:Australia/Melbourne
+BEGIN:STANDARD
+TZOFFSETFROM:+1100
+TZOFFSETTO:+1000
+TZNAME:AEST
+DTSTART:19700405T030000
+RRULE:FREQ=YEARLY;BYMONTH=4;BYDAY=1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+1000
+TZOFFSETTO:+1100
+TZNAME:AEDT
+DTSTART:19701005T020000
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:triathlon-mini-event-20250503@mutri.com
+SUMMARY:Melbourne University Triathlon Club - Mini Triathlon
+DESCRIPTION:Hosted by Melbourne University Triathlon Club.\n\nMini Distance: 200m swim (4 laps), 3km cycling on stationary bike, 2km run (5 loops) - Cost: $10, starts at 1:15 pm.\n\nSprint Distance: 400m swim (8 laps), 5km cycling on stationary bike, 4km run (10 loops) - Cost: $12, starts at 2:45 pm.\n\nLocation: Rawlinson Track (Tin Alley, Parkville Campus).\n\nWhat to bring: Swim gear (goggles, swimwear, swim cap optional), running gear, shoes suitable for cycling & running, towel, changing clothes.\n\nOther details: Rolling start, medals for top 3 finishers per gender per distance, professional photos, free food & beverages provided.\n\nSpectators welcome. Recommended parking near campus (arrive 20 mins early).
+LOCATION:Rawlinson Track (Tin Alley, Parkville Campus)
+DTSTAMP:20250411T110000Z
+DTSTART;TZID=Australia/Melbourne:20250503T130000
+DTEND;TZID=Australia/Melbourne:20250503T170000
+STATUS:TENTATIVE
+END:VEVENT
+END:VCALENDAR
