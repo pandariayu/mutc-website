@@ -30,5 +30,6 @@ export default function AutoPopupDialog() {
           link="https://chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01"
           confirmText="Join Now"
       />
+
   )
 }

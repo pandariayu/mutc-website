@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback, useRef } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react"
 
+
+
 interface PhotoCarouselProps {
     photos: {
         src: string
@@ -20,6 +22,7 @@ export default function PhotoCarousel({
                                           autoPlayInterval = 5000,
                                           initialAutoPlay = true,
                                       }: PhotoCarouselProps) {
+
     const [currentIndex, setCurrentIndex] = useState(0)
     const [isAutoPlaying, setIsAutoPlaying] = useState(initialAutoPlay)
     const autoPlayRef = useRef<NodeJS.Timeout | null>(null)

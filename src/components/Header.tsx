@@ -3,6 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState, SVGProps} from 'react';
 import { motion, MotionProps } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const Path = (props: SVGProps<SVGPathElement> & MotionProps) => (
     <motion.path
@@ -41,15 +42,28 @@ const menuVariants = {
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const router = useRouter();
 
     // 添加滚动处理函数
     const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
         e.preventDefault();
-        const element = document.getElementById(targetId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+
+        // Check if we're already on the main page
+        const isMainPage = window.location.pathname === "/" ||
+            window.location.pathname === "";
+
+        if (isMainPage) {
+            // We're on main page, just scroll to element
+            const element = document.getElementById(targetId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            // We're on another page, navigate to main page with hash
+            router.push(`/#${targetId}`);
         }
-        // 如果是移动端菜单，点击后关闭菜单
+
+        // Close the mobile menu
         setIsMenuOpen(false);
     };
 

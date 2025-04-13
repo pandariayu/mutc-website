@@ -34,7 +34,7 @@ export default function TriathlonEvent() {
                     </div>
 
                     <Link className="w-full sm:w-auto bg-[#518581] sm:px-10 sm:py-4 px-6 py-3 text-center font-bold text-white transition-colors hover:bg-[#416c68]"
-                            href="/events/mini-triathlon">View detail</Link>
+                            href="/events/mini-triathlon" replace={true}>View detail</Link>
 
                     {/* Rectangle image for desktop, hidden on mobile */}
                     <div className="hidden md:block relative h-[200px] w-full mt-6">

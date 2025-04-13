@@ -1,6 +1,7 @@
 ﻿"use client"
 import confetti from 'canvas-confetti'
 
+
 import {
     ArrowLeft,
     Calendar,
@@ -20,6 +21,7 @@ import Link from "next/link"
 import Map from "./map-components"
 import PhotoCarousel from "./photo-carousel"
 import {useEffect, useState} from "react";
+import RegistrationDialog from "./registration-dialog"
 
 export default function TriathlonEventDetailPage() {
     const [isPurchased, setIsPurchased] = useState(false)
@@ -61,6 +63,15 @@ export default function TriathlonEventDetailPage() {
         }
     };
 
+    const [isRegistrationDialogOpen, setIsRegistrationDialogOpen] = useState(false)
+
+    const handleRegister = (distance: "mini" | "sprint") => {
+        // Here you would typically handle the registration process
+        // For now, we'll just log the selected distance
+        console.log(`Registered for ${distance} distance`)
+        // You could redirect to a payment page or show a confirmation message
+    }
+
     const racePhotos = [
         {
             src: "/images/minitri/minitri1.jpg?height=600&width=1200&text=Triathlon+Swimming",
@@ -89,7 +100,7 @@ export default function TriathlonEventDetailPage() {
     ]
 
     return (
-        <main className="pt-16 pb-8 bg-white">
+        <main className="pt-16 bg-white">
             {/* Hero Section */}
             <div className="relative h-64 w-full sm:h-80 md:h-96">
                 <Image
@@ -115,15 +126,15 @@ export default function TriathlonEventDetailPage() {
             {/* Content */}
             <div className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-8 sm:py-16">
                 <div className="mb-8">
-                    <Link href="/#events" className="flex items-center gap-2 text-[#4d8076] hover:underline">
+                    <Link href="/#events" className="flex items-center gap-2 text-primary hover:underline">
                         <ArrowLeft className="h-4 w-4" />
                         <span>Back to all events</span>
                     </Link>
                 </div>
                 <div className="order-2 mb-6 bg-gray-50 p-6 md:order-none bg-primary" hidden={!isPurchased}>
-                    <h3 className="mb-4 font-bold text-white">Thanks for your registration</h3>
+                    <h3 className="pt-4 mb-4 font-bold text-white">Thanks for your registration!</h3>
                     <p className="mb-4 text-white">
-                        Please read the race day preparation carefully prior the race. Keeps an eye on our whatsapp group for any updates.
+                        Please read the race day preparation carefully prior the race. Keeps an eye on <a className="underline hover:text-gray-200" href={"https://chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01"}>our whatsapp group</a> for any updates.
                     </p>
                 </div>
 
@@ -135,7 +146,7 @@ export default function TriathlonEventDetailPage() {
                         <div className="order-first mb-6 bg-gray-50 p-6 md:order-none">
                         <div className="space-y-4">
                             <div className="flex items-start gap-2">
-                                <Calendar className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                <Calendar className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
                                 <div>
                                     <div className="font-bold">Date</div>
                                     <div className="text-gray-600">May 10th</div>
@@ -143,7 +154,7 @@ export default function TriathlonEventDetailPage() {
                             </div>
 
                             <div className="flex items-start gap-2">
-                                <Clock className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                <Clock className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
                                 <div>
                                     <div className="font-bold">Time</div>
                                     <div className="text-gray-600">1:00 pm – 5:00 pm</div>
@@ -151,15 +162,15 @@ export default function TriathlonEventDetailPage() {
                             </div>
 
                             <div className="flex items-start gap-2">
-                                <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
                                 <div>
                                     <div className="font-bold">Location</div>
-                                    <div className="text-gray-600">On-Campus. Rawlinson Track (Tin Alley, Parkville)</div>
+                                    <div className="text-gray-600">Rawlinson Track, Tin Alley, Parkville</div>
                                     <a
                                         href="https://maps.google.com/?q=Rawlinson+Track,+University+of+Melbourne,+Parkville+VIC"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-sm text-[#4d8076] hover:underline"
+                                        className="text-primary hover:underline"
                                     >
                                         View on map
                                     </a>
@@ -172,7 +183,23 @@ export default function TriathlonEventDetailPage() {
                         </div>
 
                         <div className="mt-6 flex flex-col gap-3">
-                            <button className="w-full border border-[#4d8076] p-3 text-center font-medium text-[#4d8076] hover:bg-gray-100">
+                            <button
+                                className="w-full bg-primary p-3 text-center font-medium text-white hover:bg-[#3d665e]"
+                                onClick={() => setIsRegistrationDialogOpen(true)}
+                            >
+                                Register Now
+                            </button>
+                            <button
+                                className="w-full border border-primary p-3 text-center font-medium text-primary hover:bg-gray-100"
+                                onClick={() => {
+                                    const link = document.createElement('a');
+                                    link.href = '/mutc_minitri_2025.ics';
+                                    link.download = 'MUTC_MiniTriathlon_2025.ics';
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+                                }}
+                            >
                                 Add to calendar
                             </button>
                         </div>
@@ -188,7 +215,7 @@ export default function TriathlonEventDetailPage() {
                     </div>
 
                     {/* Main Content - Will appear after the sidebar group on mobile */}
-                    <div className="order-4 md:order-none md:col-span-2">
+                    <div className="order-3 md:order-none md:col-span-2">
                         <div className="mb-8">
                             <h2 className="mb-4 font-bold">Event Details</h2>
                             <p className="text-gray-600">
@@ -240,18 +267,15 @@ export default function TriathlonEventDetailPage() {
                                 {/* Mini Distance Card */}
                                 <div className="overflow-hidden bg-gray-50">
                                     {/* Header */}
-                                    <div className="bg-[#4d8076] p-4 text-white">
-                                        <h4 className="text-xl font-bold">Mini Distance</h4>
-                                        <div className="mt-1 flex items-center gap-2">
-                                            <span className="font-medium">$10 Registration Fee</span>
-                                        </div>
+                                    <div className="mt-1 flex bg-primary p-5 items-center text-white">
+                                        <h4 className="items-center text-xl font-bold">Mini Distance</h4>
                                     </div>
 
                                     {/* Content */}
                                     <div className="p-4">
                                         <div className="mb-4 space-y-3">
                                             <div className="flex items-start gap-3">
-                                                <Waves className="mt-1 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                                <Waves className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
                                                 <div>
                                                     <div className="font-medium">Swim</div>
                                                     <div className="text-gray-600">200-meter (4 come backs)</div>
@@ -259,7 +283,7 @@ export default function TriathlonEventDetailPage() {
                                             </div>
 
                                             <div className="flex items-start gap-3">
-                                                <Bike className="mt-1 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                                <Bike className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
                                                 <div>
                                                     <div className="font-medium">Bike</div>
                                                     <div className="text-gray-600">3km on stationary bike</div>
@@ -267,7 +291,7 @@ export default function TriathlonEventDetailPage() {
                                             </div>
 
                                             <div className="flex items-start gap-3">
-                                                <Footprints className="mt-1 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                                <Footprints className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
                                                 <div>
                                                     <div className="font-medium">Run</div>
                                                     <div className="text-gray-600">2km run (5 loops)</div>
@@ -276,7 +300,7 @@ export default function TriathlonEventDetailPage() {
                                         </div>
 
                                         <div className="mb-4 flex items-center gap-3">
-                                            <Clock className="h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                            <Clock className="h-5 w-5 flex-shrink-0 text-primary" />
                                             <div>
                                                 <div className="font-medium">Start Time</div>
                                                 <div className="text-gray-600">1:15 pm</div>
@@ -284,39 +308,36 @@ export default function TriathlonEventDetailPage() {
                                         </div>
 
                                         <div className="mb-4 flex items-center gap-3">
-                                            <Users className="h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                            <Users className="h-5 w-5 flex-shrink-0 text-primary" />
                                             <div>
                                                 <div className="font-medium">Capacity</div>
                                                 <div className="text-gray-600">30 spots available</div>
                                             </div>
                                         </div>
 
-                                        <div className="mt-4">
-                                            <button className="w-full bg-[#4d8076] p-3 text-center font-medium text-white hover:bg-[#3d665e]"
-                                                    onClick={() => {
-                                                        window.open('https://buy.stripe.com/8wMbKUdZr45cdIk4gi', '_blank');
-                                                    }}>
-                                                Register
-                                            </button>
-                                        </div>
+                                        {/*<div className="mt-4">*/}
+                                        {/*    <button className="w-full border border-primary p-3 text-center font-medium text-primary hover:bg-gray-100"*/}
+                                        {/*            onClick={() => {*/}
+                                        {/*                window.open('https://buy.stripe.com/8wMbKUdZr45cdIk4gi', '_blank');*/}
+                                        {/*            }}>*/}
+                                        {/*        Register*/}
+                                        {/*    </button>*/}
+                                        {/*</div>*/}
                                     </div>
                                 </div>
 
                                 {/* Sprint Distance Card */}
                                 <div className="overflow-hidden bg-gray-50">
                                     {/* Header */}
-                                    <div className="bg-[#4d8076] p-4 text-white">
-                                        <h4 className="text-xl font-bold">Sprint Distance</h4>
-                                        <div className="mt-1 flex items-center gap-2">
-                                            <span className="font-medium">$12 Registration Fee</span>
-                                        </div>
+                                    <div className="mt-1 flex bg-primary p-5 items-center text-white">
+                                        <h4 className="items-center text-xl font-bold">Sprint Distance</h4>
                                     </div>
 
                                     {/* Content */}
                                     <div className="p-4">
                                         <div className="mb-4 space-y-3">
                                             <div className="flex items-start gap-3">
-                                                <Waves className="mt-1 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                                <Waves className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
                                                 <div>
                                                     <div className="font-medium">Swim</div>
                                                     <div className="text-gray-600">400-meter (8 come backs)</div>
@@ -324,7 +345,7 @@ export default function TriathlonEventDetailPage() {
                                             </div>
 
                                             <div className="flex items-start gap-3">
-                                                <Bike className="mt-1 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                                <Bike className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
                                                 <div>
                                                     <div className="font-medium">Bike</div>
                                                     <div className="text-gray-600">5km on stationary bike</div>
@@ -332,7 +353,7 @@ export default function TriathlonEventDetailPage() {
                                             </div>
 
                                             <div className="flex items-start gap-3">
-                                                <Footprints className="mt-1 h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                                <Footprints className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
                                                 <div>
                                                     <div className="font-medium">Run</div>
                                                     <div className="text-gray-600">4km run (10 loops)</div>
@@ -341,7 +362,7 @@ export default function TriathlonEventDetailPage() {
                                         </div>
 
                                         <div className="mb-4 flex items-center gap-3">
-                                            <Clock className="h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                            <Clock className="h-5 w-5 flex-shrink-0 text-primary" />
                                             <div>
                                                 <div className="font-medium">Start Time</div>
                                                 <div className="text-gray-600">2:45 pm</div>
@@ -349,34 +370,34 @@ export default function TriathlonEventDetailPage() {
                                         </div>
 
                                         <div className="mb-4 flex items-center gap-3">
-                                            <Users className="h-5 w-5 flex-shrink-0 text-[#4d8076]" />
+                                            <Users className="h-5 w-5 flex-shrink-0 text-primary" />
                                             <div>
                                                 <div className="font-medium">Capacity</div>
                                                 <div className="text-gray-600">40 spots available</div>
                                             </div>
                                         </div>
 
-                                        <div className="mt-4">
-                                            <button className="w-full bg-[#4d8076] p-3 text-center font-medium text-white hover:bg-[#3d665e]"
-                                                    onClick={() => {
-                                                        window.open('https://buy.stripe.com/00gbKU3kN59g5bO8wz', '_blank');
-                                                    }}>
-                                                Register
-                                            </button>
-                                        </div>
+                                        {/*<div className="mt-4">*/}
+                                        {/*    <button className="w-full border border-primary p-3 text-center font-medium text-primary hover:bg-gray-100"*/}
+                                        {/*            onClick={() => {*/}
+                                        {/*                window.open('https://buy.stripe.com/00gbKU3kN59g5bO8wz', '_blank');*/}
+                                        {/*            }}>*/}
+                                        {/*        Register*/}
+                                        {/*    </button>*/}
+                                        {/*</div>*/}
                                     </div>
                                 </div>
                             </div>
 
                 {/*            <div className="mb-4 flex items-center gap-2">*/}
-                {/*                <Award className="h-5 w-5 text-[#4d8076]" />*/}
+                {/*                <Award className="h-5 w-5 text-primary" />*/}
                 {/*                <span className="font-medium">*/}
                 {/*  Complete the Race, and the top 3 timed in each distance win Medals (Male race & Female race)*/}
                 {/*</span>*/}
                 {/*            </div>*/}
 
                 {/*            <div className="flex items-center gap-2">*/}
-                {/*                <Users className="h-5 w-5 text-[#4d8076]" />*/}
+                {/*                <Users className="h-5 w-5 text-primary" />*/}
                 {/*                <span className="font-medium">Maximum sign ups: 30 spots for Mini Race, 40 spots for the Sprint</span>*/}
                 {/*            </div>*/}
                         </div>
@@ -399,7 +420,7 @@ export default function TriathlonEventDetailPage() {
                                 <div className="space-y-8">
                                     {/* Step 1 */}
                                     <div className="flex gap-6">
-                                        <div className="relative z-10 flex h-20 w-20 flex-shrink-0 items-center justify-center bg-[#4d8076]">
+                                        <div className="relative z-10 flex h-20 w-20 flex-shrink-0 items-center justify-center bg-primary">
                                             <span className="text-2xl font-bold text-white">1</span>
                                         </div>
                                         <div className="pt-2">
@@ -413,7 +434,7 @@ export default function TriathlonEventDetailPage() {
 
                                     {/* Step 2 */}
                                     <div className="flex gap-6">
-                                        <div className="relative z-10 flex h-20 w-20 flex-shrink-0 items-center justify-center bg-[#4d8076]">
+                                        <div className="relative z-10 flex h-20 w-20 flex-shrink-0 items-center justify-center bg-primary">
                                             <span className="text-2xl font-bold text-white">2</span>
                                         </div>
                                         <div className="pt-2">
@@ -426,7 +447,7 @@ export default function TriathlonEventDetailPage() {
 
                                     {/* Step 3 */}
                                     <div className="flex gap-6">
-                                        <div className="relative z-10 flex h-20 w-20 flex-shrink-0 items-center justify-center bg-[#4d8076]">
+                                        <div className="relative z-10 flex h-20 w-20 flex-shrink-0 items-center justify-center bg-primary">
                                             <span className="text-2xl font-bold text-white">3</span>
                                         </div>
                                         <div className="pt-2">
@@ -439,7 +460,7 @@ export default function TriathlonEventDetailPage() {
 
                                     {/* Step 4 */}
                                     <div className="flex gap-6">
-                                        <div className="relative z-10 flex h-20 w-20 flex-shrink-0 items-center justify-center bg-[#4d8076]">
+                                        <div className="relative z-10 flex h-20 w-20 flex-shrink-0 items-center justify-center bg-primary">
                                             <span className="text-2xl font-bold text-white">4</span>
                                         </div>
                                         <div className="pt-2">
@@ -452,7 +473,7 @@ export default function TriathlonEventDetailPage() {
 
                                     {/* Step 5 */}
                                     <div className="flex gap-6">
-                                        <div className="relative z-10 flex h-20 w-20 flex-shrink-0 items-center justify-center bg-[#4d8076]">
+                                        <div className="relative z-10 flex h-20 w-20 flex-shrink-0 items-center justify-center bg-primary">
                                             <span className="text-2xl font-bold text-white">5</span>
                                         </div>
                                         <div className="pt-2">
@@ -463,7 +484,7 @@ export default function TriathlonEventDetailPage() {
 
                                     {/* Step 6 */}
                                     <div className="flex gap-6">
-                                        <div className="relative z-10 flex h-20 w-20 flex-shrink-0 items-center justify-center bg-[#4d8076]">
+                                        <div className="relative z-10 flex h-20 w-20 flex-shrink-0 items-center justify-center bg-primary">
                                             <span className="text-2xl font-bold text-white">6</span>
                                         </div>
                                         <div className="pt-2">
@@ -479,7 +500,7 @@ export default function TriathlonEventDetailPage() {
                             <h3 className="mb-4 font-bold">What to Bring</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="flex items-start gap-4 bg-gray-50 p-4">
-                                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-[#4d8076]">
+                                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-primary">
                                         <Footprints className="h-6 w-6 text-white" />
                                     </div>
                                     <div>
@@ -489,7 +510,7 @@ export default function TriathlonEventDetailPage() {
                                 </div>
 
                                 <div className="flex items-start gap-4 bg-gray-50 p-4">
-                                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-[#4d8076]">
+                                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-primary">
                                         <LifeBuoy className="h-6 w-6 text-white" />
                                     </div>
                                     <div>
@@ -499,7 +520,7 @@ export default function TriathlonEventDetailPage() {
                                 </div>
 
                                 <div className="flex items-start gap-4 bg-gray-50 p-4">
-                                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-[#4d8076]">
+                                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-primary">
                                         <Shirt className="h-6 w-6 text-white" />
                                     </div>
                                     <div>
@@ -509,7 +530,7 @@ export default function TriathlonEventDetailPage() {
                                 </div>
 
                                 <div className="flex items-start gap-4 bg-gray-50 p-4">
-                                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-[#4d8076]">
+                                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-primary">
                                         <Droplets className="h-6 w-6 text-white" />
                                     </div>
                                     <div>
@@ -519,7 +540,7 @@ export default function TriathlonEventDetailPage() {
                                 </div>
 
                                 <div className="flex items-start gap-4 bg-gray-50 p-4">
-                                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-[#4d8076]">
+                                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-primary">
                                         <Shirt className="h-6 w-6 text-white" />
                                     </div>
                                     <div>
@@ -530,10 +551,62 @@ export default function TriathlonEventDetailPage() {
                             </div>
                         </div>
 
+                        {/*<div className="mb-8">*/}
+                        {/*    <h3 className="mb-4 font-bold">FAQs</h3>*/}
+                        {/*    <div className="mx-auto border-b">*/}
+                        {/*        {faqs.map((faq, index) => (*/}
+                        {/*            <div key={index} className="mb-6">*/}
+                        {/*                <Disclosure>*/}
+                        {/*                    {({ open }) => (*/}
+                        {/*                        <>*/}
+                        {/*                            <DisclosureButton className="flex items-center justify-between w-full px-4 pt-6 text-lg text-left border-t">*/}
+                        {/*                                <h4 className="font-bold">{faq.question}</h4>*/}
+                        {/*                                {open ?*/}
+                        {/*                                    <BiMinus className="w-10 h-10 lg:w-7 lg:h-7 text-primary" /> :*/}
+                        {/*                                    <BiPlus className="w-10 h-10 lg:w-7 lg:h-7 text-primary" />*/}
+                        {/*                                }*/}
+                        {/*                            </DisclosureButton>*/}
+                        {/*                            <DisclosurePanel className="px-4 pt-4 pb-2 text-[#AFADB5]">*/}
+                        {/*                                {faq.answer}*/}
+                        {/*                            </DisclosurePanel>*/}
+                        {/*                        </>*/}
+                        {/*                    )}*/}
+                        {/*                </Disclosure>*/}
+                        {/*            </div>*/}
+                        {/*        ))}*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
 
                     </div>
                 </div>
+
             </div>
+
+            {/* Sponsor Section */}
+            <div className="bg-primary py-8">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col items-center justify-center gap-4 text-center">
+                        <p className="text-lg font-medium text-white">This event and event court is supported by</p>
+                        <div className="relative h-16 w-48">
+                            <Image
+                                src="/images/mu-sport-logo.png"
+                                alt="mu-sport logo"
+                                fill
+                                className="object-contain hover:scale-105 transition-transform duration-300 cursor-pointer"
+                                onClick={() => {
+                                    window.open('https://sport.unimelb.edu.au/', '_blank');
+                                }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* Registration Dialog */}
+            <RegistrationDialog
+                isOpen={isRegistrationDialogOpen}
+                onClose={() => setIsRegistrationDialogOpen(false)}
+                onRegister={handleRegister}
+            />
         </main>
     )
 }
