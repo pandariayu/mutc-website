@@ -74,28 +74,20 @@ export default function TriathlonEventDetailPage() {
 
     const racePhotos = [
         {
-            src: "/images/minitri/minitri1.jpg?height=600&width=1200&text=Triathlon+Swimming",
+            src: "/images/minitri/1.jpg?height=600&width=1200&text=Triathlon+Swimming",
             alt: "Participants during the swimming leg of last year's mini-triathlon",
         },
         {
-            src: "/images/minitri/minitri2.jpg?height=600&width=1200&text=Triathlon+Cycling",
+            src: "/images/minitri/2.jpg?height=600&width=1200&text=Triathlon+Cycling",
             alt: "Participants during the cycling leg of last year's mini-triathlon",
         },
         {
-            src: "/images/minitri/minitri7.jpg?height=600&width=1200&text=Triathlon+Running",
+            src: "/images/minitri/3.jpg?height=600&width=1200&text=Triathlon+Running",
             alt: "Participants during the running leg of last year's mini-triathlon",
         },
         {
-            src: "/images/minitri/minitri4.jpg?height=600&width=1200&text=Triathlon+Finish+Line",
+            src: "/images/minitri/4.jpg?height=600&width=1200&text=Triathlon+Finish+Line",
             alt: "Participants crossing the finish line at last year's mini-triathlon",
-        },
-        {
-            src: "/images/minitri/minitri5.jpg?height=600&width=1200&text=Triathlon+Awards",
-            alt: "Award ceremony from last year's mini-triathlon",
-        },
-        {
-            src: "/images/minitri/minitri6.jpg?height=600&width=1200&text=Triathlon+Awards",
-            alt: "Award ceremony from last year's mini-triathlon",
         },
     ]
 
@@ -104,7 +96,7 @@ export default function TriathlonEventDetailPage() {
             {/* Hero Section */}
             <div className="relative h-64 w-full sm:h-80 md:h-96">
                 <Image
-                    src="/images/minitri/minitri3.jpg?height=600&width=1200"
+                    src="/images/minitri/header.jpg?height=600&width=1200"
                     alt="Mini-triathlon Race"
                     fill
                     className="object-cover"
