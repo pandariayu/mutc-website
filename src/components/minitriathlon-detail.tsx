@@ -1,7 +1,6 @@
 ﻿"use client"
 import confetti from 'canvas-confetti'
 
-
 import {
     ArrowLeft,
     Calendar,
@@ -19,12 +18,30 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import Map from "./map-components"
-import PhotoCarousel from "./photo-carousel"
+import PhotoCarousel from "@/components/photo-carousel"
 import {useEffect, useState} from "react";
 import RegistrationDialog from "./registration-dialog"
 
-export default function TriathlonEventDetailPage() {
-    const [isPurchased, setIsPurchased] = useState(false)
+interface RegistrationProps {
+    miniSpots?: number
+    sprintSpots?: number
+}
+
+export default function TriathlonEventDetailPage({
+                                                     miniSpots: initialMiniSpots = 20,
+                                                     sprintSpots: initialSprintSpots = 45,
+                                                 }: RegistrationProps) {
+    const [isPurchased, setIsPurchased] = useState(false);
+    const [miniSpots] = useState(initialMiniSpots);
+    const [sprintSpots] = useState(initialSprintSpots);
+    const [isMiniSoldOut, setIsMiniSoldOut] = useState(miniSpots <= 0);
+    const [isSprintSoldOut, setIsSprintSoldOut] = useState(sprintSpots <= 0);
+    const allSoldOut = isMiniSoldOut && isSprintSoldOut;
+
+    const handleStatusChange = (miniSoldOut: boolean, sprintSoldOut: boolean) => {
+        setIsMiniSoldOut(miniSoldOut);
+        setIsSprintSoldOut(sprintSoldOut);
+    };
 
     // Check if membership was purchased (simulating checking from localStorage or cookies)
     useEffect(() => {
@@ -63,13 +80,12 @@ export default function TriathlonEventDetailPage() {
         }
     };
 
+
+
     const [isRegistrationDialogOpen, setIsRegistrationDialogOpen] = useState(false)
 
     const handleRegister = (distance: "mini" | "sprint") => {
-        // Here you would typically handle the registration process
-        // For now, we'll just log the selected distance
         console.log(`Registered for ${distance} distance`)
-        // You could redirect to a payment page or show a confirmation message
     }
 
     const racePhotos = [
@@ -176,10 +192,15 @@ export default function TriathlonEventDetailPage() {
 
                         <div className="mt-6 flex flex-col gap-3">
                             <button
-                                className="w-full bg-primary p-3 text-center font-medium text-white hover:bg-[#3d665e]"
-                                onClick={() => setIsRegistrationDialogOpen(true)}
+                                className={`w-full p-3 text-center font-medium ${
+                                    allSoldOut
+                                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                                        : "bg-[#518581] text-white hover:bg-[#3d665e]"
+                                }`}
+                                onClick={() => !allSoldOut && setIsRegistrationDialogOpen(true)}
+                                disabled={allSoldOut}
                             >
-                                Register Now
+                                {allSoldOut ? "Event Sold Out" : "Register Now"}
                             </button>
                             <button
                                 className="w-full border border-primary p-3 text-center font-medium text-primary hover:bg-gray-100"
@@ -198,9 +219,12 @@ export default function TriathlonEventDetailPage() {
                     </div>
                         {/* Registration Closing Soon - Second in the sidebar group */}
                         <div className="order-2 mb-6 bg-gray-50 p-6 md:order-none">
-                            <h3 className="mb-4 text-xl font-bold">Registration Just Opened</h3>
-                            <p className="mb-4 text-gray-600">
+                            <h3 className="mb-4 text-xl font-bold">{allSoldOut? "Registration Now Closed" : "Registration Just Opened"}</h3>
+                            <p className="mb-4 text-gray-600" hidden={allSoldOut}>
                                 Limited spots available! Register now to secure your place in this exciting event.
+                            </p>
+                            <p className="mb-4 text-gray-600" hidden={!allSoldOut}>
+                                Please stay tuned for future events! Keeps an eye on <a className="underline hover:text-gray-200" href={"https://chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01"}>our whatsapp group</a> for any events updates.
                             </p>
                         </div>
 
@@ -598,6 +622,9 @@ export default function TriathlonEventDetailPage() {
                 isOpen={isRegistrationDialogOpen}
                 onClose={() => setIsRegistrationDialogOpen(false)}
                 onRegister={handleRegister}
+                miniSpots={miniSpots}
+                sprintSpots={sprintSpots}
+                onStatusChange={handleStatusChange}  // Pass the callback here
             />
         </main>
     )

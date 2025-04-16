@@ -1,8 +1,9 @@
 ﻿"use client"
 
-import { useState } from "react"
-import { X, Bike, Waves, Footprints} from "lucide-react"
+import {useEffect, useState} from "react"
+import {X, Bike, Waves, Footprints, AlertCircle, XCircle} from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import Stripe from 'stripe';
 
 const fadeIn = {
     hidden: {
@@ -27,10 +28,62 @@ interface RegistrationDialogProps {
     isOpen: boolean
     onClose: () => void
     onRegister: (distance: "mini" | "sprint") => void
+    miniSpots?: number
+    sprintSpots?: number
+    onStatusChange?: (isMiniSoldOut: boolean, isSprintSoldOut: boolean) => void;
 }
 
-export default function RegistrationDialog({ isOpen, onClose, onRegister }: RegistrationDialogProps) {
+export default function RegistrationDialog({
+                                               isOpen,
+                                               onClose,
+                                               onRegister,
+                                               miniSpots: initialMiniSpots = 20,
+                                               sprintSpots: initialSprintSpots = 45,
+                                               onStatusChange,
+                                           }: RegistrationDialogProps) {
+    const [miniSpots, setMiniSpots] = useState(initialMiniSpots);
+    const [sprintSpots, setSprintSpots] = useState(initialSprintSpots);
     const [selectedDistance, setSelectedDistance] = useState<"mini" | "sprint" | null>(null)
+
+    const isMiniSoldOut = miniSpots <= 0
+    const isSprintSoldOut = sprintSpots <= 0
+    const isLimitedMini = miniSpots > 0 && miniSpots <= 8
+    const isLimitedSprint = sprintSpots > 0 && sprintSpots <= 15
+
+    const secretKey = process.env.STRIPE_SECRET_KEY;
+    if (!secretKey) {
+        throw new Error("Missing STRIPE_SECRET_KEY environment variable");
+    }
+
+    if ((selectedDistance === "mini" && isMiniSoldOut) || (selectedDistance === "sprint" && isSprintSoldOut)) {
+        setSelectedDistance(null)
+    }
+
+    const retrieveStock = async () => {
+        const stripe = new Stripe(secretKey);
+        try {
+            const mini = await stripe.paymentLinks.retrieve('plink_1RBp7OLzLlUc2QEsiXuIlGoU');
+            const sprint = await stripe.paymentLinks.retrieve('plink_1RBp8KLzLlUc2QEsJRNz2IZh');
+            if (sprint.restrictions && "completed_sessions" in sprint.restrictions) {
+                setSprintSpots(sprint.restrictions.completed_sessions.limit - sprint.restrictions.completed_sessions.count);
+            }
+            if (mini.restrictions &&"completed_sessions" in mini.restrictions) {
+                setMiniSpots(mini.restrictions.completed_sessions.limit - mini.restrictions.completed_sessions.count);
+            }
+        } catch (error) {
+            console.error('Error retrieving line items:', error);
+        }
+    }
+
+    useEffect(() => {
+        if (onStatusChange) {
+            onStatusChange(isMiniSoldOut, isSprintSoldOut);
+        }
+    }, [miniSpots, sprintSpots, isMiniSoldOut, isSprintSoldOut, onStatusChange]);
+
+    useEffect(() => {
+        retrieveStock();
+    }, [isOpen]);
 
     if (!isOpen) return null
 
@@ -80,12 +133,14 @@ export default function RegistrationDialog({ isOpen, onClose, onRegister }: Regi
                                     <div className="mb-6 space-y-4">
                                         {/* Mini Distance Option */}
                                         <div
-                                            className={`cursor-pointer border p-4 transition-colors ${
-                                                selectedDistance === "mini"
-                                                    ? "border-primary bg-primary/10"
-                                                    : "border-gray-200 hover:border-primary/50"
+                                            className={`border p-4 transition-colors ${
+                                                isMiniSoldOut
+                                                    ? "border-gray-200 bg-gray-100 opacity-75 cursor-not-allowed"
+                                                    : selectedDistance === "mini"
+                                                        ? "border-[#518581] bg-[#518581]/10 cursor-pointer"
+                                                        : "border-gray-200 hover:border-[#518581]/50 cursor-pointer"
                                             }`}
-                                            onClick={() => setSelectedDistance("mini")}
+                                            onClick={() => !isMiniSoldOut && setSelectedDistance("mini")}
                                         >
                                             <div className="flex items-center justify-between">
                                                 <h3 className="text-lg font-bold">Mini Distance</h3>
@@ -93,6 +148,20 @@ export default function RegistrationDialog({ isOpen, onClose, onRegister }: Regi
                                                     <span>$10</span>
                                                 </div>
                                             </div>
+
+                                            {isMiniSoldOut ? (
+                                                <div className="mt-1 flex items-center gap-1 text-red-600 text-sm font-medium">
+                                                    <XCircle className="h-4 w-4" />
+                                                    <span>Sold Out</span>
+                                                </div>
+                                            ) : (
+                                                isLimitedMini && (
+                                                    <div className="mt-1 flex items-center gap-1 text-amber-600 text-sm">
+                                                        <AlertCircle className="h-4 w-4" />
+                                                        <span>Limited space available ({miniSpots} spots left)</span>
+                                                    </div>
+                                                )
+                                            )}
 
                                             <div className="mt-2 space-y-2 text-sm text-gray-600">
                                                 <div className="flex items-center gap-2">
@@ -112,12 +181,14 @@ export default function RegistrationDialog({ isOpen, onClose, onRegister }: Regi
 
                                         {/* Sprint Distance Option */}
                                         <div
-                                            className={`cursor-pointer border p-4 transition-colors ${
-                                                selectedDistance === "sprint"
-                                                    ? "border-primary bg-primary/10"
-                                                    : "border-gray-200 hover:border-primary/50"
+                                            className={`border p-4 transition-colors ${
+                                                isSprintSoldOut
+                                                    ? "border-gray-200 bg-gray-100 opacity-75 cursor-not-allowed"
+                                                    : selectedDistance === "sprint"
+                                                        ? "border-primary bg-[#518581]/10 cursor-pointer"
+                                                        : "border-gray-200 hover:border-[#518581]/50 cursor-pointer"
                                             }`}
-                                            onClick={() => setSelectedDistance("sprint")}
+                                            onClick={() => !isSprintSoldOut && setSelectedDistance("sprint")}
                                         >
                                             <div className="flex items-center justify-between">
                                                 <h3 className="text-lg font-bold">Sprint Distance</h3>
@@ -125,6 +196,20 @@ export default function RegistrationDialog({ isOpen, onClose, onRegister }: Regi
                                                     <span>$12</span>
                                                 </div>
                                             </div>
+
+                                            {isSprintSoldOut ? (
+                                                <div className="mt-1 flex items-center gap-1 text-red-600 text-sm font-medium">
+                                                    <XCircle className="h-4 w-4" />
+                                                    <span>Sold Out</span>
+                                                </div>
+                                            ) : (
+                                                isLimitedSprint && (
+                                                    <div className="mt-1 flex items-center gap-1 text-amber-600 text-sm">
+                                                        <AlertCircle className="h-4 w-4" />
+                                                        <span>Limited space available ({sprintSpots} spots left)</span>
+                                                    </div>
+                                                )
+                                            )}
 
                                             <div className="mt-2 space-y-2 text-sm text-gray-600">
                                                 <div className="flex items-center gap-2">
@@ -151,11 +236,13 @@ export default function RegistrationDialog({ isOpen, onClose, onRegister }: Regi
                                                     : "bg-gray-200 text-gray-500 cursor-not-allowed"
                                             }`}
                                             onClick={handleRegister}
-                                            disabled={!selectedDistance}
+                                            disabled={!selectedDistance || (selectedDistance === "mini" && miniSpots < 1) || (selectedDistance === "sprint" && sprintSpots < 1)}
                                         >
                                             {selectedDistance
                                                 ? `Register for ${selectedDistance === "mini" ? "Mini" : "Sprint"} Distance`
-                                                : "Select a distance"}
+                                                : isMiniSoldOut && isSprintSoldOut
+                                                    ? "All distances sold out"
+                                                    : "Select a distance"}
                                         </button>
 
                                         <button
