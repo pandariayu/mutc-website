@@ -3,7 +3,6 @@
 import {useEffect, useState} from "react"
 import {X, Bike, Waves, Footprints, AlertCircle, XCircle} from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import Stripe from 'stripe';
 
 const fadeIn = {
     hidden: {
@@ -59,22 +58,6 @@ export default function RegistrationDialog({
         setSelectedDistance(null)
     }
 
-    const retrieveStock = async () => {
-        const stripe = new Stripe(secretKey);
-        try {
-            const mini = await stripe.paymentLinks.retrieve('plink_1RBp7OLzLlUc2QEsiXuIlGoU');
-            const sprint = await stripe.paymentLinks.retrieve('plink_1RBp8KLzLlUc2QEsJRNz2IZh');
-            if (sprint.restrictions && "completed_sessions" in sprint.restrictions) {
-                setSprintSpots(sprint.restrictions.completed_sessions.limit - sprint.restrictions.completed_sessions.count);
-            }
-            if (mini.restrictions &&"completed_sessions" in mini.restrictions) {
-                setMiniSpots(mini.restrictions.completed_sessions.limit - mini.restrictions.completed_sessions.count);
-            }
-        } catch (error) {
-            console.error('Error retrieving line items:', error);
-        }
-    }
-
     useEffect(() => {
         if (onStatusChange) {
             onStatusChange(isMiniSoldOut, isSprintSoldOut);
@@ -82,7 +65,20 @@ export default function RegistrationDialog({
     }, [miniSpots, sprintSpots, isMiniSoldOut, isSprintSoldOut, onStatusChange]);
 
     useEffect(() => {
-        retrieveStock();
+        const fetchStock = async () => {
+            try {
+                const res = await fetch("/api/get-stock");
+                if (!res.ok) {
+                    throw new Error("Failed to fetch stock");
+                }
+                const data = await res.json();
+                setMiniSpots(data.miniSpots);
+                setSprintSpots(data.sprintSpots);
+            } catch (error) {
+                console.error("Error fetching stock:", error);
+            }
+        };
+        fetchStock()
     }, [isOpen]);
 
     if (!isOpen) return null
