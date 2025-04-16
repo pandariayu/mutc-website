@@ -49,11 +49,6 @@ export default function RegistrationDialog({
     const isLimitedMini = miniSpots > 0 && miniSpots <= 8
     const isLimitedSprint = sprintSpots > 0 && sprintSpots <= 15
 
-    const secretKey = process.env.STRIPE_SECRET_KEY;
-    if (!secretKey) {
-        throw new Error("Missing STRIPE_SECRET_KEY environment variable");
-    }
-
     if ((selectedDistance === "mini" && isMiniSoldOut) || (selectedDistance === "sprint" && isSprintSoldOut)) {
         setSelectedDistance(null)
     }
