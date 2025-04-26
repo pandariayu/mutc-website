@@ -381,7 +381,7 @@ export default function TriathlonEventDetailPage({
                                             <Clock className="h-5 w-5 flex-shrink-0 text-primary" />
                                             <div>
                                                 <div className="font-medium">Start Time</div>
-                                                <div className="text-gray-600">2:45 pm</div>
+                                                <div className="text-gray-600">2:15 pm</div>
                                             </div>
                                         </div>
 
