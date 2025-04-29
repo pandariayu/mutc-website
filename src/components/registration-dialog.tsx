@@ -62,7 +62,7 @@ export default function RegistrationDialog({
     useEffect(() => {
         const fetchStock = async () => {
             try {
-                const res = await fetch("/api/get-stock");
+                const res = await fetch("/api/get-stock", { cache: "no-store" });
                 if (!res.ok) {
                     throw new Error("Failed to fetch stock");
                 }
