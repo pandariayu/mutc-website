@@ -80,7 +80,7 @@ export default function TriathlonEventDetailPage({
         }
     };
 
-
+    const expired = Date.now() > new Date("2025-05-09T17:00:00").getTime()
 
     const [isRegistrationDialogOpen, setIsRegistrationDialogOpen] = useState(false)
 
@@ -193,14 +193,14 @@ export default function TriathlonEventDetailPage({
                         <div className="mt-6 flex flex-col gap-3">
                             <button
                                 className={`w-full p-3 text-center font-medium ${
-                                    allSoldOut
+                                    (allSoldOut || expired)
                                         ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                                         : "bg-[#518581] text-white hover:bg-[#3d665e]"
                                 }`}
                                 onClick={() => !allSoldOut && setIsRegistrationDialogOpen(true)}
-                                disabled={allSoldOut}
+                                disabled={allSoldOut || expired}
                             >
-                                {allSoldOut ? "Event Sold Out" : "Register Now"}
+                                {(allSoldOut || expired) ? "Event Sold Out" : "Register Now"}
                             </button>
                             <button
                                 className="w-full border border-primary p-3 text-center font-medium text-primary hover:bg-gray-100"
@@ -219,11 +219,11 @@ export default function TriathlonEventDetailPage({
                     </div>
                         {/* Registration Closing Soon - Second in the sidebar group */}
                         <div className="order-2 mb-6 bg-gray-50 p-6 md:order-none">
-                            <h3 className="mb-4 text-xl font-bold">{allSoldOut? "Registration Now Closed" : "Registration Just Opened"}</h3>
-                            <p className="mb-4 text-gray-600" hidden={allSoldOut}>
-                                Limited spots available! Register now to secure your place in this exciting event.
+                            <h3 className="mb-4 text-xl font-bold">{(allSoldOut || expired)? "Registration Now Closed" : "Registration Close Soon"}</h3>
+                            <p className="mb-4 text-gray-600" hidden={allSoldOut || expired}>
+                                Registration will be closed at 5PM this Friday! Register now to secure your place in this exciting event.
                             </p>
-                            <p className="mb-4 text-gray-600" hidden={!allSoldOut}>
+                            <p className="mb-4 text-gray-600" hidden={!allSoldOut && !expired}>
                                 Please stay tuned for future events! Keeps an eye on <a className="underline hover:text-gray-200" href={"https://chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01"}>our whatsapp group</a> for any events updates.
                             </p>
                         </div>
