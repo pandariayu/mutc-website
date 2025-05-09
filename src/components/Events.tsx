@@ -29,9 +29,9 @@ export default function TriathlonEvent() {
                         Track to complete!
                     </p>
 
-                    <div className="space-y-2">
-                        <p className="text-secondary">25S1 race registration now open, Secure your spot NOW!</p>
-                    </div>
+                    {/*<div className="space-y-2">*/}
+                    {/*    <p className="text-secondary">25S1 race registration now open, Secure your spot NOW!</p>*/}
+                    {/*</div>*/}
 
                     <Link className="w-full sm:w-auto bg-[#518581] sm:px-10 sm:py-4 px-6 py-3 text-center font-bold text-white transition-colors hover:bg-[#416c68]"
                             href="/events/mini-triathlon" replace={true}>View detail</Link>
