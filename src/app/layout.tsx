@@ -45,7 +45,7 @@ export default function RootLayout({
       {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
       <AutoPopupDialog />
       <Header />
-      {children} {/* This is required for routing to work */}
+      {children}
       <Footer />
       </body>
       </html>

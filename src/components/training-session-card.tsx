@@ -1,4 +1,3 @@
-// in training-session-card.tsx
 "use client";
 import { useEffect, useRef } from "react";
 import {Clock, MapPin, Users } from "lucide-react"

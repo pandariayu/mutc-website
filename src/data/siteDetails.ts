@@ -7,6 +7,6 @@ export const siteDetails = {
     },
     language: 'en-us',
     locale: 'en-US',
-    siteLogo: `/images/logo.png`, // or use a string for the logo e.g. "TechStartup"
-    googleAnalyticsId: 'G-DRYVBMEHYV', // e.g. G-XXXXXXX,
+    siteLogo: `/images/logo.png`,
+    googleAnalyticsId: 'G-DRYVBMEHYV',
 }

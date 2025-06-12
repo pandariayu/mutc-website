@@ -15,7 +15,6 @@ const Path = (props: SVGProps<SVGPathElement> & MotionProps) => (
     />
 );
 
-// 在组件顶部添加菜单动画变体
 const menuVariants = {
     open: {
         opacity: 1,
@@ -43,23 +42,16 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const router = useRouter();
-
-    // 添加滚动处理函数
     const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
         e.preventDefault();
-
-        // Check if we're already on the main page
         const isMainPage = window.location.pathname === "/" ||
             window.location.pathname === "";
-
         if (isMainPage) {
-            // We're on main page, just scroll to element
             const element = document.getElementById(targetId);
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });
             }
         } else {
-            // We're on another page, navigate to main page with hash
             router.push(`/#${targetId}`);
         }
 
@@ -67,7 +59,6 @@ export default function Header() {
         setIsMenuOpen(false);
     };
 
-    // 修改MobileNavLink组件
     const MobileNavLink = ({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) => (
         <motion.div
             whileTap={{ scale: 0.95 }}

@@ -20,9 +20,7 @@ export default function Map({
     const [mapUrl, setMapUrl] = useState("")
 
     useEffect(() => {
-        // Create a URL-encoded address
         const encodedAddress = encodeURIComponent(address)
-        // Create Google Maps URL
         const url = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodedAddress}&zoom=${zoom}`
         setMapUrl(url)
     }, [address, zoom])
