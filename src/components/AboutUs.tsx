@@ -2,31 +2,8 @@
 
 import Image from "next/image"
 import {ArrowRight} from "lucide-react"
-
+import { awardsDetail } from '@/data/awards';
 export default function Page() {
-    const awards = [
-        {
-            title: "2XU Triathlon Series 2025 - Race 1 Elwood",
-            achievement: "First Medal & 1st Place",
-            details: "Ranking 1st place in the overall team relays out of 25 teams",
-            date: "November, 2024",
-            url: "https://www.multisportaustralia.com.au/races/2xu-triathlon-series-2425-race-1-elwood-2024/events/4/results/individuals/1459"
-        },
-        {
-            title: "MelbUniSports Recognition",
-            achievement: "Award of Excellence",
-            details: "Outstanding achievement in innovation and inclusion",
-            date: "December, 2024",
-            url: "https://sport.unimelb.edu.au/news/melbourne-plus-recognises-students-volunteering-in-sport"
-        },
-        {
-            title: "2XU Triathlon Series 2025 - Race 6 St Kilda",
-            achievement: "1st Place in Mixed Relay",
-            details: "Ranking 1st place in the mixed relays out of 13 teams",
-            date: "March, 2025",
-            url: "https://www.multisportaustralia.com.au/races/2xu-triathlon-series-2425-race-6-st-kilda-2025/events/4/results/individuals/2906"
-        },
-    ]
     return (
         <div className="min-h-screen bg-white text-black">
             <section id="about" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-10 sm:py-16">
@@ -87,19 +64,19 @@ export default function Page() {
                 </div>
 
                 <div className="space-y-6">
-                    {awards.map((award, index) => (
+                    {awardsDetail.map((awardsDetail, index) => (
                         <div key={index} className="border-b border-muted pb-6 last:border-0">
                             <div className="grid gap-1">
-                                <p className="text-[#AFADB5]">{award.date}</p>
+                                <p className="text-[#AFADB5]">{awardsDetail.date}</p>
                                 <div className="sm:flex items-center justify-between">
                                     <div className="mb-2 sm:mb-0">
-                                        <h3 className="lg:text-2xl">{award.title}</h3>
-                                        <p className="mb-4 text-lg font-semibold text-secondary">{award.achievement}</p>
-                                        <p className="text-[#AFADB5]">{award.details}</p>
+                                        <h3 className="lg:text-2xl">{awardsDetail.title}</h3>
+                                        <p className="mb-4 text-lg font-semibold text-secondary">{awardsDetail.achievement}</p>
+                                        <p className="text-[#AFADB5]">{awardsDetail.details}</p>
                                     </div>
                                     <button
                                         className="w-full sm:w-auto flex items-center lg:justify-center gap-2 bg-transparent sm:px-10 sm:py-4 lg:font-bold text-[#518581] transition-colors underline hover:text-[#416c68]"
-                                        onClick={() => window.open(award.url, '_blank')}
+                                        onClick={() => window.open(awardsDetail.url, '_blank')}
                                     >
                                         Read more
                                         <ArrowRight className="h-4 w-4 flex-shrink-0" />

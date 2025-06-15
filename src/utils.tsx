@@ -33,7 +33,7 @@ export const getPlatformIconByName = (platformName: string): JSX.Element | null 
             return <FaStrava size={24} className='min-w-fit' />
         }
         default:
-            console.log('Platform name not supported, no icon is returned:', platformName);
+            console.log('no icon is returned:', platformName);
             return null;
     }
 }
