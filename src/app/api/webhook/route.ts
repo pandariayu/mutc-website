@@ -212,7 +212,7 @@ export async function POST(request: NextRequest) {
           break
         }
 
-        const amountTotal = session.amount_total || 0
+        const amountTotal = session.amount_subtotal || 0
         if (amountTotal === 4000) {
                      await sendMembershipConfirmationEmail(
              customerEmail,

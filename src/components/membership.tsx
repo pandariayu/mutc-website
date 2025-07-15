@@ -69,7 +69,7 @@ export default function Membership() {
                             <div className="bg-[#F9F9F9] md:bg-white flex flex-col gap-2 md:p-0 p-4">
                                 <p className="text-2xl lg:text-3xl font-bold text-primary">Thanks for becoming our member!</p>
                                 <p className="text-gray-400">
-                                    We appreciate your support and commitment. We will make the club better with your contribution.
+                                    You will receive a confirmation email shortly, please check your junk folder as well.
                                 </p>
                             </div>
                         </div>
