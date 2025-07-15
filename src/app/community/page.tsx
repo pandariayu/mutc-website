@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 
 export default function CommunityPage() {
-    const [isRedirecting, setIsRedirecting] = useState(true)
+    const [isRedirecting] = useState(true)
     
     useEffect(() => {
         // Small delay to show the page content briefly before redirect
@@ -48,7 +48,7 @@ export default function CommunityPage() {
                 </div>
 
                 <div className="mt-8 text-sm text-gray-500">
-                    <p>You're being redirected to our WhatsApp group where you can:</p>
+                    <p>You are being redirected to our WhatsApp group where you can:</p>
                     <ul className="mt-2 space-y-1 text-left">
                         <li>• Connect with fellow members</li>
                         <li>• Get training updates</li>
