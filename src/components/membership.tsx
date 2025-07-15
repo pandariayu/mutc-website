@@ -1,9 +1,11 @@
 ﻿"use client";
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import confetti from 'canvas-confetti'
 
 export default function Membership() {
     const [isPurchased, setIsPurchased] = useState(false)
+    const router = useRouter()
 
     // Check if membership was purchased (simulating checking from localStorage or cookies)
     useEffect(() => {
@@ -50,7 +52,7 @@ export default function Membership() {
                     <div>
                         <h5 className="lg:mb-2 mb-1 text-secondary">Membership</h5>
                         <h2 className="lg:text-4xl font-semibold mb-8 max-w-2xl">
-                            2025 Semester 1
+                            2025 Semester 2
                             <br/>
                             MUTC Membership
                         </h2>
@@ -76,7 +78,7 @@ export default function Membership() {
                                 className="w-full sm:w-auto bg-[#518581] sm:px-10 sm:py-4 px-6 py-3 text-center font-bold text-white transition-colors hover:bg-[#416c68]"
                                 hidden={isPurchased}
                                 onClick={() => {
-                                    window.open('https://buy.stripe.com/7sI8yI2gJfNU47K7ss', '_blank');
+                                    router.push('https://buy.stripe.com/bJe5kEgBEgMm69vh0F0Ny04');
                                 }}
                             >
                                 Buy Now
@@ -85,7 +87,7 @@ export default function Membership() {
                                 className="w-full sm:w-auto text-primary underline px-5 py-4 text-center transition-colors hover:text-foreground-accent"
                                 hidden={isPurchased}
                                 onClick={() => {
-                                    window.open('https://buy.stripe.com/aEUbKUaNf45c5bOcMN', '_blank');
+                                    router.push('https://buy.stripe.com/6oU00k1GK1Rs0Pb25L0Ny05');
                                 }}
                             >
                                 Non Unimelb Student

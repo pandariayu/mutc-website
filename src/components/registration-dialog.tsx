@@ -3,6 +3,7 @@
 import {useEffect, useState} from "react"
 import {X, Bike, Waves, Footprints, AlertCircle, XCircle} from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { useRouter } from "next/navigation"
 
 const fadeIn = {
     hidden: {
@@ -40,6 +41,7 @@ export default function RegistrationDialog({
                                                sprintSpots: initialSprintSpots = 45,
                                                onStatusChange,
                                            }: RegistrationDialogProps) {
+    const router = useRouter();
     const [miniSpots, setMiniSpots] = useState(initialMiniSpots);
     const [sprintSpots, setSprintSpots] = useState(initialSprintSpots);
     const [selectedDistance, setSelectedDistance] = useState<"mini" | "sprint" | null>(null)
@@ -82,9 +84,9 @@ export default function RegistrationDialog({
         if (selectedDistance) {
             onRegister(selectedDistance)
             if (selectedDistance === "mini") {
-                window.location.replace('https://buy.stripe.com/8wMbKUdZr45cdIk4gi')
+                router.push('https://buy.stripe.com/8wMbKUdZr45cdIk4gi')
             }else{
-                window.location.replace('https://buy.stripe.com/00gbKU3kN59g5bO8wz')
+                router.push('https://buy.stripe.com/00gbKU3kN59g5bO8wz')
             }
         }
     }
