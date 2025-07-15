@@ -97,13 +97,14 @@ export default function TrainingSessionCard({
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
 
         <div className="absolute aspect-square bottom-4 right-4 w-[100px]">
-          <div className="bg-white/90 p-3 text-center">
+          {/* <div className="bg-white/90 p-3 text-center">
             <h3 className="lg:text-4xl text-3xl font-bold">{formatDate(getNextWeekdayDate(weekday)).split(" ")[0]}</h3>
             <p className="text-sm font-medium">{formatDate(getNextWeekdayDate(weekday)).split(" ")[1]}</p>
           </div>
           <div className="bg-primary p-2 text-center lg:text-sm text-xs text-white">
             {isToday(getNextWeekdayDate(weekday)) ? "Today" : "Upcoming"}
-          </div>
+            Upcoming
+          </div> */}
         </div>
       </div>
 

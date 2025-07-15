@@ -12,8 +12,8 @@ const HomePage: React.FC = () => {
     <><Hero />
       <AboutUs />
       <TrainingSessionsGrid />
-      <Events />
       <Membership />
+      <Events />
       <OurTeam />
       <FAQ />
       <Banner />

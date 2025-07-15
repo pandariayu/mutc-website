@@ -21,7 +21,7 @@ export default function TrainingSessionsGrid() {
                   }}>Join our WhatsApp group</button>
         </div>
       </div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-3 lg:grid-cols-3">
         {sessions.map((session, index) => (
             <TrainingSessionCard key={index} {...session} />
         ))}
