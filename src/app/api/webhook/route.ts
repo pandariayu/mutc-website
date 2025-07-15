@@ -34,11 +34,10 @@ function getMembershipEmailTemplate(membershipType: string, amount: string, date
             background: #518581;
             color: white;
             padding: 20px;
-            text-align: center;
         }
 
         .logo {
-            margin-top: 10px;
+            margin-left: 10px;
             max-width: 60px;
             height: auto;
         }
@@ -65,11 +64,24 @@ function getMembershipEmailTemplate(membershipType: string, amount: string, date
 
         .button {
             background: #518581;
-            color: white;
+            color: white !important;
             padding: 12px 24px;
             text-decoration: none;
             display: inline-block;
             margin: 10px 0;
+        }
+
+        .button:visited {
+            color: white !important;
+        }
+
+        .button:hover {
+            color: white !important;
+            background: #416c68;
+        }
+
+        .button:active {
+            color: white !important;
         }
 
         .highlight {
@@ -83,7 +95,7 @@ function getMembershipEmailTemplate(membershipType: string, amount: string, date
 
 <body>
     <div class="header">
-        <h1>Welcome to MUTC! 🏃‍♂️🚴‍♀️🏊‍♂️</h1>
+        <img src="https://melbunitriathlon.club/images/logo.png" alt="MUTC Logo" class="logo">
     </div>
 
     <img src="https://melbunitriathlon.club/images/Bike&Run.jpg" alt="MUTC Team Cycling" class="hero-image">
@@ -102,8 +114,8 @@ function getMembershipEmailTemplate(membershipType: string, amount: string, date
 
         <h3>What's Next?</h3>
         <ul>
-            <li>✅ Join our training sessions - check <a href="https://melbunitriathlon.club/#training">our website</a> for schedules</li>
-            <li>✅ Connect with our community on <a href="https://melbunitriathlon.club/community">WhatsApp Group</a></li>
+            <li> Join our training sessions - check <a href="https://melbunitriathlon.club/#training">our website</a> for schedules</li>
+            <li> Connect with our community on <a href="https://melbunitriathlon.club/community">WhatsApp Group</a></li>
             <li> Stay tuned for upcoming events and competitions</li>
         </ul>
 
@@ -113,7 +125,6 @@ function getMembershipEmailTemplate(membershipType: string, amount: string, date
     </div>
 
     <div class="footer">
-        <img src="https://melbunitriathlon.club/images/logo.png" alt="MUTC Logo" class="logo">
         <p>Melbourne University Triathlon Club<br>
             Email: team@melbunitriathlon.club<br>
             Website: melbunitriathlon.club</p>
@@ -138,7 +149,18 @@ function getEventRegistrationEmailTemplate(distanceType: string, amount: string,
         .content { padding: 20px; background: #f9f9f9; }
         .footer { background: #416c68; color: white; padding: 15px; text-align: center; font-size: 14px; }
         .event-details { background: #e8f4f3; padding: 15px; border-left: 4px solid #518581; margin: 15px 0; }
-        .button { background: #518581; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; display: inline-block; margin: 10px 0; }
+        .button { 
+            background: #518581; 
+            color: white !important; 
+            padding: 12px 24px; 
+            text-decoration: none; 
+            border-radius: 4px; 
+            display: inline-block; 
+            margin: 10px 0; 
+        }
+        .button:visited { color: white !important; }
+        .button:hover { color: white !important; background: #416c68; }
+        .button:active { color: white !important; }
     </style>
 </head>
 <body>
@@ -160,7 +182,7 @@ function getEventRegistrationEmailTemplate(distanceType: string, amount: string,
             <p><strong>Date:</strong> [Event Date]</p>
             <p><strong>Location:</strong> University of Melbourne</p>
             <p><strong>Amount Paid:</strong> $${amount}</p>
-            <p><strong>Receipt:</strong> <a href="${receiptUrl}">View Receipt</a></p>
+            <p><strong>Receipt:</strong> <a href="https://melbunitriathlon.club/receipt?session=${receiptUrl}">View Receipt</a></p>
         </div>
         
         <h3>Pre-Event Checklist:</h3>
