@@ -13,30 +13,85 @@ const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!
 
 // Email templates
 function getMembershipEmailTemplate(membershipType: string, amount: string, date: string, receiptUrl: string) {
-  return `<!DOCTYPE html>
+    return `<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to MUTC!</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: #518581; color: white; padding: 20px; text-align: center; }
-        .content { padding: 20px; background: #f9f9f9; }
-        .footer { background: #416c68; color: white; padding: 15px; text-align: center; font-size: 14px; }
-        .button { background: #518581; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; display: inline-block; margin: 10px 0; }
-        .highlight { background: #e8f4f3; padding: 15px; border-left: 4px solid #518581; margin: 15px 0; }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .header {
+            background: #518581;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            margin-top: 10px;
+            max-width: 60px;
+            height: auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .content {
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        .footer {
+            background: #416c68;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .button {
+            background: #518581;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #e8f4f3;
+            padding: 15px;
+            border-left: 4px solid #518581;
+            margin: 15px 0;
+        }
     </style>
 </head>
+
 <body>
     <div class="header">
         <h1>Welcome to MUTC! 🏃‍♂️🚴‍♀️🏊‍♂️</h1>
     </div>
-    
+
+    <img src="https://melbunitriathlon.club/images/Bike&Run.jpg" alt="MUTC Team Cycling" class="hero-image">
+
     <div class="content">
         <h2>Thank you for joining us!</h2>
         <p>We're excited to welcome you to the Melbourne University Triathlon Club family!</p>
-        
+
         <div class="highlight">
             <h3>Your Membership Details:</h3>
             <p><strong>Membership Type:</strong> ${membershipType}</p>
@@ -44,25 +99,28 @@ function getMembershipEmailTemplate(membershipType: string, amount: string, date
             <p><strong>Payment Date:</strong> ${date}</p>
             <p><strong>Receipt:</strong> <a href="${receiptUrl}">View Receipt</a></p>
         </div>
-        
+
         <h3>What's Next?</h3>
         <ul>
-            <li>✅ Join our training sessions - check our website for schedules</li>
-            <li>✅ Connect with our community on social media</li>
-            <li>✅ Stay tuned for upcoming events and competitions</li>
+            <li> Join our training sessions - check <a href="https://melbunitriathlon.club">our website</a> for schedules</li>
+            <li> Connect with our community on <a href="https://chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01">WhatsApp Group</a></li>
+            <li> Stay tuned for upcoming events and competitions</li>
         </ul>
-        
+
         <p>If you have any questions, don't hesitate to reach out to us!</p>
-        
-        <a href="https://melbunitriathlon.club" class="button">Visit Our Website</a>
+
+        <a href="https://chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01" class="button">Join our WhatsApp Group</a>
     </div>
-    
+
     <div class="footer">
+        <img src="https://melbunitriathlon.club/images/logo.png" alt="MUTC Logo" class="logo">
         <p>Melbourne University Triathlon Club<br>
-        Email: team@melbunitriathlon.club<br>
-        Website: melbunitriathlon.club</p>
+            Email: team@melbunitriathlon.club<br>
+            WhatsApp: chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01<br>
+            Website: melbunitriathlon.club</p>
     </div>
 </body>
+
 </html>`
 }
 
@@ -74,8 +132,10 @@ function getEventRegistrationEmailTemplate(distanceType: string, amount: string,
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Registration Confirmed!</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 0; }
         .header { background: #518581; color: white; padding: 20px; text-align: center; }
+        .logo { max-width: 120px; height: auto; margin-bottom: 10px; }
+        .hero-image { width: 100%; height: 200px; object-fit: cover; display: block; }
         .content { padding: 20px; background: #f9f9f9; }
         .footer { background: #416c68; color: white; padding: 15px; text-align: center; font-size: 14px; }
         .event-details { background: #e8f4f3; padding: 15px; border-left: 4px solid #518581; margin: 15px 0; }
@@ -84,8 +144,11 @@ function getEventRegistrationEmailTemplate(distanceType: string, amount: string,
 </head>
 <body>
     <div class="header">
+        <img src="https://melbunitriathlon.club/images/logo.png" alt="MUTC Logo" class="logo">
         <h1>Registration Confirmed! 🏆</h1>
     </div>
+    
+    <img src="https://melbunitriathlon.club/images/Bike&Run.jpg" alt="MUTC Team Cycling" class="hero-image">
     
     <div class="content">
         <h2>You're all set for the Mini Triathlon!</h2>
@@ -200,13 +263,13 @@ export async function POST(request: NextRequest) {
     switch (event.type) {
       case 'checkout.session.completed':
         const session = event.data.object as Stripe.Checkout.Session
-        
+
         console.log('Checkout session completed:', session.id)
-        
+
         // Get customer details
         const customerEmail = session.customer_details?.email
         const customerName = session.customer_details?.name || 'Member'
-        
+
         if (!customerEmail) {
           console.error('No customer email found in session')
           break
@@ -248,7 +311,7 @@ export async function POST(request: NextRequest) {
              `https://dashboard.stripe.com/receipts/${session.id}` || ''
            )
         }
-        
+
         break
 
       case 'payment_intent.succeeded':
