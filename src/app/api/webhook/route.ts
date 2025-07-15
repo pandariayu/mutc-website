@@ -97,26 +97,25 @@ function getMembershipEmailTemplate(membershipType: string, amount: string, date
             <p><strong>Membership Type:</strong> ${membershipType}</p>
             <p><strong>Amount Paid:</strong> $${amount}</p>
             <p><strong>Payment Date:</strong> ${date}</p>
-            <p><strong>Receipt:</strong> <a href="${receiptUrl}">View Receipt</a></p>
+            <p><strong>Receipt:</strong> <a href="https://melbunitriathlon.club/receipt?session=${receiptUrl}">View Receipt</a></p>
         </div>
 
         <h3>What's Next?</h3>
         <ul>
-            <li> Join our training sessions - check <a href="https://melbunitriathlon.club">our website</a> for schedules</li>
-            <li> Connect with our community on <a href="https://chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01">WhatsApp Group</a></li>
+            <li>✅ Join our training sessions - check <a href="https://melbunitriathlon.club/#training">our website</a> for schedules</li>
+            <li>✅ Connect with our community on <a href="https://melbunitriathlon.club/community">WhatsApp Group</a></li>
             <li> Stay tuned for upcoming events and competitions</li>
         </ul>
 
         <p>If you have any questions, don't hesitate to reach out to us!</p>
 
-        <a href="https://chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01" class="button">Join our WhatsApp Group</a>
+        <a href="https://melbunitriathlon.club/community" class="button">Join our Community</a>
     </div>
 
     <div class="footer">
         <img src="https://melbunitriathlon.club/images/logo.png" alt="MUTC Logo" class="logo">
         <p>Melbourne University Triathlon Club<br>
             Email: team@melbunitriathlon.club<br>
-            WhatsApp: chat.whatsapp.com/FSzyNQHKYKb09zT3CLqz01<br>
             Website: melbunitriathlon.club</p>
     </div>
 </body>
@@ -203,7 +202,7 @@ async function sendMembershipConfirmationEmail(
     const data = await resend.emails.send({
       from: 'MUTC Team <team@melbunitriathlon.club>',
       to: [customerEmail],
-      subject: '🎉 Welcome to MUTC - Membership Confirmed!',
+      subject: '🎉 Welcome to MUTC - Membership Confirmation',
       html: htmlContent,
     })
 
@@ -282,7 +281,7 @@ export async function POST(request: NextRequest) {
              customerName,
              amountTotal,
              'UniMelb Student Membership',
-             `https://dashboard.stripe.com/receipts/${session.id}` || ''
+             session.id || ''
            )
         } else if (amountTotal === 12000) {
                      await sendMembershipConfirmationEmail(
@@ -290,7 +289,7 @@ export async function POST(request: NextRequest) {
              customerName,
              amountTotal,
              'Non-Student Membership',
-             `https://dashboard.stripe.com/receipts/${session.id}` || ''
+             session.id || ''
            )
         }
         // Event registrations
@@ -300,7 +299,7 @@ export async function POST(request: NextRequest) {
              customerName,
              amountTotal,
              'Mini Distance',
-             `https://dashboard.stripe.com/receipts/${session.id}` || ''
+             session.id || ''
            )
         } else if (amountTotal === 1200) { // $12 - Sprint distance
                      await sendEventRegistrationEmail(
@@ -308,7 +307,7 @@ export async function POST(request: NextRequest) {
              customerName,
              amountTotal,
              'Sprint Distance',
-             `https://dashboard.stripe.com/receipts/${session.id}` || ''
+             session.id || ''
            )
         }
 
