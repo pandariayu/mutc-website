@@ -13,7 +13,7 @@ const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!
 
 // Email templates
 function getMembershipEmailTemplate(membershipType: string, amount: string, date: string, receiptUrl: string) {
-    return `<!DOCTYPE html>
+  return `<!DOCTYPE html>
 <html>
 
 <head>
@@ -37,9 +37,18 @@ function getMembershipEmailTemplate(membershipType: string, amount: string, date
         }
 
         .logo {
-            margin-left: 10px;
-            max-width: 60px;
+            margin: auto;
+            max-width: 15%;
+            min-width: 40px;
+            margin-top: 10px;
             height: auto;
+        }
+
+        @media only screen and (max-width: 480px) {
+            .logo {
+                max-width: 10%;
+                min-width: 50px;
+            }
         }
 
         .hero-image {
@@ -90,12 +99,25 @@ function getMembershipEmailTemplate(membershipType: string, amount: string, date
             border-left: 4px solid #518581;
             margin: 15px 0;
         }
+
+        a {
+            color: #DC9968 !important;
+            text-decoration: underline;
+        }
+
+        a:visited {
+            color: #DC9968 !important;
+        }
+
+        a:hover {
+            color: #b8845a !important;
+        }
     </style>
 </head>
 
 <body>
     <div class="header">
-        <img src="https://melbunitriathlon.club/images/logo.png" alt="MUTC Logo" class="logo">
+        
     </div>
 
     <img src="https://melbunitriathlon.club/images/Bike&Run.jpg" alt="MUTC Team Cycling" class="hero-image">
@@ -109,12 +131,12 @@ function getMembershipEmailTemplate(membershipType: string, amount: string, date
             <p><strong>Membership Type:</strong> ${membershipType}</p>
             <p><strong>Amount Paid:</strong> $${amount}</p>
             <p><strong>Payment Date:</strong> ${date}</p>
-            <p><strong>Receipt:</strong> <a href="https://melbunitriathlon.club/receipt?session=${receiptUrl}">View Receipt</a></p>
         </div>
 
         <h3>What's Next?</h3>
         <ul>
-            <li> Join our training sessions - check <a href="https://melbunitriathlon.club/#training">our website</a> for schedules</li>
+            <li> Join our training sessions - check <a href="https://melbunitriathlon.club/#training">our website</a>
+                for schedules</li>
             <li> Connect with our community on <a href="https://melbunitriathlon.club/community">WhatsApp Group</a></li>
             <li> Stay tuned for upcoming events and competitions</li>
         </ul>
@@ -125,8 +147,9 @@ function getMembershipEmailTemplate(membershipType: string, amount: string, date
     </div>
 
     <div class="footer">
-        <p>Melbourne University Triathlon Club<br>
-            Email: team@melbunitriathlon.club<br>
+        <img src="https://melbunitriathlon.club/images/logo.png" alt="MUTC Logo" class="logo">
+        <p>Melbourne University Triathlon Club<p>
+        <p>Email: team@melbunitriathlon.club<br>
             Website: melbunitriathlon.club</p>
     </div>
 </body>
@@ -140,11 +163,23 @@ function getEventRegistrationEmailTemplate(distanceType: string, amount: string,
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Registration Confirmed!</title>
+    <title>Event Registration Confirmation</title>
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 0; }
         .header { background: #518581; color: white; padding: 20px; text-align: center; }
-        .logo { max-width: 120px; height: auto; margin-bottom: 10px; }
+        .logo { 
+            max-width: 25%; 
+            min-width: 60px; 
+            height: auto; 
+            margin-bottom: 10px; 
+        }
+        
+        @media only screen and (max-width: 480px) {
+            .logo {
+                max-width: 30%;
+                min-width: 80px;
+            }
+        }
         .hero-image { width: 100%; height: 200px; object-fit: cover; display: block; }
         .content { padding: 20px; background: #f9f9f9; }
         .footer { background: #416c68; color: white; padding: 15px; text-align: center; font-size: 14px; }
@@ -161,6 +196,19 @@ function getEventRegistrationEmailTemplate(distanceType: string, amount: string,
         .button:visited { color: white !important; }
         .button:hover { color: white !important; background: #416c68; }
         .button:active { color: white !important; }
+        
+        a {
+            color: #DC9968 !important;
+            text-decoration: underline;
+        }
+
+        a:visited {
+            color: #DC9968 !important;
+        }
+
+        a:hover {
+            color: #b8845a !important;
+        }
     </style>
 </head>
 <body>
@@ -222,7 +270,7 @@ async function sendMembershipConfirmationEmail(
 
   try {
     const data = await resend.emails.send({
-      from: 'MUTC Team <team@melbunitriathlon.club>',
+      from: 'Melbourne University Triathlon Club - MUBC <team@melbunitriathlon.club>',
       to: [customerEmail],
       subject: '🎉 Welcome to MUTC - Membership Confirmation',
       html: htmlContent,
