@@ -45,7 +45,7 @@ export default function Membership() {
     };
 
     return (
-        <section id="membership" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] sm:py-16">
+        <section id="membership" className="container mx-auto px-6 lg:px-[calc(8.333333333333334%+1.5rem)] py-16">
             <div className="grid gap-12 lg:grid-cols-2">
                 {/* Left Column - Pricing */}
                 <div className="flex flex-col justify-between h-full">
@@ -101,7 +101,7 @@ export default function Membership() {
                     <div className="space-y-2">
                         <h3 className="lg:text-2xl font-bold">Access to All Trainings</h3>
                         <p className="text-gray-400">
-                            Open participation in swim/run sessions with flexible scheduling. Build your fitness routine without restrictions.
+                            Open participation in training sessions with flexible scheduling. Build your fitness routine without restrictions.
                         </p>
                     </div>
 
