@@ -270,7 +270,7 @@ async function sendMembershipConfirmationEmail(
 
   try {
     const data = await resend.emails.send({
-      from: 'Melbourne University Triathlon Club - MUBC <team@melbunitriathlon.club>',
+      from: 'Melbourne University Triathlon Club - MUTC <team@melbunitriathlon.club>',
       to: [customerEmail],
       subject: '🎉 Welcome to MUTC - Membership Confirmation',
       html: htmlContent,
