@@ -4,7 +4,6 @@ import React, {useEffect, useState} from 'react';
 import {motion} from "framer-motion";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBiking, faPersonRunning, faPersonSwimming} from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
 
 export default function Hero() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -82,14 +81,14 @@ export default function Hero() {
                                 }
                             }}
                         >
-                            Join MUTC
+                            25S2 Membership
                         </button>
 
-                        <Link
-                            className="border-2 border-white bg-transparent hover:bg-white/10 text-white font-bold sm:px-10 sm:py-4 px-6 py-3 transition-colors duration-200"
-                            href={"/events/mini-triathlon"}>
-                            Latest Event
-                        </Link>
+                        {/*<Link*/}
+                        {/*    className="border-2 border-white bg-transparent hover:bg-white/10 text-white font-bold sm:px-10 sm:py-4 px-6 py-3 transition-colors duration-200"*/}
+                        {/*    href={"/events/mini-triathlon"}>*/}
+                        {/*    Latest Event*/}
+                        {/*</Link>*/}
                     </div>
                 </div>
             </div>
